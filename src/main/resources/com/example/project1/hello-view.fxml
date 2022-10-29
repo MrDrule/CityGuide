@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
+   <children>
+      <BorderPane layoutX="-6.0" layoutY="-2.0" prefHeight="514.0" prefWidth="654.0">
+         <left>
+            <VBox prefHeight="444.0" prefWidth="190.0" style="-fx-background-color: #d9d9d9;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProf" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Profile">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../Users/Sakis/Downloads/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToNearby" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Nearby">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../Users/Sakis/Downloads/nearby.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToRec" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Recommended">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../Users/Sakis/Downloads/social-media.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToFav" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Favourites">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../Users/Sakis/Downloads/favourite.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox prefHeight="58.0" prefWidth="625.0" style="-fx-background-color: #999999;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label prefHeight="64.0" prefWidth="101.0" text="City Guide" textFill="#fffefe">
+                     <font>
+                        <Font name="Harlow Solid Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0" />
+                  <ButtonBar prefHeight="60.0" prefWidth="281.0">
+                    <buttons>
+                      <Button minWidth="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="LogIn/SignUp" />
+                    </buttons>
+                  </ButtonBar>
+               </children>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </HBox>
+         </top>
+         <center>
+            <VBox prefHeight="454.0" prefWidth="446.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="444.0" fitWidth="466.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Users/Sakis/Desktop/Tower-Bridge-at-sunset-58c5d1533df78c353c619ce8.jpg" />
+                     </image>
+                  </ImageView>
+               </children></VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
