@@ -83,7 +83,7 @@
                   <ButtonBar prefHeight="40.0" prefWidth="200.0" />
                   <ButtonBar prefHeight="60.0" prefWidth="281.0">
                     <buttons>
-                      <Button minWidth="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ffb84d;" text="LogIn/SignUp" />
+                      <Button minWidth="51.0" mnemonicParsing="false" onAction="#BackToSignIn" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ffb84d;" text="LogOut" />
                     </buttons>
                   </ButtonBar>
                </children>
