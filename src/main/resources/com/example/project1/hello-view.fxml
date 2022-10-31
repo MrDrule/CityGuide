@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
@@ -15,25 +16,37 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
+<AnchorPane maxHeight="500" maxWidth="500" minHeight="513" minWidth="500" prefHeight="513.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
    <children>
       <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="513.0" prefWidth="650.0">
          <left>
-            <VBox prefHeight="444.0" prefWidth="190.0" style="-fx-background-color: #d9d9d9;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="464.0" prefWidth="190.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProf" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Profile">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProf" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Profile" textFill="#bfa181">
                      <effect>
                         <Glow />
                      </effect>
                      <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/user.png" />
+                              <Image url="@images/user-interface.png" />
                            </image></ImageView>
 
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToNearby" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Nearby">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToFav" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Favourites" textFill="#bfa181">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/favourite.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToNearby" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Nearby" textFill="#bfa181">
                      <effect>
                         <Glow />
                      </effect>
@@ -45,7 +58,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToRec" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Recommended">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToRec" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Recommended" textFill="#bfa181">
                      <effect>
                         <Glow />
                      </effect>
@@ -57,33 +70,24 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToFav" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #999999;" text="Favourites">
-                     <effect>
-                        <Glow />
-                     </effect>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/favourite.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                </children>
             </VBox>
          </left>
          <top>
-            <HBox prefHeight="61.0" prefWidth="655.0" style="-fx-background-color: #999999;" BorderPane.alignment="CENTER">
+            <HBox prefHeight="61.0" prefWidth="655.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="61.0" prefWidth="102.0" text="City Guide" textFill="#fffefe">
+                  <Label prefHeight="61.0" prefWidth="108.0" text="City Guide" textFill="#bfa181">
                      <font>
-                        <Font name="Harlow Solid Italic" size="22.0" />
+                        <Font name="Bell MT Italic" size="26.0" />
                      </font>
                   </Label>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0" />
                   <ButtonBar prefHeight="60.0" prefWidth="281.0">
                     <buttons>
-                      <Button minWidth="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ffb84d;" text="LogIn/SignUp" />
+                      <Button minWidth="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #CAC0B3;" text="LogIn/SignUp" textFill="#001233">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                     </buttons>
                   </ButtonBar>
                </children>
@@ -95,22 +99,22 @@
          <center>
             <VBox prefHeight="454.0" prefWidth="446.0" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane prefHeight="454.0" prefWidth="460.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane prefHeight="454.0" prefWidth="460.0" style="-fx-background-color: #c8d8e4;" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="Cities">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="439.0">
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="439.0" style="-fx-background-color: #ececec;">
                                  <children>
-                                    <Label layoutX="243.0" layoutY="173.0" text="Δράμα" />
-                                    <Label layoutX="246.0" layoutY="348.0" text="Κιλκίς" />
-                                    <Label layoutX="12.0" layoutY="348.0" text="Καβάλα" />
+                                    <Label layoutX="243.0" layoutY="173.0" text="Δράμα" textFill="#001233" />
+                                    <Label layoutX="246.0" layoutY="348.0" text="Κιλκίς" textFill="#001233" />
+                                    <Label layoutX="12.0" layoutY="348.0" text="Καβάλα" textFill="#001233" />
                                     <Label layoutX="174.0" layoutY="384.0" />
-                                    <Label layoutX="13.0" layoutY="6.0" prefHeight="17.0" prefWidth="431.0" text="Επιλέξτε την πόλη για την οποία ενδιαφέρεστε" wrapText="true">
+                                    <Label layoutX="13.0" layoutY="6.0" prefHeight="17.0" prefWidth="431.0" text="Επιλέξτε την πόλη για την οποία ενδιαφέρεστε" textFill="#001233" wrapText="true">
                                        <font>
                                           <Font name="Bernard MT Condensed" size="13.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="14.0" layoutY="173.0" text="Σέρρες" />
+                                    <Label layoutX="14.0" layoutY="173.0" text="Σέρρες" textFill="#001233" />
                                     <ImageView fitHeight="150.0" fitWidth="210.0" layoutX="14.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@images/serres.jpg" />
@@ -131,7 +135,21 @@
                                           <Image url="@images/klks4.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Button layoutX="13.0" layoutY="372.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="428.0" style="-fx-background-color: #ffb84d;" text="Περισσότερες πόλεις" />
+                                    <Button layoutX="13.0" layoutY="372.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="428.0" style="-fx-background-color: #001233;" text="Περισσότερες πόλεις" textFill="#bfa181">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
+                                    <ImageView fitHeight="35.0" fitWidth="27.0" layoutX="133.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/more.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </AnchorPane>
                         </content>
