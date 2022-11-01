@@ -1,8 +1,10 @@
 package com.example.project1;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,6 +39,10 @@ public class LoginController implements Initializable {
         private TextField email_up;
         @FXML
         private TextField txt_name_up;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
         Connection conn = null;
         ResultSet rs= null;
@@ -100,5 +107,14 @@ public class LoginController implements Initializable {
             JOptionPane.showMessageDialog(null,e);
         }
 
+    }
+
+    public void switchToMenu(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

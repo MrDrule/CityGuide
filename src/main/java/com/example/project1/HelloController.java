@@ -38,21 +38,6 @@ public class HelloController {
         stage.show();
     }
 
-    public void switchToRec(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Recommended.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void switchToNearby(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Nearby.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void BackToSignIn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
@@ -70,4 +55,35 @@ public class HelloController {
 
 
 
+    public void switchToDrama(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Drama.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToKavala(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Kavala.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToKilkis(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Kilkis.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void swichToSerres(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Serres.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

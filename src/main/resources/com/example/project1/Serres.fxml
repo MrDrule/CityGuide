@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
+    <children>
+        <BorderPane prefHeight="400.0" prefWidth="600.0">
+            <left>
+                <VBox prefHeight="342.0" prefWidth="176.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#switchToProf" prefHeight="65.0" prefWidth="176.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1;" text="Profile" textFill="#bfa181">
+                            <graphic>
+                                <ImageView fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/user-interface.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToFav" prefHeight="66.0" prefWidth="176.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1;" text="Favourites" textFill="#bfa181">
+                            <graphic>
+                                <ImageView fitHeight="18.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/favourite.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="224.0" prefWidth="176.0" style="-fx-background-color: #001233;" />
+                        <Button mnemonicParsing="false" onAction="#switchToMenu" prefHeight="62.0" prefWidth="176.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1;" text="Home" textFill="#bfa181">
+                            <graphic>
+                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/home%20(1).png" />
+                                    </image>
+                                </ImageView>
+                            </graphic></Button>
+                    </children>
+                </VBox>
+            </left>
+            <top>
+                <HBox prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label prefHeight="52.0" prefWidth="130.0" text="City Guide" textFill="#bfa181">
+                            <font>
+                                <Font name="Bell MT Italic" size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </top>
+            <center>
+                <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab text="Info">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <ScrollPane hbarPolicy="NEVER" layoutX="-1.0" prefHeight="309.0" prefWidth="426.0" vmax="15.0">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="308.0" prefWidth="425.0" style="-fx-background-color: #ececec;">
+                                                    <children>
+                                                        <ImageView fitHeight="122.0" fitWidth="155.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@images/koulas.jpg" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <Label layoutX="187.0" layoutY="14.0" prefHeight="30.0" prefWidth="188.0" text="Η πόλη των Σερρών" textFill="#001233">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <ImageView fitHeight="112.0" fitWidth="155.0" layoutX="204.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@images/limni.jpg" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <Text fontSmoothingType="LCD" layoutX="18.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Οι Σέρρες (αρχαία ελληνικά: Σίρις ή Σίρρα, μεσαιωνικά ελλ.: Σέρραι) είναι πόλη της Μακεδονίας, έδρα του δήμου Σερρών και πρωτεύουσα της Περιφερειακής Ενότητας Σερρών, στην Κεντρική Μακεδονία. Είναι η δεύτερη μεγαλύτερη σε πληθυσμό πόλη της Μακεδονίας και δέκατη της Ελλάδας, με 58.287 κατοίκους σύμφωνα με την απογραφή του 2011. Σύμφωνα με την απογραφή του 2021 η Δημοτική Κοινότητα Σερρών εμφανίζει 58.960 κατοίκους.Απέχει 83 χιλιόμετρα από τη Θεσσαλονίκη και 581 χιλιόμετρα από την Αθήνα." wrappingWidth="389.13671875">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                            <graphic>
+                                <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/info.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Tab>
+                        <Tab text="Museums">
+                            <content>
+                                <AnchorPane />
+                            </content>
+                            <graphic>
+                                <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/museum.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Tab>
+                        <Tab text="Restaurants">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                            <graphic>
+                                <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/restaurant.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Tab>
+                        <Tab text="Coffee">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                            </content>
+                            <graphic>
+                                <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/coffee.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

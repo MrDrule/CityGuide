@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -11,35 +13,45 @@
    <center>
       <AnchorPane prefHeight="316.0" prefWidth="568.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="pane_login" prefHeight="400.0" prefWidth="302.0" style="-fx-background-color: #0589ff;">
+            <AnchorPane fx:id="pane_login" prefHeight="400.0" prefWidth="302.0" style="-fx-background-color: #001233;">
                <children>
-                  <TextField fx:id="txt_username" layoutX="79.0" layoutY="140.0" promptText="Insert Your Username" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Label layoutX="115.0" layoutY="36.0" text="Log In" textFill="WHITE">
+                  <TextField fx:id="txt_username" layoutX="79.0" layoutY="140.0" promptText="Insert Your Username" style="-fx-background-color: transparent; -fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Label layoutX="115.0" layoutY="36.0" text="Log In" textFill="#bfa181">
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_login" layoutX="126.0" layoutY="262.0" mnemonicParsing="false" onAction="#Login" text="Log In" textFill="#0589ff" />
-                  <TextField fx:id="txt_password" layoutX="76.0" layoutY="200.0" promptText="Insert Your Password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button fx:id="btn_login" layoutX="126.0" layoutY="262.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: #CAC0B3;" text="Log In" textFill="#001233" />
+                  <TextField fx:id="txt_password" layoutX="76.0" layoutY="200.0" promptText="Insert Your Password" style="-fx-background-color: transparent; -fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px;" />
                   <AnchorPane layoutX="53.0" layoutY="311.0" prefHeight="73.0" prefWidth="244.0">
                      <children>
-                        <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" onAction="#SignUpPaneShow" style="-fx-background-color: transparent;" text="Not Registered? Click Here." textFill="WHITE" underline="true" />
+                        <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" onAction="#SignUpPaneShow" style="-fx-background-color: transparent;" text="Not Registered? Click Here." textFill="#bfa181" underline="true" />
                      </children>
                   </AnchorPane>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181;" text="Home" textFill="#bfa181">
+
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/home (1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane_signup" layoutX="302.0" layoutY="-1.0" prefHeight="400.0" prefWidth="298.0">
+            <AnchorPane fx:id="pane_signup" layoutX="302.0" layoutY="-1.0" prefHeight="400.0" prefWidth="298.0" style="-fx-background-color: #ececec;">
                <children>
-                  <Label layoutX="101.0" layoutY="29.0" text="Register" textFill="#571adb">
+                  <Label layoutX="101.0" layoutY="29.0" text="Register" textFill="#001233">
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txt_username_up" layoutX="76.0" layoutY="90.0" promptText="Insert Your Username" style="-fx-background-color: transparent; -fx-border-color: #0589ff; -fx-border-width: 0px 0px 2px 0px;" />
-                  <TextField fx:id="txt_password_up" layoutX="76.0" layoutY="150.0" promptText="Insert Your Password" style="-fx-background-color: transparent; -fx-border-color: #0589ff; -fx-border-width: 0px 0px 2px 0px;" />
-                  <TextField fx:id="txt_name_up" layoutX="76.0" layoutY="207.0" promptText="Insert Your Name" style="-fx-background-color: transparent; -fx-border-color: #0589ff; -fx-border-width: 0px 0px 2px 0px;" />
-                  <TextField fx:id="email_up" layoutX="76.0" layoutY="266.0" promptText="Insert Your Email" style="-fx-background-color: transparent; -fx-border-color: #0589ff; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Button fx:id="btn_signUp" layoutX="125.0" layoutY="330.0" mnemonicParsing="false" onAction="#add_users" style="-fx-background-color: #0589ff;" text="Sign Up" textFill="WHITE" />
+                  <TextField fx:id="txt_username_up" layoutX="76.0" layoutY="90.0" promptText="Insert Your Username" style="-fx-background-color: transparent; -fx-border-color: #001233; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="txt_password_up" layoutX="76.0" layoutY="150.0" promptText="Insert Your Password" style="-fx-background-color: transparent; -fx-border-color: #001233; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="txt_name_up" layoutX="76.0" layoutY="207.0" promptText="Insert Your Name" style="-fx-background-color: transparent; -fx-border-color: #001233; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="email_up" layoutX="76.0" layoutY="266.0" promptText="Insert Your Email" style="-fx-background-color: transparent; -fx-border-color: #001233; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button fx:id="btn_signUp" layoutX="125.0" layoutY="330.0" mnemonicParsing="false" onAction="#add_users" style="-fx-background-color: #001233;" text="Sign Up" textFill="#bfa181" />
                </children>
             </AnchorPane>
          </children></AnchorPane>
