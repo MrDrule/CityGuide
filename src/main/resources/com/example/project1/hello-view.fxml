@@ -16,41 +16,47 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="500" maxWidth="500" minHeight="513" minWidth="500" prefHeight="513.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
+<AnchorPane maxHeight="707.0" maxWidth="896.0" minHeight="513" minWidth="500" prefHeight="705.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
    <children>
-      <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="513.0" prefWidth="650.0">
+      <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="707.0" prefWidth="903.0">
          <left>
-            <VBox prefHeight="464.0" prefWidth="190.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="642.0" prefWidth="228.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProf" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Profile" textFill="#bfa181">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProf" prefHeight="45.0" prefWidth="228.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Profile" textFill="#bfa181">
                      <effect>
                         <Glow />
                      </effect>
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/user-interface.png" />
                            </image></ImageView>
 
                      </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToFav" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Favourites" textFill="#bfa181">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToFav" prefHeight="45.0" prefWidth="229.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Favourites" textFill="#bfa181">
                      <effect>
                         <Glow />
                      </effect>
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="23.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/favourite.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Button>
                </children>
             </VBox>
          </left>
          <top>
-            <HBox prefHeight="61.0" prefWidth="655.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
+            <HBox prefHeight="65.0" prefWidth="903.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                <children>
                   <Label prefHeight="61.0" prefWidth="108.0" text="City Guide" textFill="#bfa181">
                      <font>
@@ -58,13 +64,14 @@
                      </font>
                   </Label>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0" />
-                  <ButtonBar prefHeight="60.0" prefWidth="281.0">
-                     <buttons>
-                        <Button minWidth="51.0" mnemonicParsing="false" onAction="#switchToReg" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #CAC0B3;" text="LogIn/SignUp" textFill="#001233">
+                  <ButtonBar prefHeight="60.0" prefWidth="281.0" />
+                  <ButtonBar prefHeight="65.0" prefWidth="257.0">
+                    <buttons>
+                        <Button minWidth="51.0" mnemonicParsing="false" onAction="#switchToReg" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #CAC0B3;" text="LogIn/SignUp" textFill="#001233">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                     </buttons>
+                    </buttons>
                   </ButtonBar>
                </children>
                <padding>
@@ -75,39 +82,24 @@
          <center>
             <VBox prefHeight="454.0" prefWidth="446.0" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane prefHeight="454.0" prefWidth="460.0" style="-fx-background-color: #c8d8e4;" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane prefHeight="647.0" prefWidth="714.0" style="-fx-background-color: #c8d8e4;" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
                         <Tab text="Cities">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="439.0" style="-fx-background-color: #ececec;">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="853.0" style="-fx-background-color: #E5E4E2;">
                                  <children>
                                     <Label layoutX="174.0" layoutY="384.0" />
-                                    <Label layoutX="15.0" prefHeight="17.0" prefWidth="431.0" text="Επιλέξτε την πόλη για την οποία ενδιαφέρεστε" textFill="#001233" wrapText="true">
+                                    <Label layoutX="89.0" layoutY="14.0" prefHeight="17.0" prefWidth="431.0" text="Επιλέξτε την πόλη για την οποία ενδιαφέρεστε" textFill="#001233" wrapText="true">
                                        <font>
-                                          <Font name="Bernard MT Condensed" size="13.0" />
+                                          <Font name="Bell MT Italic" size="21.0" />
                                        </font>
                                     </Label>
-                                    <ImageView accessibleRole="HYPERLINK" fitHeight="150.0" fitWidth="210.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView accessibleRole="HYPERLINK" fitHeight="178.0" fitWidth="245.0" layoutX="59.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@images/serres.jpg" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="241.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/drama.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView fitHeight="150.0" fitWidth="210.0" layoutX="14.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/kavala.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView fitHeight="145.0" fitWidth="200.0" layoutX="244.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/klks4.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Button layoutX="17.0" layoutY="378.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="428.0" style="-fx-background-color: #CAC0B3; -fx-border-width: 2;" text="Περισσότερες πόλεις" textFill="#001233">
+                                    <Button layoutX="59.0" layoutY="540.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="572.0" style="-fx-background-color: #CAC0B3; -fx-border-width: 2;" text="Περισσότερες πόλεις" textFill="#001233">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -117,25 +109,44 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></Button>
-                                    <Button layoutX="13.0" layoutY="169.0" mnemonicParsing="false" onAction="#swichToSerres" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Σέρρες" textFill="#cac0b3">
+                                    <Button layoutX="59.0" layoutY="230.0" mnemonicParsing="false" onAction="#swichToSerres" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Σέρρες" textFill="#cac0b3">
                                        <font>
                                           <Font size="11.0" />
                                        </font></Button>
-                                    <Button layoutX="240.0" layoutY="169.0" mnemonicParsing="false" onAction="#switchToDrama" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Δράμα" textFill="#cac0b3">
+                                    <Button layoutX="382.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchToDrama" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Δράμα" textFill="#cac0b3">
                                        <font>
                                           <Font size="11.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="13.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToKavala" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Καβάλα" textFill="#cac0b3">
+                                    <Button layoutX="59.0" layoutY="473.0" mnemonicParsing="false" onAction="#switchToKavala" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Καβάλα" textFill="#cac0b3">
                                        <font>
                                           <Font size="11.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="244.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToKilkis" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Κιλκίς" textFill="#cac0b3">
+                                    <Button layoutX="382.0" layoutY="473.0" mnemonicParsing="false" onAction="#switchToKilkis" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #001233; -fx-border-width: 2;" text="Κιλκίς" textFill="#cac0b3">
                                        <font>
                                           <Font size="11.0" />
                                        </font>
                                     </Button>
+                                    <ImageView accessibleRole="HYPERLINK" fitHeight="166.0" fitWidth="245.0" layoutX="382.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/drama.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView accessibleRole="HYPERLINK" fitHeight="178.0" fitWidth="245.0" layoutX="59.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/kavala.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView accessibleRole="HYPERLINK" fitHeight="178.0" fitWidth="245.0" layoutX="382.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/klks1.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button layoutX="59.0" layoutY="57.0" mnemonicParsing="false" onAction="#swichToSerres" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
+                                    <Button layoutX="382.0" layoutY="297.0" mnemonicParsing="false" onAction="#switchToKilkis" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
+                                    <Button layoutX="59.0" layoutY="302.0" mnemonicParsing="false" onAction="#switchToKavala" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
+                                    <Button layoutX="376.0" layoutY="58.0" mnemonicParsing="false" onAction="#switchToDrama" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
                                  </children>
                               </AnchorPane>
                            </content>
