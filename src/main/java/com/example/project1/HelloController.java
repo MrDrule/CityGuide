@@ -3,10 +3,14 @@ package com.example.project1;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class HelloController {
@@ -100,4 +104,21 @@ public class HelloController {
         stage.show();
     }
 
+     @FXML
+    private AnchorPane anchorPane;
+
+    @FXML
+    public void handleButtonAction(ActionEvent event){
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        alert.initModality(Modality.APPLICATION_MODAL);
+        alert.initOwner(stage);
+
+        alert.getDialogPane().setHeaderText("Ευχαριστούμε για την αξιολόγηση");
+
+
+        alert.showAndWait();
+    }
 }

@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
     <children>
@@ -85,7 +86,7 @@
                     <tabs>
                         <Tab text="Info">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
+                                <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
                                         <Text fontSmoothingType="LCD" layoutX="38.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Το Κιλκίς είναι πόλη της Μακεδονίας, έδρα του δήμου Κιλκίς και πρωτεύουσα της Περιφερειακής Ενότητας Κιλκίς στην Κεντρική Μακεδονία.Λίγα χιλιόμετρα νοτίως του σημερινού Κιλκίς υπήρχε κατά την αρχαιότητα η πόλη Καλλικώς, που τους ρωμαϊκούς χρόνους ονομάστηκε Κάλλικουμ. Από τους κατοίκους του Καλλικού ιδρύθηκε τη βυζαντινή περίοδο πόλισμα, που πήρε την ονομασία Καλκούσι. Την οθωμανική περίοδο η πόλη έγινε έδρα καζά. Το 19ο αιώνα, όταν ήταν γνωστό ως Κούκους (βουλγαρικά: Кукуш‎)[1][Χρειάζεται σελίδα], αποτέλεσε κέντρο βουλγαρικής δράσης, ενώ η προσπάθεια να δημιουργηθεί εκεί ελληνική κοινότητα απέτυχε. Με τον Α' Βαλκανικό πόλεμο καταλήφθηκε από το βουλγαρικό στρατό, ενώ μετά τη μάχη του Κιλκίς-Λαχανά τον Ιούνιο του 1913 η πόλη πυρπολήθηκε και εγκαταλείφθηκε από τους κατοίκους της." wrappingWidth="242.13671875">
                                             <font>
@@ -112,6 +113,8 @@
                                                 <Image url="@images/klks4.jpg" />
                                             </image>
                                         </ImageView>
+                              <Rating fx:id="kilkisRating" layoutX="338.0" layoutY="537.0" rating="0.0" />
+                              <Button fx:id="RateButton2" layoutX="531.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Rate!" />
                                     </children>
                                 </AnchorPane>
                             </content>

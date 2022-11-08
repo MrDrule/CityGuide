@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
     <children>
@@ -85,7 +86,7 @@
                     <tabs>
                         <Tab text="Info">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
+                                <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
                                             <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Οι Σέρρες (αρχαία ελληνικά: Σίρις ή Σίρρα, μεσαιωνικά ελλ.: Σέρραι) είναι πόλη της Μακεδονίας, έδρα του δήμου Σερρών και πρωτεύουσα της Περιφερειακής Ενότητας Σερρών, στην Κεντρική Μακεδονία. Είναι η δεύτερη μεγαλύτερη σε πληθυσμό πόλη της Μακεδονίας και δέκατη της Ελλάδας, με 58.287 κατοίκους σύμφωνα με την απογραφή του 2011. Σύμφωνα με την απογραφή του 2021 η Δημοτική Κοινότητα Σερρών εμφανίζει 58.960 κατοίκους.Απέχει 83 χιλιόμετρα από τη Θεσσαλονίκη και 581 χιλιόμετρα από την Αθήνα..Οι Σέρρες αναφέρονται πάντα στον πληθυντικό. Όταν αναφέρονται στην αιτιατική, αρκετοί από τους ντόπιους χρησιμοποιούν τον τύπο: «τας Σέρρας» (της Καθαρεύουσας), αντίθετα με τη χρήση στη Δημοτική (τις Σέρρες). Παράδειγμα χρήσης: «Είμαι από τας Σέρρας». " wrappingWidth="242.13671875">
                                                 <font>
@@ -112,6 +113,8 @@
                                     <Image url="@images/koulas_hill,_serres.jpeg" />
                                  </image>
                               </ImageView>
+                              <Rating fx:id="serresRating" layoutX="327.0" layoutY="523.0" rating="0.0" />
+                              <Button fx:id="RateButton" layoutX="531.0" layoutY="535.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="74.0" text="Rate" />
                                     </children>
                                 </AnchorPane>
                             </content>

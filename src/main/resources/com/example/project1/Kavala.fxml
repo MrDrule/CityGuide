@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
     <children>
@@ -85,7 +86,7 @@
                     <tabs>
                         <Tab text="Info">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
+                                <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
                                         <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Καβάλα (στους αρχαίους χρόνους &quot;Νεάπολις&quot;, στο Βυζάντιο &quot;Χριστούπολις&quot; κι έως το 1928 &quot;Καβάλλα&quot;) είναι πόλη της Μακεδονίας, έδρα του δήμου Καβάλας και πρωτεύουσα της Περιφερειακής Ενότητας Καβάλας στην Ανατολική Μακεδονία. Αποτελεί σημαντικό λιμάνι και εμπορικό κέντρο της βόρειας Ελλάδας.Αποτελεί επίσης έδρα της Ιεράς Μητροπόλεως Φιλίππων, Νεαπόλεως και Θάσου.Είναι κτισμένη αμφιθεατρικά στους πρόποδες του όρους Σύμβολο ενώ η πρόσβαση προς την πόλη είναι εύκολη μέσω της Εγνατίας Οδού απέχει 650 χιλιόμετρα από την Αθήνα και 153 χιλιόμετρα από τη Θεσσαλονίκη.Πιθανολογείται πως το όνομα της πόλης προέρχεται από τον αρχαίο οικισμό &quot;Σκαβάλλα&quot;, σημερινή Παλαιά Καβάλα, από την οποία θεωρείται πως έφτασαν στην Καβάλα οι αρχαίοι κάτοικοί της.  " wrappingWidth="242.13671875">
                                             <font>
@@ -112,6 +113,8 @@
                                                 <Image url="@images/kavala.jpg" />
                                             </image>
                                         </ImageView>
+                              <Rating fx:id="kavalaRating" layoutX="328.0" layoutY="539.0" rating="0.0" />
+                              <Button fx:id="RateButton4" layoutX="520.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Rate!" />
                                     </children>
                                 </AnchorPane>
                             </content>
