@@ -18,6 +18,7 @@ public class HelloController {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
         stage.setScene(scene);
         stage.show();
     }
@@ -59,6 +60,9 @@ public class HelloController {
         Parent root = FXMLLoader.load(getClass().getResource("Drama.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+
+        scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
+
         stage.setScene(scene);
         stage.show();
     }
@@ -67,6 +71,9 @@ public class HelloController {
         Parent root = FXMLLoader.load(getClass().getResource("Kavala.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+
+        scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
+
         stage.setScene(scene);
         stage.show();
     }
@@ -75,6 +82,9 @@ public class HelloController {
         Parent root = FXMLLoader.load(getClass().getResource("Kilkis.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+
+        scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
+
         stage.setScene(scene);
         stage.show();
     }
@@ -83,7 +93,11 @@ public class HelloController {
         Parent root = FXMLLoader.load(getClass().getResource("Serres.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+
+        scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
+
         stage.setScene(scene);
         stage.show();
     }
+
 }

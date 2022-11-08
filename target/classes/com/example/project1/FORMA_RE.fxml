@@ -3,16 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.LoginController">
-   
+
    <bottom>
       <AnchorPane prefHeight="316.0" prefWidth="568.0" BorderPane.alignment="CENTER">
          <children>
@@ -55,7 +53,7 @@
                   <TextField fx:id="txt_name_up" layoutX="151.0" layoutY="212.0" promptText="Insert Your Name" style="-fx-background-color: transparent; -fx-border-color: #001233; -fx-border-width: 0px 0px 2px 0px;" />
                   <TextField fx:id="email_up" layoutX="151.0" layoutY="259.0" promptText="Insert Your Email" style="-fx-background-color: transparent; -fx-border-color: #001233; -fx-border-width: 0px 0px 2px 0px;" />
                   <Button fx:id="btn_signUp" layoutX="197.0" layoutY="310.0" mnemonicParsing="false" onAction="#add_users" style="-fx-background-color: #001233;" text="Sign Up" textFill="#bfa181" />
-                  <ImageView fitHeight="196.0" fitWidth="181.0" layoutX="-76.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="196.0" fitWidth="181.0" layoutX="-90.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/login.png" />
                      </image>

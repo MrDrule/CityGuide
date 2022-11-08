@@ -9,11 +9,14 @@ import java.io.IOException;
 
 
 
+
 public class HelloApplication extends Application {
 
 
     @Override
     public void start(Stage stage) throws IOException {
+
+
 
         stage = new Stage();
 
@@ -29,6 +32,10 @@ public class HelloApplication extends Application {
             stage.setTitle("City Guide");
             stage.setScene(scene);
             stage.show();
+
+            scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
+
+
         }catch(Exception e) {
             e.printStackTrace();
         }
@@ -38,3 +45,6 @@ public class HelloApplication extends Application {
         launch(args);
     }
 }
+
+
+
