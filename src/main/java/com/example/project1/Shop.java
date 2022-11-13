@@ -10,7 +10,9 @@ public class Shop {
 
     public String name;
     public String open_now;
-    public float rating;
+    public double rating;
     public String vicinity;
+
+    public double price_level;
 
 }
