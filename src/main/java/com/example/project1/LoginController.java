@@ -44,6 +44,8 @@ public class LoginController implements Initializable {
     private Scene scene;
     private Parent root;
 
+    private User user;
+
         Connection conn = null;
         ResultSet rs= null;
         PreparedStatement pst = null;
@@ -92,6 +94,15 @@ public class LoginController implements Initializable {
             rs = pst.executeQuery();
             if (rs.next()){
                 JOptionPane.showMessageDialog(null,"Username and password is correct!");
+                String username=rs.getString("username");
+                String password=rs.getString("password");
+                String name=rs.getString("name");
+                String email=rs.getString("email");
+
+                user=new User(username,password,name,email);
+
+                System.out.println(user.name+user.password+user.name+user.email );
+
 
                 btn_login.getScene().getWindow().hide();
                 Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));

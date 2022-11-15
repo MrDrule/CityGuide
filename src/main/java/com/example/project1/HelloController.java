@@ -97,9 +97,7 @@ public class HelloController {
         Parent root = FXMLLoader.load(getClass().getResource("Serres.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-
         scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
-
         stage.setScene(scene);
         stage.show();
     }
@@ -107,18 +105,32 @@ public class HelloController {
      @FXML
     private AnchorPane anchorPane;
 
+    User user;
+
+
     @FXML
     public void handleButtonAction(ActionEvent event){
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (User.username != null) {
+            Stage stage = (Stage) anchorPane.getScene().getWindow();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Ευχαριστούμε για την αξιολόγηση");
+            alert.showAndWait();
+        }else{
+            Stage stage = (Stage) anchorPane.getScene().getWindow();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please Login to rate!");
+            alert.showAndWait();
+        }
+    }
+    public void logoutButton(ActionEvent event){
+        if (User.username !=null){
+            User user = new User();
+        }
 
-        alert.initModality(Modality.APPLICATION_MODAL);
-        alert.initOwner(stage);
-
-        alert.getDialogPane().setHeaderText("Ευχαριστούμε για την αξιολόγηση");
-
-
-        alert.showAndWait();
     }
 }
