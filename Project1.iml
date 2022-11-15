@@ -12,9 +12,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-8.0.30" level="project" />
     <orderEntry type="module-library">
-      <library name="lib">
+      <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../json-simple-1.1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/controlsfx-11.1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -48,7 +48,8 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../controlsfx-11.1.2.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/controlsfx-11.1.2.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/json-simple-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -78,25 +79,9 @@
           <root url="jar://$MODULE_DIR$/controlsfx-11.1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/json-20220924.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/controlsfx-11.1.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Desktop/HelloApplication.java.zip!/cityguidefx/src/main/java" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

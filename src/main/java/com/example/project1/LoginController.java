@@ -132,6 +132,7 @@ public class LoginController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
 
