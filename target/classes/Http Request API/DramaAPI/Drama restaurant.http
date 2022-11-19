@@ -1,0 +1,7 @@
+GET https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.149632%2C24.148287&radius=4000&type=museum&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}

@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.KilkisController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
     <children>
         <BorderPane prefHeight="709.0" prefWidth="903.0">
             <left>
@@ -87,29 +79,29 @@
                             <content>
                                 <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <Text fontSmoothingType="LCD" layoutX="38.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Το Κιλκίς είναι πόλη της Μακεδονίας, έδρα του δήμου Κιλκίς και πρωτεύουσα της Περιφερειακής Ενότητας Κιλκίς στην Κεντρική Μακεδονία.Λίγα χιλιόμετρα νοτίως του σημερινού Κιλκίς υπήρχε κατά την αρχαιότητα η πόλη Καλλικώς, που τους ρωμαϊκούς χρόνους ονομάστηκε Κάλλικουμ. Από τους κατοίκους του Καλλικού ιδρύθηκε τη βυζαντινή περίοδο πόλισμα, που πήρε την ονομασία Καλκούσι. Την οθωμανική περίοδο η πόλη έγινε έδρα καζά. Το 19ο αιώνα, όταν ήταν γνωστό ως Κούκους (βουλγαρικά: Кукуш‎)[1][Χρειάζεται σελίδα], αποτέλεσε κέντρο βουλγαρικής δράσης, ενώ η προσπάθεια να δημιουργηθεί εκεί ελληνική κοινότητα απέτυχε. Με τον Α' Βαλκανικό πόλεμο καταλήφθηκε από το βουλγαρικό στρατό, ενώ μετά τη μάχη του Κιλκίς-Λαχανά τον Ιούνιο του 1913 η πόλη πυρπολήθηκε και εγκαταλείφθηκε από τους κατοίκους της." wrappingWidth="242.13671875">
+                                        <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Δράμα είναι πόλη της ανατολικής Μακεδονίας, έδρα του Δήμου Δράμας και πρωτεύουσα της Περιφερειακής Ενότητας Δράμας στην Περιφέρεια Ανατολικής Μακεδονίας και Θράκης. Έχει πληθυσμό 45.823 σύμφωνα με την απογραφή του 2011. Βρίσκεται στην περιοχή της αρχαίας Ηδωνίδας με μακραίωνη ιστορία, καθώς ο τόπος κατοικήθηκε από τους προϊστορικούς χρόνους. Η ετυμολογία της λέξης προέρχεται από το «Ύδραμα»-«Δύραμα», λόγω της αφθονίας των υδάτων που αναβλύζουν στην περιοχή.[2] Είναι έδρα της Σχολής Γεωτεχνικών Επιστημών του Διεθνούς Πανεπιστήμιου της Ελλάδος.[3] Στην πόλη λαμβάνει χώρα ετησίως το Διεθνές Φεστιβάλ Ταινιών Μικρού Μήκους Δράμας.[4]" wrappingWidth="242.13671875">
                                             <font>
                                                 <Font size="13.0" />
                                             </font>
                                         </Text>
-                                        <Label layoutX="348.0" layoutY="43.0" prefHeight="41.0" prefWidth="258.0" text="Η πόλη του Κιλκίς" textFill="#001233">
+                                        <Label layoutX="350.0" layoutY="46.0" prefHeight="41.0" prefWidth="258.0" text="Η πόλη της Δράμας" textFill="#001233">
                                             <font>
                                                 <Font name="Book Antiqua Bold Italic" size="25.0" />
                                             </font>
                                         </Label>
-                                        <ImageView fitHeight="180.0" fitWidth="292.0" layoutX="327.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="177.0" fitWidth="349.0" layoutX="348.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@images/skra_waterfalls.jpeg" />
+                                                <Image url="@images/1-6.jpg" />
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="158.0" fitWidth="256.0" layoutX="45.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="213.0" fitWidth="281.0" layoutX="39.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@images/klks1.jpg" />
+                                                <Image url="@images/drama3.jpg" />
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="186.0" fitWidth="280.0" layoutX="336.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="250.0" fitWidth="343.0" layoutX="345.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@images/klks4.jpg" />
+                                                <Image url="@images/drama2.jpg" />
                                             </image>
                                         </ImageView>
                                     </children>
@@ -139,25 +131,11 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;" />
                             </content>
-                            <graphic>
-                                <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/museum.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
                         </Tab>
                         <Tab text="Coffee">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;" />
                             </content>
-                            <graphic>
-                                <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/coffee.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
                         </Tab>
                         <Tab text="Restaurants">
                             <content>

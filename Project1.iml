@@ -84,5 +84,15 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://D:/Java/javafx-sdk-19" />
+        </SOURCES>
+        <jarDirectory url="file://D:/Java/javafx-sdk-19" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
