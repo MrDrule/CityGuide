@@ -1,28 +1,30 @@
 package com.example.project1;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class DramaController implements Initializable {
+import java.io.IOException;
+
+public class FavouriteController {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
-    private WebView webview;
+    private Button button;
+
+    @FXML
+    private AnchorPane anchorPane;
 
     public void switchToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
@@ -48,11 +50,29 @@ public class DramaController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToReg(ActionEvent event) throws IOException {
+    Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
+    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+}
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Map Loading
-        WebEngine webEngine = webview.getEngine();
-        webEngine.load("https://www.google.com/maps/@41.1523995,24.1478672,15.16z");
+    @FXML
+    public void toRating(ActionEvent event)throws IOException {
+        try {
+
+
+            Parent root = FXMLLoader.load(getClass().getResource("Rating.fxml"));
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setTitle("Rating Window");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Cant load Window");
+        }
+
+
     }
 }

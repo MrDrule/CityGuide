@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="222.0" prefWidth="336.0" style="-fx-background-color: #001233;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.RatingController">
+   <children>
+      <Rating fx:id="rating" layoutX="72.0" layoutY="47.0" prefHeight="32.0" prefWidth="265.0" rating="1.0" />
+      <Button layoutX="101.0" layoutY="187.0" mnemonicParsing="false" onAction="#ratingButton" prefHeight="41.0" prefWidth="133.0" text="Rate">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtfield" alignment="TOP_LEFT" layoutX="23.0" layoutY="92.0" prefHeight="82.0" prefWidth="290.0" promptText="Write your review here">
+         <font>
+            <Font name="Bell MT" size="12.0" />
+         </font>
+      </TextField>
+      <Label layoutX="82.0" layoutY="14.0" text="Tell us your opinion!" textFill="#bfa181">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="rn" layoutX="266.0" layoutY="50.0" prefHeight="26.0" prefWidth="31.0" text="1.0" textFill="#bfa181">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button layoutX="306.0" layoutY="1.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="31.0" style="-fx-background-color: #001233;" text="X" textAlignment="JUSTIFY" textFill="#bfa181">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+   </padding>
+</AnchorPane>
