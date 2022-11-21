@@ -77,6 +77,7 @@ public class RatingController implements Initializable {
 
     public static void addRatingtoDatabase(String username,String text,double rate){
         try{
+
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cityguide", "root", "");
             Statement stmt = conn.createStatement();
             String sql = "INSERT INTO ratings (username , ratingtxt,ratingvalue) VALUES (?,?,?)";
@@ -87,6 +88,7 @@ public class RatingController implements Initializable {
             preparedStatement.executeUpdate();
             stmt.close();
             conn.close();
+
         } catch (Exception var17) {
             var17.printStackTrace();
         }

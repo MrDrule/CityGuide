@@ -112,11 +112,12 @@ public class HelloController {
     public void handleButtonAction(ActionEvent event){
 
         if (User.username != null) {
+            System.out.println(User.username);
             Stage stage = (Stage) anchorPane.getScene().getWindow();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.initModality(Modality.APPLICATION_MODAL);
             alert.initOwner(stage);
-            alert.getDialogPane().setHeaderText("Ευχαριστούμε για την αξιολόγηση");
+            alert.getDialogPane().setHeaderText("Thank you for Rating!");
             alert.showAndWait();
         }else{
             Stage stage = (Stage) anchorPane.getScene().getWindow();
