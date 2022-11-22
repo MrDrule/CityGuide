@@ -4,54 +4,36 @@ import com.sun.jdi.Value;
 import javafx.beans.property.SimpleStringProperty;
 
 public class UsersDetails {
-    private final SimpleStringProperty password;
-    private final SimpleStringProperty email;
-    private final SimpleStringProperty username;
+    private static UsersDetails instance;
+    private String password;
+    private String email;
+    private String username;
 
-    public UsersDetails(String username, String password, String email) {
-        this.username = new SimpleStringProperty(username);
-        this.password = new SimpleStringProperty(password);
-        this.email = new SimpleStringProperty(email);
+    UsersDetails (String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
+    public static UsersDetails getInstance(String username ,String password, String email){
+        if (instance==null){
+            instance = new UsersDetails(username,password,email);
+        }
+        return instance;
+    }
     //getters
     public String getUsername() {
-        return username.get();
+        return username;
     }
 
 
     public String getPassword() {
-        return password.get();
+        return password;
     }
 
     public String getEmail() {
-        return email.get();
-    }
-
-    //setters
-    public void setUsername(String value){
-        username.set(value);
-    }
-    public void setPassword(String value){
-        password.set(value);
-    }
-    public void setEmail(String value){
-        email.set(value);
-    }
-
-    //Property Values
-
-    public SimpleStringProperty usernameProperty(){
-        return username;
-    }
-    public SimpleStringProperty passwordProperty(){
-        return password;
-    }
-    public SimpleStringProperty emailProperty(){
         return email;
     }
-
-
 
 
 }

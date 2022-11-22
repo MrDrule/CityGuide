@@ -36,11 +36,22 @@ public class HelloController {
     }
 
     public void switchToProf(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (User.username != null) {
+            Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please Login to check your connection's information!");
+            alert.showAndWait();
+        }
+
+
     }
 
 
