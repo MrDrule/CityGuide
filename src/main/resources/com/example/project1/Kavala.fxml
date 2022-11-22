@@ -17,75 +17,67 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.KavalaController">
+<?import javafx.scene.control.ButtonBar?>
+<AnchorPane maxHeight="707.0" maxWidth="896.0" minHeight="513" minWidth="500" prefHeight="705.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.KavalaController">
     <children>
-        <BorderPane prefHeight="709.0" prefWidth="903.0">
+        <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="707.0" prefWidth="903.0">
             <left>
-                <VBox prefHeight="628.0" prefWidth="228.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="628.0" prefWidth="228.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="45.0" prefWidth="228.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Home" textFill="#bfa181">
-                            <effect>
-                                <Glow />
-                            </effect>
-                            <graphic>
-                                <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/home (1).png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Button>
-                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProf" prefHeight="45.0" prefWidth="228.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Profile" textFill="#bfa181">
-                            <effect>
-                                <Glow />
-                            </effect>
-                            <graphic>
-                                <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/user-interface.png" />
-                                    </image></ImageView>
-
-                            </graphic>
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Button>
-                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToFav" prefHeight="45.0" prefWidth="229.0" style="-fx-background-color: #001233; -fx-border-color: #bfa181; -fx-border-width: 1px;" text="Favourites" textFill="#bfa181">
-                            <effect>
-                                <Glow />
-                            </effect>
-                            <graphic>
-                                <ImageView fitHeight="23.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/favourite.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Button>
+                        <Button layoutX="20.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="41.0" prefWidth="204.0" stylesheets="@Css/buttonhome.css" text="Home" textFill="#001233" />
+                        <ImageView fitHeight="24.0" fitWidth="21.0" layoutX="78.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/home_1.png" />
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="16.0" layoutY="56.0" prefHeight="53.0" prefWidth="212.0">
+                            <children>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProf" prefHeight="44.0" prefWidth="218.0" stylesheets="@Css/MenuButtons.css" text="Profile" textFill="#e5e4e2">
+                                    <graphic>
+                                        <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/user.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic></Button>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="16.0" layoutY="109.0" prefHeight="53.0" prefWidth="212.0">
+                            <children>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToFav" prefHeight="44.0" prefWidth="217.0" stylesheets="@Css/MenuButtons.css" text="Favourites" textFill="#e5e4e2">
+                                    <graphic>
+                                        <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/love.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="16.0" layoutY="162.0" prefHeight="53.0" prefWidth="212.0" />
                     </children>
-                </VBox>
+                </AnchorPane>
             </left>
             <top>
-                <HBox prefHeight="64.0" prefWidth="936.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
+                <HBox prefHeight="65.0" prefWidth="903.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label prefHeight="52.0" prefWidth="130.0" text="City Guide" textFill="#bfa181">
+                        <Label prefHeight="61.0" prefWidth="108.0" text="City Guide" textFill="#bfa181">
                             <font>
                                 <Font name="Bell MT Italic" size="25.0" />
                             </font>
                         </Label>
-                        <Button fx:id="btnbtn" mnemonicParsing="false" onAction="#loadDataFromDatabase" prefHeight="51.0" prefWidth="240.0" style="-fx-background-color: transparent;">
-                            <HBox.margin>
-                                <Insets left="500.0" top="30.0" />
-                            </HBox.margin>
-                        </Button>
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0" />
+                        <ButtonBar prefHeight="60.0" prefWidth="281.0" />
+                        <ButtonBar prefHeight="69.0" prefWidth="279.0">
+                            <buttons>
+                                <Button mnemonicParsing="false" onAction="#switchToReg" prefHeight="27.0" prefWidth="125.0" stylesheets="@Css/login.css" text="LogIn/SignUp" textFill="#001233" />
+                            </buttons>
+                        </ButtonBar>
                     </children>
+                    <padding>
+                        <Insets left="35.0" />
+                    </padding>
                 </HBox>
             </top>
             <center>
