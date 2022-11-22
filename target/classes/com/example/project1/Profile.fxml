@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -85,14 +86,17 @@
                <children>
                   <Label fx:id="welcomeText" layoutX="263.0" layoutY="37.0" text="Profile" />
                   <Label fx:id="usrLabel" layoutX="49.0" layoutY="146.0" prefHeight="188.0" prefWidth="417.0" />
-                  <TableView fx:id="tableUser" layoutX="39.0" layoutY="177.0" prefHeight="240.0" prefWidth="461.0">
+                  <TableView fx:id="tableUser" layoutX="43.0" layoutY="71.0" prefHeight="240.0" prefWidth="461.0">
                     <columns>
                       <TableColumn fx:id="columnUsername" prefWidth="114.0" text="Username" />
                       <TableColumn fx:id="columnPassword" prefWidth="109.0" text="Password" />
                         <TableColumn fx:id="columnEmail" prefWidth="136.0" text="Email" />
                     </columns>
                   </TableView>
-                  <Button fx:id="btnLoad" layoutX="237.0" layoutY="447.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Load Details" />
+                  <Button fx:id="btnLoad" layoutX="239.0" layoutY="352.0" mnemonicParsing="false" onAction="#Edit" text="Edit" />
+                  <TextField fx:id="txt_username" layoutX="183.0" layoutY="465.0" />
+                  <TextField fx:id="txt_password" layoutX="183.0" layoutY="510.0" />
+                  <TextField fx:id="txt_email" layoutX="183.0" layoutY="549.0" />
                </children></Pane>
          </center>
       </BorderPane>

@@ -99,6 +99,8 @@ public class LoginController implements Initializable {
                 String name=rs.getString("name");
                 String email=rs.getString("email");
 
+                UsersDetails.getInstance(username,password,email);
+
                 user=new User(username,password,name,email);
 
                 System.out.println(user.name+user.password+user.name+user.email );
