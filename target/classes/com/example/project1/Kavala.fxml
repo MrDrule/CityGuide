@@ -2,12 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,8 +16,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<?import javafx.scene.control.ButtonBar?>
 <AnchorPane maxHeight="707.0" maxWidth="896.0" minHeight="513" minWidth="500" prefHeight="705.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.KavalaController">
     <children>
         <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="707.0" prefWidth="903.0">
@@ -125,7 +125,10 @@
                         </Tab>
                         <Tab text="Map">
                             <content>
-                                <AnchorPane style="-fx-background-color: #E5E4E2;" />
+                                <AnchorPane style="-fx-background-color: #E5E4E2;">
+                           <children>
+                              <WebView fx:id="webview1" layoutX="6.0" layoutY="8.0" prefHeight="602.0" prefWidth="665.0" />
+                           </children></AnchorPane>
                             </content>
                             <graphic>
                                 <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
@@ -228,6 +231,54 @@
                                 </ImageView>
                             </graphic>
                         </Tab>
+                  <Tab text="News">
+                     <content>
+                        <AnchorPane style="-fx-background-color: #E5E4E2;">
+                           <children>
+                              <WebView fx:id="webview2" layoutX="14.0" layoutY="14.0" prefHeight="589.0" prefWidth="650.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/newspaper-folded.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab text="Weather">
+                     <content>
+                        <AnchorPane style="-fx-background-color: #E5E4E2;">
+                           <children>
+                              <WebView fx:id="webview3" layoutX="14.0" layoutY="14.0" prefHeight="587.0" prefWidth="650.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/cloudy.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab text="Tours">
+                     <content>
+                        <AnchorPane style="-fx-background-color: #E5E4E2;">
+                           <children>
+                              <WebView fx:id="webview4" layoutX="14.0" layoutY="14.0" prefHeight="594.0" prefWidth="653.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/bus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
                     </tabs>
                 </TabPane>
             </center>

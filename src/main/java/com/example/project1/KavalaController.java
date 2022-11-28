@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -73,6 +75,18 @@ public class KavalaController implements Initializable {
     private ObservableList<DestList> data2;
     @FXML
     private ObservableList<DestList> data3;
+
+    @FXML
+    private WebView webview1;
+
+    @FXML
+    private WebView webview2;
+
+    @FXML
+    private WebView webview3;
+
+    @FXML
+    private WebView webview4;
     private mysqlconnect connection;
 
 
@@ -121,6 +135,19 @@ public class KavalaController implements Initializable {
 
         tableCC11.setItems(null);
         tableCC11.setItems(data3);
+
+        //Loading Webviews
+        WebEngine webEngine = webview1.getEngine();
+        webEngine.load("https://www.google.com/maps/place/%CE%9A%CE%B1%CE%B2%CE%AC%CE%BB%CE%B1/@40.9368859,24.3869726,14z/data=!3m1!4b1!4m5!3m4!1s0x14aebb729066fc01:0xf567e137446a476c!8m2!3d40.937607!4d24.412866");
+
+        webEngine = webview2.getEngine();
+        webEngine.load("https://www.kavalanews.gr/");
+
+        webEngine = webview3.getEngine();
+        webEngine.load("https://www.okairos.gr/%CE%BA%CE%B1%CE%B2%CE%AC%CE%BB%CE%B1.html");
+
+        webEngine = webview4.getEngine();
+        webEngine.load("https://www.visitkavala.gr/");
     }
 
     @FXML
@@ -136,13 +163,14 @@ public class KavalaController implements Initializable {
         } catch (SQLException e) {
             System.err.println("Error" + e);
         }
+
         colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colAdd.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri.setCellValueFactory(new PropertyValueFactory<>("Price"));
-
         tableCC.setItems(null);
         tableCC.setItems(data);
+
     }
 
 

@@ -17,6 +17,7 @@ public class mainAPI {
     private static HttpURLConnection connection;
 
     private static int count=0;
+    private static int shopID=0;
 
     public static void main(String[] args) {
         ArrayList<String> requests = new ArrayList<String>();
@@ -53,7 +54,6 @@ public class mainAPI {
 
         JSONObject jsonObject = new JSONObject(responseBody);
         JSONArray jsonArray = jsonObject.getJSONArray("results");
-        int shopID=0;
         count=count+1;
 
         int n = jsonArray.length();

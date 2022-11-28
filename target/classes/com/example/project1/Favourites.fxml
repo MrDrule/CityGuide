@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,6 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="707.0" maxWidth="896.0" minHeight="513" minWidth="500" prefHeight="705.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.FavouriteController">
    <children>
@@ -89,6 +89,8 @@
                <children>
                   <Label layoutX="256.0" layoutY="203.0" prefHeight="55.0" prefWidth="67.0" text="Favourites" />
                   <Button fx:id="button" layoutX="297.0" layoutY="296.0" mnemonicParsing="false" onAction="#toRating" stylesheets="@Css/Button.css" text="Button" />
+                  <Text fx:id="textemail" layoutX="286.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="textusername" layoutX="286.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                </children></Pane>
          </center>
       </BorderPane>
