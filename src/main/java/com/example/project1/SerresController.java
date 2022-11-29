@@ -177,16 +177,16 @@ public class SerresController implements Initializable {
 
         //Loading Webviews
         WebEngine webEngine = webview1.getEngine();
-        webEngine.load("https://www.google.com/maps/place/%CE%9A%CE%B1%CE%B2%CE%AC%CE%BB%CE%B1/@40.9368859,24.3869726,14z/data=!3m1!4b1!4m5!3m4!1s0x14aebb729066fc01:0xf567e137446a476c!8m2!3d40.937607!4d24.412866");
+        webEngine.load("https://www.google.com/maps/@41.0893563,23.5501143,14z");
 
         webEngine = webview2.getEngine();
-        webEngine.load("https://www.kavalanews.gr/");
+        webEngine.load("https://serraikanea.gr/");
 
         webEngine = webview3.getEngine();
-        webEngine.load("https://www.okairos.gr/%CE%BA%CE%B1%CE%B2%CE%AC%CE%BB%CE%B1.html");
+        webEngine.load("https://www.okairos.gr/%CF%83%CE%AD%CF%81%CF%81%CE%B5%CF%82.html");
 
         webEngine = webview4.getEngine();
-        webEngine.load("https://www.visitkavala.gr/");
+        webEngine.load("https://www.tripadvisor.com.gr/Attractions-g658696-Activities-Serres_Serres_Region_Central_Macedonia.html");
     }
 
     @FXML

@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.collections.ObservableList;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -36,6 +37,8 @@ public class ProfileController implements Initializable {
     PreparedStatement pst= null;
     ResultSet rs=null;
     Connection connection = null;
+    int id;
+    UsersDetails usersDetails = null;
     @FXML
     private Label label;
 
@@ -48,13 +51,23 @@ public class ProfileController implements Initializable {
     @FXML
     private TableColumn<UsersDetails, String> columnEmail;
     @FXML
-    private Button btnEdit;
+    private TableColumn<UsersDetails, String> columnName;
+    @FXML
+    private Button btnEdtUsr;
+    @FXML
+    private Button btnEdtPass;
+    @FXML
+    private Button btnEdtEmail;
+    @FXML
+    private Button btnEdtName;
     @FXML
     private TextField txt_username;
     @FXML
     private TextField txt_password;
     @FXML
     private TextField txt_email;
+    @FXML
+    private TextField txt_name;
 
     private ObservableList<UsersDetails> data;
     /* private mysqlconnect connection;*/
@@ -76,7 +89,7 @@ public class ProfileController implements Initializable {
         columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
         columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
     @FXML
     private void loadDataFromDatabase(){
@@ -84,7 +97,7 @@ public class ProfileController implements Initializable {
             pst=connection.prepareStatement("SELECT * FROM users LIMIT 1");
             rs=pst.executeQuery();
             while (rs.next()){
-                data.add(UsersDetails.getInstance(rs.getNString(1),rs.getString(2),rs.getString(4)));
+                data.add(UsersDetails.getInstance(rs.getString(1),rs.getString(2),rs.getString(3),rs.getInt(5),rs.getString(4)));
             }
         }catch (SQLException e){
             Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE,null,e);
@@ -92,18 +105,112 @@ public class ProfileController implements Initializable {
         tableUser.setItems(data);
     }
 
-    public void Edit(){
+    public void EditUsername(){
+        if(txt_username.getText().isBlank()==false) {
+            try {
+                connection = com.example.project1.mysqlconnect.ConnectDb();
+                String value1 = txt_username.getText();
+                id = UsersDetails.id;
+                String sql = "UPDATE users SET username='" + value1 + "' WHERE ID='" + id + "'";
+                pst = connection.prepareStatement(sql);
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Your username have been updated!");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please enter your new username");
+            alert.showAndWait();
+        }
+    }public void EditPassword(){
+        if (txt_password.getText().isBlank()==false) {
+            try {
+                connection = com.example.project1.mysqlconnect.ConnectDb();
+                String value2 = txt_password.getText();
+                id = UsersDetails.id;
+                String sql = "UPDATE users SET password='" + value2 + "' WHERE ID='" + id + "'";
+                pst = connection.prepareStatement(sql);
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Your password have been updated!");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please enter your new password");
+            alert.showAndWait();
+        }
+    }public void EditEmail(){
+        if (txt_email.getText().isBlank()==false) {
+            try {
+                connection = com.example.project1.mysqlconnect.ConnectDb();
+                String value3 = txt_email.getText();
+                id = UsersDetails.id;
+                String sql = "UPDATE users SET email='" + value3 + "' WHERE ID='" + id + "'";
+                pst = connection.prepareStatement(sql);
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Your email has been updated!");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please enter your new email");
+            alert.showAndWait();
+        }
+    }public void EditName(){
+        if (txt_name.getText().isBlank()==false) {
+            try {
+                connection = com.example.project1.mysqlconnect.ConnectDb();
+                String value4 = txt_name.getText();
+                id = UsersDetails.id;
+                String sql = "UPDATE users SET name='" + value4 + "' WHERE ID='" + id + "'";
+                pst = connection.prepareStatement(sql);
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Your name have been updated!");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please enter your new name");
+            alert.showAndWait();
+        }
+    }
+    @FXML
+    private void refreshTable() {
         try {
-            connection = com.example.project1.mysqlconnect.ConnectDb();
-            String value1 = txt_username.getText();
-            String value2 = txt_password.getText();
-            String value3 = txt_email.getText();
-            String sql ="UPDATE users SET username='"+value1+"',password='"+value2+"',email='"+value3+"' WHERE username='"+value1+"'";
-            pst=connection.prepareStatement(sql);
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Update!");
-        }catch (SQLException e){
-            JOptionPane.showMessageDialog(null,e);
+            data.clear();
+            id=UsersDetails.id;
+            String query = "SELECT * FROM users  WHERE ID='"+id+"' LIMIT 1" ;
+            pst = connection.prepareStatement(query);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                data.add(new UsersDetails(
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("email"),
+                        rs.getInt("id"),
+                        rs.getString("name")
+                ));
+                tableUser.setItems(data);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void switchToFav(ActionEvent event) throws IOException {

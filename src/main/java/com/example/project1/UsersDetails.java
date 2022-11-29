@@ -1,25 +1,32 @@
 package com.example.project1;
-import com.mysql.cj.conf.StringProperty;
-import com.sun.jdi.Value;
-import javafx.beans.property.SimpleStringProperty;
 
 public class UsersDetails {
+    public static int id;
     private static UsersDetails instance;
     private String password;
     private String email;
     private String username;
+    private String name;
 
-    UsersDetails (String username, String password, String email) {
+    public UsersDetails (String username, String password, String email,int id,String name) {
         this.username = username;
         this.password = password;
         this.email = email;
+        UsersDetails.id =id;
+        this.name=name;
     }
 
-    public static UsersDetails getInstance(String username ,String password, String email){
+
+    public static UsersDetails getInstance(String username , String password, String email, int id,String name){
         if (instance==null){
-            instance = new UsersDetails(username,password,email);
+            instance = new UsersDetails(username,password,email,id,name);
         }
         return instance;
+    }
+    public void cleanUserDetails() {
+        username = "";// or null
+        password = "";// or null
+        email="";
     }
     //getters
     public String getUsername() {
@@ -33,6 +40,12 @@ public class UsersDetails {
 
     public String getEmail() {
         return email;
+    }
+    public String getName(){
+        return name;
+    }
+    public  int getId(){
+        return id;
     }
 
 

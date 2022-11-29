@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="707.0" maxWidth="896.0" minHeight="513" minWidth="500" prefHeight="705.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.ProfileController">
    <children>
@@ -77,21 +86,33 @@
             </HBox>
          </top>
          <center>
-            <Pane prefHeight="454.0" prefWidth="446.0" style="-fx-background-color: #E5E4E2;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="454.0" prefWidth="446.0" style="-fx-background-color: #b3daff;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="welcomeText" layoutX="315.0" layoutY="43.0" text="Profile" />
-                  <Label fx:id="usrLabel" layoutX="49.0" layoutY="146.0" prefHeight="188.0" prefWidth="417.0" />
-                  <TableView fx:id="tableUser" layoutX="107.0" layoutY="103.0" prefHeight="240.0" prefWidth="461.0">
-                    <columns>
-                      <TableColumn fx:id="columnUsername" prefWidth="114.0" text="Username" />
-                      <TableColumn fx:id="columnPassword" prefWidth="109.0" text="Password" />
-                        <TableColumn fx:id="columnEmail" prefWidth="136.0" text="Email" />
-                    </columns>
+                  <Label fx:id="welcomeText" layoutX="313.0" layoutY="22.0" text="PROFILE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+                  <TableView fx:id="tableUser" layoutX="58.0" layoutY="103.0" prefHeight="58.0" prefWidth="494.0" style="-fx-background-color: transparent;" stylesheets="@Css/profileTableView.css">
+                     <columns>
+                        <TableColumn fx:id="columnUsername" prefWidth="132.0" text="Username" />
+                        <TableColumn fx:id="columnPassword" prefWidth="120.0" text="Password" />
+                        <TableColumn fx:id="columnEmail" prefWidth="131.0" text="Email" />
+                        <TableColumn fx:id="columnName" prefWidth="109.0" text="Name" />
+                     </columns>
                   </TableView>
-                  <Button fx:id="btnLoad" layoutX="319.0" layoutY="361.0" mnemonicParsing="false" onAction="#Edit" text="Edit" />
-                  <TextField fx:id="txt_username" layoutX="183.0" layoutY="465.0" />
-                  <TextField fx:id="txt_password" layoutX="183.0" layoutY="510.0" />
-                  <TextField fx:id="txt_email" layoutX="183.0" layoutY="549.0" />
+                  <Button fx:id="btnEdtUsr" layoutX="481.0" layoutY="353.0" mnemonicParsing="false" onAction="#EditUsername" stylesheets="@Css/profileButtons.css" text="Edit!" />
+                  <TextField fx:id="txt_username" layoutX="283.0" layoutY="353.0" promptText="Type your new username" style="-fx-background-color: #e6f3ff;" stylesheets="@Css/profileTextBox.css" />
+                  <TextField fx:id="txt_password" layoutX="284.0" layoutY="395.0" prefHeight="25.0" prefWidth="147.0" promptText="Type your new password" style="-fx-background-color: #e6f3ff;" />
+                  <TextField fx:id="txt_email" layoutX="283.0" layoutY="438.0" promptText="Type your new email" style="-fx-background-color: #e6f3ff;" />
+                  <Label layoutX="116.0" layoutY="353.0" prefHeight="24.0" prefWidth="138.0" stylesheets="@Css/profileLabes.css" text="Type your new username" />
+                  <Label layoutX="119.0" layoutY="399.0" stylesheets="@Css/profileLabes.css" text="Type your new password" />
+                  <Label layoutX="121.0" layoutY="442.0" stylesheets="@Css/profileLabes.css" text="Type your new email" />
+                  <TextField fx:id="txt_name" layoutX="284.0" layoutY="484.0" promptText="Type your new name" style="-fx-background-color: #e6f3ff;" />
+                  <Label layoutX="120.0" layoutY="479.0" stylesheets="@Css/profileLabes.css" text="Type your new name" />
+                  <Button layoutX="251.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#refreshTable" stylesheets="@Css/profileButtons.css" text="Refresh to see your new data!" />
+                  <Button fx:id="btnEdtPass" layoutX="481.0" layoutY="395.0" mnemonicParsing="false" onAction="#EditPassword" stylesheets="@Css/profileButtons.css" text="Edit!" />
+                  <Button fx:id="btnEdtEmail" layoutX="481.0" layoutY="438.0" mnemonicParsing="false" onAction="#EditEmail" stylesheets="@Css/profileButtons.css" text="Edit!" />
+                  <Button fx:id="btnEdtName" layoutX="481.0" layoutY="484.0" mnemonicParsing="false" onAction="#EditName" prefHeight="0.0" prefWidth="40.0" stylesheets="@Css/profileButtons.css" text="Edit!" />
                </children></Pane>
          </center>
       </BorderPane>
