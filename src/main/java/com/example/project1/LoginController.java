@@ -118,7 +118,7 @@ public class LoginController implements Initializable {
 
                     user=new User(username,password,name,email);
 
-                    System.out.println(user.name+user.password+user.name+user.email );
+                    System.out.println(user.name+" "+user.password+" "+user.name+" "+user.email);
 
 
                     btn_login.getScene().getWindow().hide();

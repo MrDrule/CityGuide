@@ -142,7 +142,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC" layoutX="-2.0" layoutY="127.0" prefHeight="306.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
+                                        <TableView fx:id="tableCC" layoutX="6.0" layoutY="2.0" prefHeight="602.0" prefWidth="662.0" stylesheets="@Css/TableView.css">
                                             <columns>
                                                 <TableColumn fx:id="colName" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="colAdd" prefWidth="192.80001831054688" style="-fx-alignment: center;" text="Address" />
@@ -154,11 +154,6 @@
                                                 <Insets right="10.0" />
                                             </opaqueInsets>
                                         </TableView>
-                                        <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="315.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" style="-fx-alignment: center;">
-                                            <image>
-                                                <Image url="@images/museum22.jpg" />
-                                            </image>
-                                        </ImageView>
                                     </children></AnchorPane>
                             </content>
                             <graphic>
@@ -173,7 +168,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC1" layoutY="131.0" prefHeight="304.0" prefWidth="663.0">
+                                        <TableView fx:id="tableCC1" layoutX="5.0" layoutY="2.0" prefHeight="604.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
                                                 <TableColumn fx:id="colName1" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="colAdd1" prefWidth="193.60000610351562" style="-fx-alignment: center;" text="Address" />
@@ -185,11 +180,6 @@
                                                 <Insets right="10.0" />
                                             </opaqueInsets>
                                         </TableView>
-                                        <ImageView fitHeight="56.0" fitWidth="55.0" layoutX="310.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/coffee2.png" />
-                                            </image>
-                                        </ImageView>
                                     </children></AnchorPane>
                             </content>
                             <graphic>
@@ -204,7 +194,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC11" layoutX="-2.0" layoutY="133.0" prefHeight="309.0" prefWidth="674.0">
+                                        <TableView fx:id="tableCC11" layoutX="4.0" layoutY="1.0" prefHeight="600.0" prefWidth="668.0" stylesheets="@Css/TableView.css">
                                             <columns>
                                                 <TableColumn fx:id="colName11" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="colAdd11" prefWidth="208.0" style="-fx-alignment: center;" text="Address" />
@@ -216,11 +206,6 @@
                                                 <Insets right="10.0" />
                                             </opaqueInsets>
                                         </TableView>
-                                        <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="306.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/restaurant2.png" />
-                                            </image>
-                                        </ImageView>
                                     </children></AnchorPane>
                             </content>
                             <graphic>
@@ -235,7 +220,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <WebView fx:id="webview2" layoutX="2.0" prefHeight="611.0" prefWidth="671.0" />
+                                        <WebView fx:id="webview2" layoutX="6.0" prefHeight="611.0" prefWidth="667.0" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -251,7 +236,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <WebView fx:id="webview3" prefHeight="613.0" prefWidth="675.0" />
+                                        <WebView fx:id="webview3" prefHeight="595.0" prefWidth="673.0" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -259,22 +244,6 @@
                                 <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@images/cloudy.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Tab>
-                        <Tab text="Tours">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
-                                    <children>
-                                        <WebView fx:id="webview4" prefHeight="616.0" prefWidth="675.0" />
-                                    </children>
-                                </AnchorPane>
-                            </content>
-                            <graphic>
-                                <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/bus.png" />
                                     </image>
                                 </ImageView>
                             </graphic>

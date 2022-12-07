@@ -1,5 +1,4 @@
-/*package com.example.project1;
-
+package com.example.project1;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.net.*;
@@ -17,7 +16,8 @@ public class mainAPI {
     private static HttpURLConnection connection;
 
     private static int count=0;
-    private static int shopID=0;
+    private static int shopparser=0;
+    private static int shoptodatabase=0;
 
     public static void main(String[] args) {
         ArrayList<String> requests = new ArrayList<String>();
@@ -65,6 +65,7 @@ public class mainAPI {
 
             // See if Business is Operational
             if (business_status.equals("OPERATIONAL")) {
+                shopparser=shopparser+1;
                 System.out.println("Business status:" + business_status);
                 // Name of place
                 String name = (String) jsonObject1.get("name");
@@ -123,6 +124,7 @@ public class mainAPI {
                 }
                 System.out.println(town_id);
                 System.out.println(" ");
+                System.out.println("Shop parse= "+shopparser);
 
                 //add shop to database
                 addShopToDatabase(Integer.valueOf(town_id), placeId, name, open_close.toString(), rating, vicinity, types.toString(),price_level);
@@ -148,6 +150,7 @@ public class mainAPI {
             preparedStatement.setString(7, type);
             preparedStatement.setDouble(8,price_level);
             preparedStatement.executeUpdate();
+            System.out.println("Shop to Database= "+shoptodatabase);
             int addedRows = preparedStatement.executeUpdate();
             if (addedRows > 0) {
                 shop = new Shop();
@@ -166,11 +169,18 @@ public class mainAPI {
         } catch (Exception var17) {
             var17.printStackTrace();
         }
+        System.out.println(shoptodatabase);
 
         return shop;
 
 
     }
+    public static int getShopparser(){
+        return shopparser;
+    }
+    public static int getShoptodatabase(){
+        return shoptodatabase;
+    }
 
 
-}*/
+}

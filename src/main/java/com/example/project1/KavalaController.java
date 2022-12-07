@@ -9,17 +9,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -28,10 +30,26 @@ public class KavalaController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    Connection conn=null;
+    ResultSet rs= null;
+    PreparedStatement pst = null;
+
     @FXML
     private Label label;
     @FXML
     private Button btnbtn;
+
+    @FXML
+    private WebView webview1;
+
+    @FXML
+    private WebView webview2;
+
+    @FXML
+    private WebView webview3;
+
+    @FXML
+    private WebView webview4;
 
     @FXML
     private TableView<DestList> tableCC;
@@ -50,6 +68,8 @@ public class KavalaController implements Initializable {
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav;
     @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId;
+    @FXML
     private TableColumn<DestList, SimpleStringProperty> colName1;
     @FXML
     private TableColumn<DestList,SimpleStringProperty> colAdd1;
@@ -59,6 +79,8 @@ public class KavalaController implements Initializable {
     private TableColumn<DestList, SimpleStringProperty> colPri1;
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav1;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId1;
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colName11;
     @FXML
@@ -70,23 +92,13 @@ public class KavalaController implements Initializable {
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav11;
     @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId11;
+    @FXML
     private ObservableList<DestList> data;
     @FXML
     private ObservableList<DestList> data2;
     @FXML
     private ObservableList<DestList> data3;
-
-    @FXML
-    private WebView webview1;
-
-    @FXML
-    private WebView webview2;
-
-    @FXML
-    private WebView webview3;
-
-    @FXML
-    private WebView webview4;
     private mysqlconnect connection;
 
 
@@ -97,17 +109,17 @@ public class KavalaController implements Initializable {
             data = FXCollections.observableArrayList();
             data2 = FXCollections.observableArrayList();
             data3 = FXCollections.observableArrayList();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=3 AND type LIKE '%museum%'");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 AND type LIKE '%museum%'");
             while (rs.next()) {
-                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getDouble(3),rs.getDouble(4)));
+                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
             }
-            ResultSet rs1 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=3 AND type LIKE '%cafe%'");
+            ResultSet rs1 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 AND type LIKE '%cafe%'");
             while (rs1.next()) {
-                data2.add(new DestList(rs1.getString(1), rs1.getString(2), rs1.getDouble(3),rs1.getDouble(4)));
+                data2.add(new DestList(rs1.getString(1), rs1.getString(2), rs1.getString(3),rs1.getString(4),rs1.getString(5)));
             }
-            ResultSet rs2 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=3 AND type LIKE '%restaurant%'");
+            ResultSet rs2 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 AND type LIKE '%restaurant%'");
             while (rs2.next()) {
-                data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getDouble(3),rs2.getDouble(4)));
+                data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5)));
             }
         } catch (SQLException e) {
             System.err.println("Error" + e);
@@ -116,18 +128,76 @@ public class KavalaController implements Initializable {
         colAdd.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
 
         colName1.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colAdd1.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat1.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri1.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId1.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
 
         colName11.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colAdd11.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat11.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri11.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId11.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
 
-        tableCC.setItems(null);
+        Callback<TableColumn<DestList, SimpleStringProperty>, TableCell<DestList, SimpleStringProperty>> cellFactory=(param) -> {
+            //Make the tablecell containing button
+            final TableCell<DestList,SimpleStringProperty> cell=new TableCell<DestList,SimpleStringProperty>(){
+
+                //override updatItem method
+                @Override
+                public void updateItem(SimpleStringProperty item, boolean empty){
+                    super.updateItem(item, empty);
+                    if(empty){setGraphic(null);setText(null);}
+                    else {
+                        DestList p = getTableView().getItems().get(getIndex());
+
+                        //Creating the action button
+                        final Button editButton = new Button("♡");
+                        editButton.setOnAction(event -> {
+                            if (User.username != null) {
+                                String username=User.username;
+                                String Name= p.getName();
+                                String Address= p.getAddress();
+                                String Rating=p.getRating();
+                                conn = com.example.project1.mysqlconnect.ConnectDb();
+                                String sql = "INSERT INTO favourite (username, name, vicinity, rating, town_id) VALUES (?,?,?,?,?)";
+                                try {
+                                    pst = conn.prepareStatement(sql);
+                                    pst.setString(1, username);
+                                    pst.setString(2, Name);
+                                    pst.setString(3, Address);
+                                    pst.setString(4, Rating);
+                                    pst.setString(5, "3");
+                                    pst.execute();
+
+                                } catch (Exception e) {
+                                    JOptionPane.showMessageDialog(null, e);
+                                }
+
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You added \n" + p.getName() + " to your Favorites!");
+                                alert.show();
+
+                            }});
+                        setGraphic(editButton);
+                        setText(null);
+
+                    }
+                };
+
+
+            };
+
+            //return the cell created
+            return cell;};
+
+        colFav.setCellFactory(cellFactory);
+        colFav1.setCellFactory(cellFactory);
+        colFav11.setCellFactory(cellFactory);
+
         tableCC.setItems(data);
 
         tableCC1.setItems(null);
@@ -136,42 +206,23 @@ public class KavalaController implements Initializable {
         tableCC11.setItems(null);
         tableCC11.setItems(data3);
 
-        //Loading Webviews
-        WebEngine webEngine = webview1.getEngine();
-        webEngine.load("https://www.google.com/maps/place/%CE%9A%CE%B1%CE%B2%CE%AC%CE%BB%CE%B1/@40.9368859,24.3869726,14z/data=!3m1!4b1!4m5!3m4!1s0x14aebb729066fc01:0xf567e137446a476c!8m2!3d40.937607!4d24.412866");
 
-        webEngine = webview2.getEngine();
-        webEngine.load("https://www.kavalanews.gr/");
+       WebEngine webEngine = webview1.getEngine();
+       webEngine.load("https://snazzymaps.com/embed/443693");
 
-        webEngine = webview3.getEngine();
-        webEngine.load("https://www.okairos.gr/%CE%BA%CE%B1%CE%B2%CE%AC%CE%BB%CE%B1.html");
 
-        webEngine = webview4.getEngine();
-        webEngine.load("https://www.visitkavala.gr/");
-    }
+       webEngine = webview2.getEngine();
+       webEngine.load("https://www.protothema.gr/tag/kabala/");
 
-    @FXML
-    private void loadDataFromDatabase (javafx.event.ActionEvent event){
-        try {
-            Connection conn = connection.ConnectDb();
-            data = FXCollections.observableArrayList();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=3 AND type LIKE '%museum%'");
-            while (rs.next()) {
-                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getDouble(3),rs.getDouble(4)));
+       //webEngine = webview3.getEngine();
+       //webEngine.load("https://forecast7.com/en/40d9424d41/kavala/");
+      // webEngine = webview3.getEngine();
+      // File f = new File("C:\\Users\\pan_d\\IdeaProjects\\cityguidefx\\src\\main\\java\\com\\example\\project1\\form.html");
+      // webEngine.load(f.toURI().toString());
 
-            }
-        } catch (SQLException e) {
-            System.err.println("Error" + e);
-        }
-
-        colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        colAdd.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        colRat.setCellValueFactory(new PropertyValueFactory<>("Rating"));
-        colPri.setCellValueFactory(new PropertyValueFactory<>("Price"));
-        tableCC.setItems(null);
-        tableCC.setItems(data);
 
     }
+
 
 
     public void switchToMenu(ActionEvent event) throws IOException {
@@ -192,19 +243,26 @@ public class KavalaController implements Initializable {
     }
 
     public void switchToProf(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        if (User.username != null) {
+            Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please Login to check your connection's information!");
+            alert.showAndWait();
+        }
+    }
+    public void switchToReg(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToReg(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
 }
-

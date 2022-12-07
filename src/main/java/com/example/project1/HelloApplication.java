@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
 
         stage.setWidth(916);
         stage.setHeight(740);
-        stage.setX(700);
+        stage.setX(300);
         stage.setY(100);
         stage.setResizable(false);
 

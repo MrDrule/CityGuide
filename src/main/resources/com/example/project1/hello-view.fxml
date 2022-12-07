@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,14 +12,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="707.0" maxWidth="896.0" minHeight="513" minWidth="500" prefHeight="705.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
+<AnchorPane maxHeight="707.0" maxWidth="900.0" minHeight="513" minWidth="500" prefHeight="706.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.HelloController">
    <children>
       <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="707.0" prefWidth="903.0">
          <left>
             <AnchorPane prefHeight="628.0" prefWidth="228.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="20.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="41.0" prefWidth="204.0" stylesheets="@Css/buttonhome.css" text="Home" textFill="#001233" />
+                  <Button layoutX="20.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="41.0" prefWidth="204.0" stylesheets="@Css/buttonhome.css" text="Home" textFill="#001233">
+                     <font>
+                        <Font name="Century" size="12.0" />
+                     </font></Button>
                   <ImageView fitHeight="24.0" fitWidth="21.0" layoutX="78.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/home_1.png" />
@@ -40,7 +42,10 @@
                                     <Image url="@images/user.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <font>
+                              <Font name="Century" size="12.0" />
+                           </font></Button>
                      </children>
                   </VBox>
                   <VBox layoutX="16.0" layoutY="109.0" prefHeight="53.0" prefWidth="212.0">
@@ -56,6 +61,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <font>
+                              <Font name="Century" size="12.0" />
+                           </font>
                         </Button>
                      </children>
                   </VBox>
@@ -66,7 +74,7 @@
          <top>
             <HBox prefHeight="65.0" prefWidth="903.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="61.0" prefWidth="108.0" text="City Guide" textFill="#bfa181">
+                  <Label prefHeight="61.0" prefWidth="224.0" text="City Guide" textFill="#bfa181">
                      <font>
                         <Font name="Bell MT Italic" size="25.0" />
                      </font>
@@ -85,60 +93,129 @@
             </HBox>
          </top>
          <center>
-            <VBox prefHeight="454.0" prefWidth="446.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="643.0" prefWidth="669.0" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane prefHeight="647.0" prefWidth="714.0" style="-fx-background-color: #c8d8e4;" stylesheets="@custom-theme.css" tabClosingPolicy="UNAVAILABLE">
-                     <tabs>
-                        <Tab text="Cities">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="853.0" style="-fx-background-color: #E5E4E2;">
-                                 <children>
-                                    <Label layoutX="174.0" layoutY="384.0" />
-                                    <Label layoutX="89.0" layoutY="14.0" prefHeight="17.0" prefWidth="431.0" text="Επιλέξτε την πόλη για την οποία ενδιαφέρεστε" textFill="#001233" wrapText="true">
-                                       <font>
-                                          <Font name="Bell MT Italic" size="21.0" />
-                                       </font>
-                                    </Label>
-                                    <ImageView accessibleRole="HYPERLINK" fitHeight="178.0" fitWidth="245.0" layoutX="59.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/serres.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView accessibleRole="HYPERLINK" fitHeight="166.0" fitWidth="245.0" layoutX="382.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/drama.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView accessibleRole="HYPERLINK" fitHeight="178.0" fitWidth="245.0" layoutX="59.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/kavala.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView accessibleRole="HYPERLINK" fitHeight="178.0" fitWidth="245.0" layoutX="382.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/klks1.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Button layoutX="59.0" layoutY="57.0" mnemonicParsing="false" onAction="#swichToSerres" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
-                                    <Button layoutX="382.0" layoutY="297.0" mnemonicParsing="false" onAction="#switchToKilkis" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
-                                    <Button layoutX="59.0" layoutY="302.0" mnemonicParsing="false" onAction="#switchToKavala" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
-                                    <Button layoutX="376.0" layoutY="58.0" mnemonicParsing="false" onAction="#switchToDrama" prefHeight="165.0" prefWidth="246.0" style="-fx-background-color: transparent;" />
-                                    <Button layoutX="46.0" layoutY="526.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="583.0" stylesheets="@Css/buttonhome.css" text="Περισσότερες πόλεις" textFill="#001233">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Button>
-                                    <Button layoutX="59.0" layoutY="230.0" mnemonicParsing="false" onAction="#swichToSerres" prefHeight="25.0" prefWidth="84.0" stylesheets="@Css/citiesbuttons.css" text="Σέρρες" textFill="#e5e4e2" />
-                                    <Button layoutX="382.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchToDrama" prefHeight="25.0" prefWidth="84.0" stylesheets="@Css/citiesbuttons.css" text="Δράμα" textFill="#e5e4e2" />
-                                    <Button layoutX="382.0" layoutY="474.0" mnemonicParsing="false" onAction="#switchToKilkis" prefHeight="25.0" prefWidth="84.0" stylesheets="@Css/citiesbuttons.css" text="Κιλκίς" textFill="#e5e4e2" />
-                                    <Button layoutX="59.0" layoutY="474.0" mnemonicParsing="false" onAction="#switchToKavala" prefHeight="25.0" prefWidth="84.0" stylesheets="@Css/citiesbuttons.css" text="Καβάλα" textFill="#e5e4e2" />
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </Tab>
-                     </tabs>
-                  </TabPane>
-               </children></VBox>
+                  <ImageView fitHeight="642.0" fitWidth="672.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/pexels-wendy-wei-14375280.jpg" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane layoutX="303.0" prefHeight="643.0" prefWidth="356.0" style="-fx-background-color: rgba(31, 29, 40,0.8);">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="62.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToProf" prefHeight="130.0" prefWidth="308.0" stylesheets="@Css/MenuButtons.css" textFill="#e5e4e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="131.0" fitWidth="164.0" layoutX="207.0" layoutY="14.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/drama.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="113.0" layoutY="14.0" prefHeight="29.0" prefWidth="63.0" text="Δράμα" textFill="#bfa181">
+                           <font>
+                              <Font name="Bell MT Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Text fill="#bfa181" layoutX="92.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η πόλη των νερών και του πολιτισμού!" wrappingWidth="104.13671875">
+                           <font>
+                              <Font name="Arial Narrow Italic" size="18.0" />
+                           </font>
+                        </Text>
+                        <Button alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="64.0" layoutY="164.0" mnemonicParsing="false" onAction="#switchToProf" prefHeight="130.0" prefWidth="308.0" stylesheets="@Css/MenuButtons.css" textFill="#e5e4e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="131.0" fitWidth="164.0" layoutX="207.0" layoutY="164.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/kavala.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="113.0" layoutY="164.0" prefHeight="29.0" prefWidth="63.0" text="Καβάλα" textFill="#bfa181">
+                           <font>
+                              <Font name="Bell MT Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Text fill="#bfa181" layoutX="101.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η «Βασίλισσα του Βορρά» ! " wrappingWidth="104.13671875">
+                           <font>
+                              <Font name="Arial Narrow Italic" size="18.0" />
+                           </font>
+                        </Text>
+                        <Button alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="64.0" layoutY="315.0" mnemonicParsing="false" onAction="#switchToProf" prefHeight="130.0" prefWidth="308.0" stylesheets="@Css/MenuButtons.css" textFill="#e5e4e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="131.0" fitWidth="164.0" layoutX="207.0" layoutY="315.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/serres.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="113.0" layoutY="315.0" prefHeight="29.0" prefWidth="63.0" text="Σέρρες" textFill="#bfa181">
+                           <font>
+                              <Font name="Bell MT Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Text fill="#bfa181" layoutX="96.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Μια πόλη περικυκλωμένη από αμέτρητες ομορφιές!" wrappingWidth="117.13671875">
+                           <font>
+                              <Font name="Arial Narrow Italic" size="18.0" />
+                           </font>
+                        </Text>
+                        <Button alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="64.0" layoutY="469.0" mnemonicParsing="false" onAction="#switchToProf" prefHeight="130.0" prefWidth="308.0" stylesheets="@Css/MenuButtons.css" textFill="#e5e4e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label layoutX="123.0" layoutY="469.0" prefHeight="29.0" prefWidth="63.0" text="Κιλκίς" textFill="#bfa181">
+                           <font>
+                              <Font name="Bell MT Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="131.0" fitWidth="164.0" layoutX="207.0" layoutY="469.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/klks1.jpg" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#bfa181" layoutX="96.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ανόθευτη φύση και μαγευτικά τοπία!" wrappingWidth="117.13671875">
+                           <font>
+                              <Font name="Arial Narrow Italic" size="18.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="60.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToDrama" prefHeight="132.0" prefWidth="311.0" style="-fx-background-color: transparent;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="62.0" layoutY="314.0" mnemonicParsing="false" onAction="#swichToSerres" prefHeight="132.0" prefWidth="311.0" style="-fx-background-color: transparent;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="58.0" layoutY="164.0" mnemonicParsing="false" onAction="#switchToKavala" prefHeight="132.0" prefWidth="311.0" style="-fx-background-color: transparent;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="61.0" layoutY="469.0" mnemonicParsing="false" onAction="#switchToKilkis" prefHeight="132.0" prefWidth="311.0" style="-fx-background-color: transparent;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Text fill="#bfa181" layoutX="19.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Εξερευνήστε τις πόλεις της Μακεδονίας." wrappingWidth="255.13671875">
+                     <font>
+                        <Font name="Century" size="40.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#001233" layoutX="16.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Επιλέξτε την πόλη στην οπόια ενδιαφέρεστε να ταξιδέψετε και βρείτε όλα όσα θα χρειαστείτε!" wrappingWidth="260.13671875">
+                     <font>
+                        <Font name="Century Gothic" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </center>
       </BorderPane>
    </children>

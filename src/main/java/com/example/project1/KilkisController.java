@@ -33,8 +33,6 @@ public class KilkisController implements Initializable {
     private WebView webview2;
     @FXML
     private WebView webview3;
-    @FXML
-    private WebView webview4;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -128,36 +126,32 @@ public class KilkisController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Map Loading
         WebEngine webEngine = webview.getEngine();
-        webEngine.load("https://www.google.com/maps/place/%CE%9A%CE%B9%CE%BB%CE%BA%CE%AF%CF%82+611+00/@40.992912,22.8574582,14z/data=!3m1!4b1!4m5!3m4!1s0x14a9cf6222008cf5:0xa35079a23d0fb394!8m2!3d40.9937071!4d22.8753674");
+        webEngine.load("https://snazzymaps.com/embed/443695");
 
 
         webEngine = webview2.getEngine();
-        webEngine.load("https://www.kilkispress.com/");
+        webEngine.load("https://www.protothema.gr/tag/kilkis/");
 
 
         webEngine = webview3.getEngine();
-        webEngine.load("https://www.okairos.gr/%CE%BA%CE%B9%CE%BB%CE%BA%CE%AF%CF%82.html");
-
-
-        webEngine = webview4.getEngine();
-        webEngine.load("https://www.parisistours.gr/");
+        webEngine.load("https://forecast7.com/en/40d9922d88/kilkis/");
 
         try {
             Connection conn = connection.ConnectDb();
             data = FXCollections.observableArrayList();
             data2 = FXCollections.observableArrayList();
             data3 = FXCollections.observableArrayList();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=4 AND type LIKE '%museum%'");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=4 AND type LIKE '%museum%'");
             while (rs.next()) {
-                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getDouble(3),rs.getDouble(4)));
+                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
             }
-            ResultSet rs1 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=4 AND type LIKE '%cafe%'");
+            ResultSet rs1 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=4 AND type LIKE '%cafe%'");
             while (rs1.next()) {
-                data2.add(new DestList(rs1.getString(1), rs1.getString(2), rs1.getDouble(3),rs1.getDouble(4)));
+                data2.add(new DestList(rs1.getString(1), rs1.getString(2), rs1.getString(3),rs1.getString(4),rs1.getString(5)));
             }
-            ResultSet rs2 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=4 AND type LIKE '%restaurant%'");
+            ResultSet rs2 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=4 AND type LIKE '%restaurant%'");
             while (rs2.next()) {
-                data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getDouble(3),rs2.getDouble(4)));
+                data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5)));
             }
         } catch (SQLException e) {
             System.err.println("Error" + e);
@@ -185,6 +179,28 @@ public class KilkisController implements Initializable {
 
         tableCC11.setItems(null);
         tableCC11.setItems(data3);
+
+    }
+    @FXML
+    private void loadDataFromDatabase (javafx.event.ActionEvent event){
+        try {
+            Connection conn = connection.ConnectDb();
+            data = FXCollections.observableArrayList();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=4 AND type LIKE '%museum%'");
+            while (rs.next()) {
+                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
+
+            }
+        } catch (SQLException e) {
+            System.err.println("Error" + e);
+        }
+        colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        colAdd.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        colRat.setCellValueFactory(new PropertyValueFactory<>("Rating"));
+        colPri.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
+        tableCC.setItems(null);
+        tableCC.setItems(data);
 
     }
 

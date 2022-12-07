@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,11 +33,15 @@ public class SerresController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
+    private Button btnbtn;
+    @FXML
     private TableView<DestList> tableCC;
     @FXML
     private TableView<DestList> tableCC1;
     @FXML
     private TableView<DestList> tableCC11;
+    @FXML
+    private TableView<DestList> tablecc12;
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colName;
     @FXML
@@ -68,11 +73,23 @@ public class SerresController implements Initializable {
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav11;
     @FXML
+    private TableColumn<DestList, SimpleStringProperty> colName12;
+    @FXML
+    private TableColumn<DestList,SimpleStringProperty> colAdd12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colRat12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPri12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colFav12;
+    @FXML
     private ObservableList<DestList> data;
     @FXML
     private ObservableList<DestList> data2;
     @FXML
     private ObservableList<DestList> data3;
+    @FXML
+    private ObservableList<DestList> data4;
 
     @FXML
     private WebView webview1;
@@ -136,17 +153,22 @@ public class SerresController implements Initializable {
             data = FXCollections.observableArrayList();
             data2 = FXCollections.observableArrayList();
             data3 = FXCollections.observableArrayList();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=1 AND type LIKE '%museum%'");
+            data4 = FXCollections.observableArrayList();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=1 AND type LIKE '%museum%'");
             while (rs.next()) {
-                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getDouble(3),rs.getDouble(4)));
+                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
             }
-            ResultSet rs1 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=1 AND type LIKE '%cafe%'");
+            ResultSet rs1 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=1 AND type LIKE '%cafe%'");
             while (rs1.next()) {
-                data2.add(new DestList(rs1.getString(1), rs1.getString(2), rs1.getDouble(3),rs1.getDouble(4)));
+                data2.add(new DestList(rs1.getString(1), rs1.getString(2), rs1.getString(3),rs1.getString(4),rs1.getString(5)));
             }
-            ResultSet rs2 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=1 AND type LIKE '%restaurant%'");
+            ResultSet rs2 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=1 AND type LIKE '%restaurant%'");
             while (rs2.next()) {
-                data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getDouble(3),rs2.getDouble(4)));
+                data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5)));
+            }
+            ResultSet rs3 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=1 ORDER BY RAND() LIMIT 13");
+            while (rs3.next()) {
+                data4.add(new DestList(rs3.getString(1), rs3.getString(2), rs3.getString(3),rs3.getString(4),rs3.getString(5)));
             }
         } catch (SQLException e) {
             System.err.println("Error" + e);
@@ -166,6 +188,11 @@ public class SerresController implements Initializable {
         colRat11.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri11.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
+        colName12.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        colAdd12.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        colRat12.setCellValueFactory(new PropertyValueFactory<>("Rating"));
+        colPri12.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
         tableCC.setItems(null);
         tableCC.setItems(data);
 
@@ -175,18 +202,19 @@ public class SerresController implements Initializable {
         tableCC11.setItems(null);
         tableCC11.setItems(data3);
 
+        tablecc12.setItems(null);
+        tablecc12.setItems(data4);
+
         //Loading Webviews
         WebEngine webEngine = webview1.getEngine();
-        webEngine.load("https://www.google.com/maps/@41.0893563,23.5501143,14z");
+        webEngine.load("https://snazzymaps.com/embed/443690");
 
         webEngine = webview2.getEngine();
-        webEngine.load("https://serraikanea.gr/");
+        webEngine.load("https://www.protothema.gr/tag/serres/");
 
         webEngine = webview3.getEngine();
-        webEngine.load("https://www.okairos.gr/%CF%83%CE%AD%CF%81%CF%81%CE%B5%CF%82.html");
+        webEngine.load("https://forecast7.com/en/41d0923d54/serres/");
 
-        webEngine = webview4.getEngine();
-        webEngine.load("https://www.tripadvisor.com.gr/Attractions-g658696-Activities-Serres_Serres_Region_Central_Macedonia.html");
     }
 
     @FXML
@@ -194,22 +222,21 @@ public class SerresController implements Initializable {
         try {
             Connection conn = connection.ConnectDb();
             data = FXCollections.observableArrayList();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level FROM cityguide.places WHERE town_id=3 AND type LIKE '%museum%'");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=4 AND type LIKE '%museum%'");
             while (rs.next()) {
-                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getDouble(3),rs.getDouble(4)));
+                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
 
             }
         } catch (SQLException e) {
             System.err.println("Error" + e);
         }
-
         colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colAdd.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
         tableCC.setItems(null);
         tableCC.setItems(data);
-
 
     }
 }
