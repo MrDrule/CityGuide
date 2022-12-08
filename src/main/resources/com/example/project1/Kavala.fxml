@@ -266,6 +266,37 @@
                                 </ImageView>
                             </graphic>
                         </Tab>
+                        <Tab text="Recommended">
+                            <content>
+
+                                <AnchorPane style="-fx-background-color: #E5E4E2;">
+                                    <children>
+                                        <TableView fx:id="tableCC12" layoutX="14.0" layoutY="112.0" prefHeight="492.0" prefWidth="652.0" stylesheets="@Css/profileTableView.css">
+                                            <columns>
+                                                <TableColumn fx:id="colName12" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd12" prefWidth="208.0" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colRat12" prefWidth="90.4000244140625" style="-fx-alignment: center;" text="Rating" />
+                                                <TableColumn fx:id="colPri12" prefWidth="76.7999267578125" style="-fx-alignment: center;" text="Price Level" />
+                                                <TableColumn fx:id="colFav12" prefWidth="143.2000732421875" style="-fx-alignment: center;" text="Add To Favorites" />
+                                                <TableColumn fx:id="colPlcId12" prefWidth="75.0" text="PlaceId" visible="false" />
+                                            </columns>
+                                        </TableView>
+                                        <Label layoutX="188.0" layoutY="46.0" prefHeight="34.0" prefWidth="298.0" text="Recommended for Today">
+                                            <font>
+                                                <Font name="Calisto MT Bold" size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                            <graphic>
+                                <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/social-media.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Tab>
                     </tabs>
                 </TabPane>
             </center>

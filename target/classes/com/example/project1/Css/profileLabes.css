@@ -1,0 +1,20 @@
+.label
+{
+    -fx-background-color: transparent;
+    /*-fx-background-radius: 30 0 0 30;
+    -fx-padding-bottom: 50;*/
+}
+
+/*.button:hover
+{
+    -fx-background-color:  #CAC0B3;
+    -fx-background-radius: 30 0 0 30;
+    -fx-text-fill: #001233;
+}
+
+.button:pressed
+{
+
+    -fx-background-color:   #566D7E;
+    -fx-background-radius: 30 0 0 30;
+}*/

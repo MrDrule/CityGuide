@@ -9,9 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebEngine;
 
@@ -20,10 +18,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -32,6 +33,16 @@ public class DramaController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    Connection conn=null;
+    ResultSet rs= null;
+    PreparedStatement pst = null;
+
+    public TableColumn colPlcId11;
+    public TableColumn colPlcId1;
+
+    public TableColumn colPlcId12;
+    public TableColumn colPlcId;
+
 
     @FXML
     private WebView webview;
@@ -47,7 +58,8 @@ public class DramaController implements Initializable {
     private TableView<DestList> tableCC1;
     @FXML
     private TableView<DestList> tableCC11;
-    private TableView<DestList> tablecc12;
+    @FXML
+    private TableView<DestList> tableCC12;
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colName;
     @FXML
@@ -155,6 +167,10 @@ public class DramaController implements Initializable {
             while (rs2.next()) {
                 data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5)));
             }
+            ResultSet rs3 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=2 ORDER BY RAND() LIMIT 13");
+            while (rs3.next()) {
+                data4.add(new DestList(rs3.getString(1), rs3.getString(2), rs3.getString(3),rs3.getString(4),rs3.getString(5)));
+            }
         } catch (SQLException e) {
             System.err.println("Error" + e);
         }
@@ -162,16 +178,82 @@ public class DramaController implements Initializable {
         colAdd.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
 
         colName1.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colAdd1.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat1.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri1.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId1.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
 
         colName11.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colAdd11.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colRat11.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri11.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId11.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
+
+        colName12.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        colAdd12.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        colRat12.setCellValueFactory(new PropertyValueFactory<>("Rating"));
+        colPri12.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId12.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
+
+        Callback<TableColumn<DestList, SimpleStringProperty>, TableCell<DestList, SimpleStringProperty>> cellFactory=(param) -> {
+            //Make the tablecell containing button
+            final TableCell<DestList,SimpleStringProperty> cell=new TableCell<DestList,SimpleStringProperty>(){
+
+                //override updatItem method
+                @Override
+                public void updateItem(SimpleStringProperty item, boolean empty){
+                    super.updateItem(item, empty);
+                    if(empty){setGraphic(null);setText(null);}
+                    else {
+                        DestList p = getTableView().getItems().get(getIndex());
+
+                        //Creating the action button
+                        final Button editButton = new Button("♡");
+                        editButton.setOnAction(event -> {
+                            if (User.username != null) {
+                                String username=User.username;
+                                String Name= p.getName();
+                                String Address= p.getAddress();
+                                String Rating=p.getRating();
+                                conn = com.example.project1.mysqlconnect.ConnectDb();
+                                String sql = "INSERT INTO favourite (username, name, vicinity, rating, town_id) VALUES (?,?,?,?,?)";
+                                try {
+                                    pst = conn.prepareStatement(sql);
+                                    pst.setString(1, username);
+                                    pst.setString(2, Name);
+                                    pst.setString(3, Address);
+                                    pst.setString(4, Rating);
+                                    pst.setString(5, "3");
+                                    pst.execute();
+
+                                } catch (Exception e) {
+                                    JOptionPane.showMessageDialog(null, e);
+                                }
+
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You added \n" + p.getName() + " to your Favorites!");
+                                alert.show();
+
+                            }});
+                        setGraphic(editButton);
+                        setText(null);
+
+                    }
+                };
+
+
+            };
+
+            //return the cell created
+            return cell;};
+
+        colFav.setCellFactory(cellFactory);
+        colFav1.setCellFactory(cellFactory);
+        colFav11.setCellFactory(cellFactory);
+        colFav12.setCellFactory(cellFactory);
 
         tableCC.setItems(null);
         tableCC.setItems(data);
@@ -182,8 +264,8 @@ public class DramaController implements Initializable {
         tableCC11.setItems(null);
         tableCC11.setItems(data3);
 
-        //tablecc12.setItems(null);
-        //tablecc12.setItems(data4);
+        tableCC12.setItems(null);
+        tableCC12.setItems(data4);
 
         //Map Loading
         WebEngine webEngine = webview.getEngine();

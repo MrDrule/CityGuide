@@ -58,6 +58,8 @@ public class KavalaController implements Initializable {
     @FXML
     private TableView<DestList> tableCC11;
     @FXML
+    private TableView<DestList> tableCC12;
+    @FXML
     private TableColumn<DestList, SimpleStringProperty> colName;
     @FXML
     private TableColumn<DestList,SimpleStringProperty> colAdd;
@@ -94,11 +96,26 @@ public class KavalaController implements Initializable {
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colPlcId11;
     @FXML
+    private TableColumn<DestList, SimpleStringProperty> colName12;
+    @FXML
+    private TableColumn<DestList,SimpleStringProperty> colAdd12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colRat12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPri12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colFav12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId12;
+
+    @FXML
     private ObservableList<DestList> data;
     @FXML
     private ObservableList<DestList> data2;
     @FXML
     private ObservableList<DestList> data3;
+    @FXML
+    private ObservableList<DestList> data4;
     private mysqlconnect connection;
 
 
@@ -109,6 +126,7 @@ public class KavalaController implements Initializable {
             data = FXCollections.observableArrayList();
             data2 = FXCollections.observableArrayList();
             data3 = FXCollections.observableArrayList();
+            data4 = FXCollections.observableArrayList();
             ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 AND type LIKE '%museum%'");
             while (rs.next()) {
                 data.add(new DestList(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
@@ -120,6 +138,10 @@ public class KavalaController implements Initializable {
             ResultSet rs2 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 AND type LIKE '%restaurant%'");
             while (rs2.next()) {
                 data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5)));
+            }
+            ResultSet rs3 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 ORDER BY RAND() LIMIT 13");
+            while (rs3.next()) {
+                data4.add(new DestList(rs3.getString(1), rs3.getString(2), rs3.getString(3),rs3.getString(4),rs3.getString(5)));
             }
         } catch (SQLException e) {
             System.err.println("Error" + e);
@@ -141,6 +163,12 @@ public class KavalaController implements Initializable {
         colRat11.setCellValueFactory(new PropertyValueFactory<>("Rating"));
         colPri11.setCellValueFactory(new PropertyValueFactory<>("Price"));
         colPlcId11.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
+
+        colName12.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        colAdd12.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        colRat12.setCellValueFactory(new PropertyValueFactory<>("Rating"));
+        colPri12.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colPlcId12.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
 
         Callback<TableColumn<DestList, SimpleStringProperty>, TableCell<DestList, SimpleStringProperty>> cellFactory=(param) -> {
             //Make the tablecell containing button
@@ -197,6 +225,7 @@ public class KavalaController implements Initializable {
         colFav.setCellFactory(cellFactory);
         colFav1.setCellFactory(cellFactory);
         colFav11.setCellFactory(cellFactory);
+        colFav12.setCellFactory(cellFactory);
 
         tableCC.setItems(data);
 
@@ -205,6 +234,9 @@ public class KavalaController implements Initializable {
 
         tableCC11.setItems(null);
         tableCC11.setItems(data3);
+
+        tableCC12.setItems(null);
+        tableCC12.setItems(data4);
 
 
        WebEngine webEngine = webview1.getEngine();
