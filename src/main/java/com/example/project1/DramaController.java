@@ -21,6 +21,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -37,12 +38,6 @@ public class DramaController implements Initializable {
     ResultSet rs= null;
     PreparedStatement pst = null;
 
-    public TableColumn colPlcId11;
-    public TableColumn colPlcId1;
-
-    public TableColumn colPlcId12;
-    public TableColumn colPlcId;
-
 
     @FXML
     private WebView webview;
@@ -51,6 +46,9 @@ public class DramaController implements Initializable {
     private WebView webview3;
     @FXML
     private WebView webview4;
+
+    @FXML
+    private WebView webview5;
 
     @FXML
     private TableView<DestList> tableCC;
@@ -71,6 +69,10 @@ public class DramaController implements Initializable {
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav;
     @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colRating;
+    @FXML
     private TableColumn<DestList, SimpleStringProperty> colName1;
     @FXML
     private TableColumn<DestList,SimpleStringProperty> colAdd1;
@@ -80,6 +82,10 @@ public class DramaController implements Initializable {
     private TableColumn<DestList, SimpleStringProperty> colPri1;
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav1;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId1;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colRating1;
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colName11;
     @FXML
@@ -91,6 +97,10 @@ public class DramaController implements Initializable {
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav11;
     @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId11;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colRating11;
+    @FXML
     private TableColumn<DestList, SimpleStringProperty> colName12;
     @FXML
     private TableColumn<DestList,SimpleStringProperty> colAdd12;
@@ -100,6 +110,10 @@ public class DramaController implements Initializable {
     private TableColumn<DestList, SimpleStringProperty> colPri12;
     @FXML
     private TableColumn<DestList, SimpleStringProperty> colFav12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colPlcId12;
+    @FXML
+    private TableColumn<DestList, SimpleStringProperty> colRating12;
     @FXML
     private ObservableList<DestList> data;
     @FXML
@@ -255,6 +269,46 @@ public class DramaController implements Initializable {
         colFav11.setCellFactory(cellFactory);
         colFav12.setCellFactory(cellFactory);
 
+        Callback<TableColumn<DestList, SimpleStringProperty>, TableCell<DestList, SimpleStringProperty>> cellFactory2=(param) -> {
+            //Make the tablecell containing button
+            final TableCell<DestList,SimpleStringProperty> cell=new TableCell<DestList,SimpleStringProperty>(){
+
+
+                //override updatItem method
+                @Override
+                public void updateItem(SimpleStringProperty item, boolean empty){
+                    super.updateItem(item, empty);
+                    if(empty){setGraphic(null);setText(null);}
+                    else {
+                        DestList p = getTableView().getItems().get(getIndex());
+                        //Creating the action button
+                        final Button editButton = new Button("☆");
+                        editButton.setOnAction(event -> {
+                            try {
+                                String Name= p.getName();
+                                RatingPlace rate= new RatingPlace(Name);
+                                Parent parent = FXMLLoader.load(getClass().getResource("Rating.fxml"));
+                                Scene scene = new Scene(parent);
+                                Stage stage = new Stage();
+                                stage.setScene(scene);
+                                stage.initStyle(StageStyle.UTILITY);
+                                stage.show();
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(null, e);
+                            }
+
+                        });
+                        setGraphic(editButton);
+                        setText(null);
+
+                    }};};
+            //return the cell created
+            return cell;};
+        colRating.setCellFactory(cellFactory2);
+        colRating1.setCellFactory(cellFactory2);
+        colRating11.setCellFactory(cellFactory2);
+        colRating12.setCellFactory(cellFactory2);
+
         tableCC.setItems(null);
         tableCC.setItems(data);
 
@@ -276,6 +330,10 @@ public class DramaController implements Initializable {
 
         webEngine = webview4.getEngine();
         webEngine.load("https://travelexplore.gr/drastiriotites/");
+
+        webEngine = webview5.getEngine();
+        File h = new File("src/main/java/com/example/project1/dramaweather.html");
+        webEngine.load(h.toURI().toString());
 
     }
 

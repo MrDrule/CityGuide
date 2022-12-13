@@ -95,31 +95,26 @@
                             <content>
                                 <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Δράμα είναι πόλη της ανατολικής Μακεδονίας, έδρα του Δήμου Δράμας και πρωτεύουσα της Περιφερειακής Ενότητας Δράμας στην Περιφέρεια Ανατολικής Μακεδονίας και Θράκης. Έχει πληθυσμό 45.823 σύμφωνα με την απογραφή του 2011. Βρίσκεται στην περιοχή της αρχαίας Ηδωνίδας με μακραίωνη ιστορία, καθώς ο τόπος κατοικήθηκε από τους προϊστορικούς χρόνους. Η ετυμολογία της λέξης προέρχεται από το «Ύδραμα»-«Δύραμα», λόγω της αφθονίας των υδάτων που αναβλύζουν στην περιοχή.[2] Είναι έδρα της Σχολής Γεωτεχνικών Επιστημών του Διεθνούς Πανεπιστήμιου της Ελλάδος.[3] Στην πόλη λαμβάνει χώρα ετησίως το Διεθνές Φεστιβάλ Ταινιών Μικρού Μήκους Δράμας.[4]" wrappingWidth="242.13671875">
-                                            <font>
-                                                <Font size="13.0" />
-                                            </font>
-                                        </Text>
-                                        <Label layoutX="350.0" layoutY="46.0" prefHeight="41.0" prefWidth="258.0" text="Η πόλη της Δράμας" textFill="#001233">
-                                            <font>
-                                                <Font name="Book Antiqua Bold Italic" size="25.0" />
-                                            </font>
-                                        </Label>
-                                        <ImageView fitHeight="177.0" fitWidth="349.0" layoutX="348.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+                                        <WebView fx:id="webview5" layoutX="-15.0" layoutY="-8.0" prefHeight="48.0" prefWidth="705.0" style="-fx-background-color: #E5E4E2;" />
+                                        <ImageView fitHeight="573.0" fitWidth="676.0" layoutY="40.0" pickOnBounds="true" smooth="false">
                                             <image>
-                                                <Image url="@images/1-6.jpg" />
+                                                <Image url="@images/drama.jpg" />
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="213.0" fitWidth="281.0" layoutX="39.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/drama3.jpg" />
-                                            </image>
-                                        </ImageView>
-                                        <ImageView fitHeight="250.0" fitWidth="343.0" layoutX="345.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/drama2.jpg" />
-                                            </image>
-                                        </ImageView>
+                                        <AnchorPane layoutX="308.0" layoutY="40.0" prefHeight="574.0" prefWidth="367.0" style="-fx-background-color: rgba(31, 29, 40,0.8);">
+                                            <children>
+                                                <Label layoutX="68.0" layoutY="51.0" prefHeight="35.0" prefWidth="218.0" text="Η πόλη της Δράμας" textFill="#e5e4e2">
+                                                    <font>
+                                                        <Font name="Book Antiqua Bold Italic" size="25.0" />
+                                                    </font>
+                                                </Label>
+                                                <Text fill="#e5e4e2" fontSmoothingType="LCD" layoutX="68.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Δράμα είναι πόλη της ανατολικής Μακεδονίας, έδρα του Δήμου Δράμας και πρωτεύουσα της Περιφερειακής Ενότητας Δράμας στην Περιφέρεια Ανατολικής Μακεδονίας και Θράκης. Έχει πληθυσμό 45.823 σύμφωνα με την απογραφή του 2011. Βρίσκεται στην περιοχή της αρχαίας Ηδωνίδας με μακραίωνη ιστορία, καθώς ο τόπος κατοικήθηκε από τους προϊστορικούς χρόνους. Η ετυμολογία της λέξης προέρχεται από το «Ύδραμα»-«Δύραμα», λόγω της αφθονίας των υδάτων που αναβλύζουν στην περιοχή.[2] Είναι έδρα της Σχολής Γεωτεχνικών Επιστημών του Διεθνούς Πανεπιστήμιου της Ελλάδος.[3] Στην πόλη λαμβάνει χώρα ετησίως το Διεθνές Φεστιβάλ Ταινιών Μικρού Μήκους Δράμας.[4]" wrappingWidth="231.13671875">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </AnchorPane>
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -150,14 +145,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC" layoutX="-2.0" layoutY="127.0" prefHeight="306.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
+                                        <TableView fx:id="tableCC" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd" prefWidth="192.80001831054688" style="-fx-alignment: center;" text="Address" />
-                                                <TableColumn fx:id="colRat" prefWidth="74.39996337890625" style="-fx-alignment: center;" text="Rating" />
-                                                <TableColumn fx:id="colPri" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav" prefWidth="144.0001220703125" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId" prefWidth="105.5999755859375" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colName" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colRat" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
+                                                <TableColumn fx:id="colPri" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
+                                                <TableColumn fx:id="colPlcId" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                             <opaqueInsets>
                                                 <Insets right="10.0" />
@@ -182,14 +178,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC1" layoutY="131.0" prefHeight="304.0" prefWidth="663.0">
+                                        <TableView fx:id="tableCC1" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName1" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd1" prefWidth="193.60000610351562" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colName1" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd1" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
                                                 <TableColumn fx:id="colRat1" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
                                                 <TableColumn fx:id="colPri1" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav1" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId1" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colPlcId1" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav1" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating1" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                             <opaqueInsets>
                                                 <Insets right="10.0" />
@@ -214,14 +211,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC11" layoutX="-2.0" layoutY="133.0" prefHeight="309.0" prefWidth="674.0">
+                                        <TableView fx:id="tableCC11" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName11" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd11" prefWidth="208.0" style="-fx-alignment: center;" text="Address" />
-                                                <TableColumn fx:id="colRat11" prefWidth="90.4000244140625" style="-fx-alignment: center;" text="Rating" />
-                                                <TableColumn fx:id="colPri11" prefWidth="76.7999267578125" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav11" prefWidth="143.2000732421875" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId11" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colName11" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd11" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colRat11" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
+                                                <TableColumn fx:id="colPri11" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
+                                                <TableColumn fx:id="colPlcId11" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav11" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating11" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                             <opaqueInsets>
                                                 <Insets right="10.0" />
@@ -238,318 +236,6 @@
                                 <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@images/restaurant.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Tab>
-                        <Tab text="Top">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
-                                    <children>
-                                        <AnchorPane layoutX="234.0" layoutY="14.0" prefHeight="181.0" prefWidth="201.0" style="-fx-background-color: rgba(0, 0, 0, 0.4);">
-                                            <children>
-                                                <Button fx:id="button11" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Σιδηροδρομικό Μουσείο Δράμας" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="16.0" layoutY="127.0" prefHeight="16.0" prefWidth="192.0" text="Παπαφλέσσα, Δράμα 661 00" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/b20522cf3396a0e7.jpg" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="455.0" layoutY="14.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.4);">
-                                            <children>
-                                                <Button fx:id="button111" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Αρχοντικό Αναστασιάδη" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="3.0" layoutY="127.0" prefHeight="16.0" prefWidth="203.0" text="Αγίας Βαρβάρας 5, Δράμα 661 00" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/---.jpg" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="14.0" layoutY="396.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);">
-                                            <children>
-                                                <Button fx:id="button11111" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Wooden Mouse" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" layoutY="127.0" prefHeight="16.0" prefWidth="179.0" text=" Βεργίνας 37, Δράμα 661 00" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/2021-12-19.jpg" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="235.0" layoutY="205.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.6);">
-                                            <children>
-                                                <Button fx:id="button11112" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Goloso Drama" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="17.0" layoutY="127.0" prefHeight="15.0" prefWidth="170.0" text="Γεωρ. Παπανδρέου 1, Δράμα" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/photo2jpg.jpg" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="455.0" layoutY="205.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.6);">
-                                            <children>
-                                                <Button fx:id="button111121" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Το Ταβερνάκι του Δαμιανού" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" layoutY="127.0" prefHeight="17.0" prefWidth="165.0" text="Αμύντα 4, Δράμα 661 00" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/451804905_EutOukdV169g3sXgqtratngqixIGMZl9985fSugBMPA.jpg" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="455.0" layoutY="396.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);">
-                                            <children>
-                                                <Button fx:id="button1111211" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Angolo Coffee Station" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="11.0" layoutY="127.0" prefHeight="17.0" prefWidth="187.0" text="Γεωρ. Παπανδρέου 20, Δράμα " textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/FB_IMG_1558242426483.jpg" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="235.0" layoutY="396.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);">
-                                            <children>
-                                                <Button fx:id="button111122" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Coffee Vs Tea" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="3.0" layoutY="127.0" prefHeight="16.0" prefWidth="203.0" text=" Κων/νου Παλαιολόγου 11, Δράμα" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/2020-11-16.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="14.0" layoutY="205.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.6);">
-                                            <children>
-                                                <Button fx:id="button111123" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Εντράδες - Εntrades" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" layoutY="127.0" prefHeight="14.0" prefWidth="172.0" text="Σκρα 78-88, Σκρα 84, Δράμα" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/4da60121bfcba84d.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="181.0" prefWidth="204.0" style="-fx-background-color: rgba(0, 0, 0, 0.4);">
-                                            <children>
-                                                <Button fx:id="button1" layoutX="163.0" layoutY="154.0" mnemonicParsing="false" onAction="#toRating" prefHeight="18.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-                                                    <graphic>
-                                                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@images/star.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </graphic>
-                                                </Button>
-                                                <Label layoutX="134.0" layoutY="159.0" text="Rate" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="13.0" text="Αρχαιολογικό Μουσείο Δράμας" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <Label layoutX="3.0" layoutY="127.0" prefHeight="16.0" prefWidth="203.0" text="Κώστα Βάρναλη 6, Δράμα 661 00" textFill="#e5e4e2">
-                                                    <font>
-                                                        <Font name="Century" size="13.0" />
-                                                    </font>
-                                                </Label>
-                                                <ImageView fitHeight="105.0" fitWidth="177.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true">
-                                                    <image>
-                                                        <Image url="@images/ceqq20170515.jpg" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </AnchorPane>
-                                    </children>
-                                </AnchorPane>
-                            </content>
-                            <graphic>
-                                <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/social-media.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -591,14 +277,15 @@
 
                                 <AnchorPane style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC12" layoutX="14.0" layoutY="112.0" prefHeight="492.0" prefWidth="652.0" stylesheets="@Css/profileTableView.css">
+                                        <TableView fx:id="tableCC12" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName12" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd12" prefWidth="208.0" style="-fx-alignment: center;" text="Address" />
-                                                <TableColumn fx:id="colRat12" prefWidth="90.4000244140625" style="-fx-alignment: center;" text="Rating" />
-                                                <TableColumn fx:id="colPri12" prefWidth="76.7999267578125" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav12" prefWidth="143.2000732421875" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId12" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colName12" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd12" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colRat12" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
+                                                <TableColumn fx:id="colPri12" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
+                                                <TableColumn fx:id="colPlcId12" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav12" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating12" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                         </TableView>
                                         <Label layoutX="188.0" layoutY="46.0" prefHeight="34.0" prefWidth="298.0" text="Recommended for Today">

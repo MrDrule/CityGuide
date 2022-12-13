@@ -87,31 +87,26 @@
                             <content>
                                 <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="684.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Καβάλα (στους αρχαίους χρόνους &quot;Νεάπολις&quot;, στο Βυζάντιο &quot;Χριστούπολις&quot; κι έως το 1928 &quot;Καβάλλα&quot;) είναι πόλη της Μακεδονίας, έδρα του δήμου Καβάλας και πρωτεύουσα της Περιφερειακής Ενότητας Καβάλας στην Ανατολική Μακεδονία. Αποτελεί σημαντικό λιμάνι και εμπορικό κέντρο της βόρειας Ελλάδας.Αποτελεί επίσης έδρα της Ιεράς Μητροπόλεως Φιλίππων, Νεαπόλεως και Θάσου.Είναι κτισμένη αμφιθεατρικά στους πρόποδες του όρους Σύμβολο ενώ η πρόσβαση προς την πόλη είναι εύκολη μέσω της Εγνατίας Οδού απέχει 650 χιλιόμετρα από την Αθήνα και 153 χιλιόμετρα από τη Θεσσαλονίκη.Πιθανολογείται πως το όνομα της πόλης προέρχεται από τον αρχαίο οικισμό &quot;Σκαβάλλα&quot;, σημερινή Παλαιά Καβάλα, από την οποία θεωρείται πως έφτασαν στην Καβάλα οι αρχαίοι κάτοικοί της.  " wrappingWidth="242.13671875">
-                                            <font>
-                                                <Font size="13.0" />
-                                            </font>
-                                        </Text>
-                                        <Label layoutX="348.0" layoutY="45.0" prefHeight="41.0" prefWidth="258.0" text="Η πόλη τής Καβάλας" textFill="#001233">
-                                            <font>
-                                                <Font name="Book Antiqua Bold Italic" size="25.0" />
-                                            </font>
-                                        </Label>
-                                        <ImageView fitHeight="187.0" fitWidth="260.0" layoutX="360.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/the-aquaduct-kavala.jpg" />
-                                            </image>
-                                        </ImageView>
-                                        <ImageView fitHeight="156.0" fitWidth="293.0" layoutX="39.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                                        <WebView fx:id="webview4" layoutX="-15.0" layoutY="-8.0" prefHeight="48.0" prefWidth="705.0" style="-fx-background-color: #E5E4E2;" />
+                                        <ImageView fitHeight="573.0" fitWidth="676.0" layoutY="40.0" pickOnBounds="true" smooth="false">
                                             <image>
                                                 <Image url="@images/kavala_moon.jpg" />
                                             </image>
                                         </ImageView>
-                                        <ImageView fitHeight="202.0" fitWidth="298.0" layoutX="328.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/kavala.jpg" />
-                                            </image>
-                                        </ImageView>
+                                        <AnchorPane layoutX="308.0" layoutY="40.0" prefHeight="574.0" prefWidth="367.0" style="-fx-background-color: rgba(31, 29, 40,0.8);">
+                                            <children>
+                                                <Label layoutX="55.0" layoutY="48.0" prefHeight="41.0" prefWidth="258.0" text="Η πόλη τής Καβάλας" textFill="#e5e4e2">
+                                                    <font>
+                                                        <Font name="Book Antiqua Bold Italic" size="25.0" />
+                                                    </font>
+                                                </Label>
+                                                <Text fill="#e5e4e2" fontSmoothingType="LCD" layoutX="33.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Καβάλα (στους αρχαίους χρόνους &quot;Νεάπολις&quot;, στο Βυζάντιο &quot;Χριστούπολις&quot; κι έως το 1928 &quot;Καβάλλα&quot;) είναι πόλη της Μακεδονίας, έδρα του δήμου Καβάλας και πρωτεύουσα της Περιφερειακής Ενότητας Καβάλας στην Ανατολική Μακεδονία. Αποτελεί σημαντικό λιμάνι και εμπορικό κέντρο της βόρειας Ελλάδας.Αποτελεί επίσης έδρα της Ιεράς Μητροπόλεως Φιλίππων, Νεαπόλεως και Θάσου.Είναι κτισμένη αμφιθεατρικά στους πρόποδες του όρους Σύμβολο ενώ η πρόσβαση προς την πόλη είναι εύκολη μέσω της Εγνατίας Οδού απέχει 650 χιλιόμετρα από την Αθήνα και 153 χιλιόμετρα από τη Θεσσαλονίκη.Πιθανολογείται πως το όνομα της πόλης προέρχεται από τον αρχαίο οικισμό &quot;Σκαβάλλα&quot;, σημερινή Παλαιά Καβάλα, από την οποία θεωρείται πως έφτασαν στην Καβάλα οι αρχαίοι κάτοικοί της.  " wrappingWidth="301.13671875">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </AnchorPane>
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -142,14 +137,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC" layoutX="-2.0" layoutY="127.0" prefHeight="306.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
+                                        <TableView fx:id="tableCC" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd" prefWidth="192.80001831054688" style="-fx-alignment: center;" text="Address" />
-                                                <TableColumn fx:id="colRat" prefWidth="74.39996337890625" style="-fx-alignment: center;" text="Rating" />
-                                                <TableColumn fx:id="colPri" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav" prefWidth="144.0001220703125" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId" prefWidth="105.5999755859375" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colName" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colRat" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
+                                                <TableColumn fx:id="colPri" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
+                                                <TableColumn fx:id="colPlcId" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                             <opaqueInsets>
                                                 <Insets right="10.0" />
@@ -174,14 +170,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC1" layoutY="131.0" prefHeight="304.0" prefWidth="663.0">
+                                        <TableView fx:id="tableCC1" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName1" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd1" prefWidth="193.60000610351562" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colName1" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd1" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
                                                 <TableColumn fx:id="colRat1" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
                                                 <TableColumn fx:id="colPri1" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav1" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId1" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colPlcId1" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav1" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating1" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                             <opaqueInsets>
                                                 <Insets right="10.0" />
@@ -206,14 +203,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC11" layoutX="-2.0" layoutY="133.0" prefHeight="309.0" prefWidth="674.0">
+                                        <TableView fx:id="tableCC11" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName11" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd11" prefWidth="208.0" style="-fx-alignment: center;" text="Address" />
-                                                <TableColumn fx:id="colRat11" prefWidth="90.4000244140625" style="-fx-alignment: center;" text="Rating" />
-                                                <TableColumn fx:id="colPri11" prefWidth="76.7999267578125" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav11" prefWidth="143.2000732421875" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId11" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colName11" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd11" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colRat11" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
+                                                <TableColumn fx:id="colPri11" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
+                                                <TableColumn fx:id="colPlcId11" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav11" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating11" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                             <opaqueInsets>
                                                 <Insets right="10.0" />
@@ -271,14 +269,15 @@
 
                                 <AnchorPane style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC12" layoutX="14.0" layoutY="112.0" prefHeight="492.0" prefWidth="652.0" stylesheets="@Css/profileTableView.css">
+                                        <TableView fx:id="tableCC12" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
-                                                <TableColumn fx:id="colName12" prefWidth="170.4000244140625" style="-fx-alignment: center;" text="Name" />
-                                                <TableColumn fx:id="colAdd12" prefWidth="208.0" style="-fx-alignment: center;" text="Address" />
-                                                <TableColumn fx:id="colRat12" prefWidth="90.4000244140625" style="-fx-alignment: center;" text="Rating" />
-                                                <TableColumn fx:id="colPri12" prefWidth="76.7999267578125" style="-fx-alignment: center;" text="Price Level" />
-                                                <TableColumn fx:id="colFav12" prefWidth="143.2000732421875" style="-fx-alignment: center;" text="Add To Favorites" />
-                                                <TableColumn fx:id="colPlcId12" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colName12" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="colAdd12" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
+                                                <TableColumn fx:id="colRat12" prefWidth="74.4000244140625" style="-fx-alignment: center;" text="Rating" />
+                                                <TableColumn fx:id="colPri12" prefWidth="81.5999755859375" style="-fx-alignment: center;" text="Price Level" />
+                                                <TableColumn fx:id="colPlcId12" minWidth="-1.0" prefWidth="75.0" text="PlaceId" visible="false" />
+                                                <TableColumn fx:id="colFav12" minWidth="-1.0" prefWidth="76.800048828125" style="-fx-alignment: center;" text="Like" />
+                                                <TableColumn fx:id="colRating12" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                         </TableView>
                                         <Label layoutX="188.0" layoutY="46.0" prefHeight="34.0" prefWidth="298.0" text="Recommended for Today">

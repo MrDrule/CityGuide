@@ -1,5 +1,4 @@
 package com.example.project1;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -19,7 +18,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class RatingController implements Initializable {
     @FXML
@@ -52,14 +50,18 @@ public class RatingController implements Initializable {
             alert.getDialogPane().setHeaderText("Thank you for Rating!");
             alert.showAndWait();
 
+
+
             String tf = txtfield.getText();
             double rating = Double.parseDouble(rn.getText());
             String username = User.username;
+            String name=RatingPlace.name;
 
 
             System.out.println(tf);
             System.out.println(rating);
-            addRatingtoDatabase(username, tf, rating);
+            System.out.println(name);
+            addRatingtoDatabase(username, tf, rating,name);
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.initModality(Modality.APPLICATION_MODAL);
@@ -75,16 +77,17 @@ public class RatingController implements Initializable {
         stage.close();
     }
 
-    public static void addRatingtoDatabase(String username,String text,double rate){
+    public static void addRatingtoDatabase(String username, String text, double rate, String name){
         try{
 
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cityguide", "root", "");
             Statement stmt = conn.createStatement();
-            String sql = "INSERT INTO ratings (username , ratingtxt,ratingvalue) VALUES (?,?,?)";
+            String sql = "INSERT INTO ratings (username ,name, ratingtxt,ratingvalue) VALUES (?,?,?,?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, username);
-            preparedStatement.setString(2, text);
-            preparedStatement.setDouble(3, rate);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, text);
+            preparedStatement.setDouble(4, rate);
             preparedStatement.executeUpdate();
             stmt.close();
             conn.close();
