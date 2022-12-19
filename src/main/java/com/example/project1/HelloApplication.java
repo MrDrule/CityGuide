@@ -32,7 +32,6 @@ public class HelloApplication extends Application {
             stage.setTitle("City Guide");
             stage.setScene(scene);
             stage.show();
-
             scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
 
 

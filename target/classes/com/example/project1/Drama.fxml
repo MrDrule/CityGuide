@@ -25,7 +25,10 @@
             <left>
                 <AnchorPane prefHeight="628.0" prefWidth="228.0" style="-fx-background-color: #001233;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button layoutX="20.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="41.0" prefWidth="204.0" stylesheets="@Css/buttonhome.css" text="Home" textFill="#001233" />
+                        <Button layoutX="20.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="41.0" prefWidth="204.0" stylesheets="@Css/buttonhome.css" text="Home" textFill="#001233">
+                     <font>
+                        <Font name="Century" size="12.0" />
+                     </font></Button>
                         <ImageView fitHeight="24.0" fitWidth="21.0" layoutX="78.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@images/home_1.png" />
@@ -44,7 +47,10 @@
                                                 <Image url="@images/user.png" />
                                             </image>
                                         </ImageView>
-                                    </graphic></Button>
+                                    </graphic>
+                           <font>
+                              <Font name="Century" size="12.0" />
+                           </font></Button>
                             </children>
                         </VBox>
                         <VBox layoutX="16.0" layoutY="109.0" prefHeight="53.0" prefWidth="212.0">
@@ -60,6 +66,9 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
+                           <font>
+                              <Font name="Century" size="12.0" />
+                           </font>
                                 </Button>
                             </children>
                         </VBox>
@@ -79,7 +88,10 @@
                         <ButtonBar prefHeight="60.0" prefWidth="281.0" />
                         <ButtonBar prefHeight="69.0" prefWidth="279.0">
                             <buttons>
-                                <Button mnemonicParsing="false" onAction="#switchToReg" prefHeight="27.0" prefWidth="125.0" stylesheets="@Css/login.css" text="LogIn/SignUp" textFill="#001233" />
+                                <Button fx:id="buttonlog" mnemonicParsing="false" onAction="#switchToReg" prefHeight="27.0" prefWidth="125.0" stylesheets="@Css/login.css" text="LogIn/SignUp" textFill="#001233">
+                           <font>
+                              <Font name="Century" size="12.0" />
+                           </font></Button>
                             </buttons>
                         </ButtonBar>
                     </children>

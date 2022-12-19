@@ -34,24 +34,36 @@ public class ProfileController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public User user;
+    @FXML
+    private Button buttonlog;
     PreparedStatement pst= null;
     ResultSet rs=null;
     Connection connection = null;
     int id;
-    UsersDetails usersDetails = null;
     @FXML
     private Label label;
+    @FXML
+    private Label labelemail;
 
     @FXML
-    private TableView<UsersDetails> tableUser;
+    private Label labelname;
+
     @FXML
-    private TableColumn<UsersDetails, String> columnUsername;
+    private Label labelpassword;
+
     @FXML
-    private TableColumn<UsersDetails,String> columnPassword;
+    private Label labelusername;
+
     @FXML
-    private TableColumn<UsersDetails, String> columnEmail;
+    private TableColumn<OtherUsers, SimpleStringProperty> columnName;
+
     @FXML
-    private TableColumn<UsersDetails, String> columnName;
+    private TableColumn<OtherUsers, SimpleStringProperty> columnUser;
+    @FXML
+    private TableView<OtherUsers> tableUser;
+
     @FXML
     private Button btnEdtUsr;
     @FXML
@@ -69,41 +81,47 @@ public class ProfileController implements Initializable {
     @FXML
     private TextField txt_name;
 
-    private ObservableList<UsersDetails> data;
-    /* private mysqlconnect connection;*/
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        connection = com.example.project1.mysqlconnect.ConnectDb();
-        setCellTable();
-        data=FXCollections.observableArrayList();
-        loadDataFromDatabase();
+        fillTable();
+        setUserData();
+        setLogButton();
     }
-
-    public TableView<UsersDetails> getTableUser() {
-        return tableUser;
-    }
-
-    private void setCellTable(){
-        columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-        columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-        columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
-    }
-    @FXML
-    private void loadDataFromDatabase(){
-        try {
-            pst=connection.prepareStatement("SELECT * FROM users LIMIT 1");
-            rs=pst.executeQuery();
-            while (rs.next()){
-                data.add(UsersDetails.getInstance(rs.getString(1),rs.getString(2),rs.getString(3),rs.getInt(5),rs.getString(4)));
-            }
-        }catch (SQLException e){
-            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE,null,e);
+    public void setLogButton(){
+        if (User.username != null) {
+            buttonlog.setText("Logout");
+        }else{
+            buttonlog.setText("LogIn/SignUp");
         }
-        tableUser.setItems(data);
     }
+
+    public void fillTable(){
+        try {
+            connection = com.example.project1.mysqlconnect.ConnectDb();
+            ObservableList<OtherUsers> data = FXCollections.observableArrayList();
+            String username=User.username;
+            String sql="SELECT username, name FROM favourite WHERE username NOT LIKE '"+username+"' ORDER BY RAND() LIMIT 15";
+            ResultSet rs = connection.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                data.add(new OtherUsers(rs.getString(1), rs.getString(2)));
+            }
+            columnUser.setCellValueFactory(new PropertyValueFactory<>("Username"));
+            columnName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+            tableUser.setItems(data);
+
+        }catch (SQLException e) {
+            System.err.println("Error" + e);
+        }
+    }
+
+    public void setUserData(){
+        labelusername.setText(User.username);
+        labelemail.setText(User.email);
+        labelname.setText(User.name);
+        labelpassword.setText(User.password);
+    }
+
 
     public void EditUsername(){
         if(txt_username.getText().isBlank()==false) {
@@ -191,28 +209,23 @@ public class ProfileController implements Initializable {
         }
     }
     @FXML
-    private void refreshTable() {
+    private void refreshTable() throws SQLException {
         try {
-            data.clear();
-            id=UsersDetails.id;
-            String query = "SELECT * FROM users  WHERE ID='"+id+"' LIMIT 1" ;
-            pst = connection.prepareStatement(query);
-            rs = pst.executeQuery();
-            while (rs.next()){
-                data.add(new UsersDetails(
-                        rs.getString("username"),
-                        rs.getString("password"),
-                        rs.getString("email"),
-                        rs.getInt("id"),
-                        rs.getString("name")
-                ));
-                tableUser.setItems(data);
-
+            connection = com.example.project1.mysqlconnect.ConnectDb();
+            String name = labelname.getText();
+            String sql = "SELECT * FROM users WHERE name='" + name + "'";
+            ResultSet rs = connection.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                labelpassword.setText(rs.getString(1));
+                labelname.setText(rs.getString(2));
+                labelemail.setText(rs.getString(3));
+                labelusername.setText(rs.getString(4));
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, e);
         }
     }
+
     public void switchToFav(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -229,11 +242,23 @@ public class ProfileController implements Initializable {
         stage.show();
     }
     public void switchToReg(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (User.username != null) {
+            user=new User();
+            buttonlog.setText("LogIn/SignUp");
+            root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
+            stage.setScene(scene);
+            stage.show();
+        }else{
+            Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            root.setStyle("-fx-background-image:url('com/example/project1/images/login.jpg');");
+            stage.setScene(scene);
+            stage.show();
+        }
     }
     public void switchToProf(ActionEvent event) throws IOException {
         if (User.username != null) {

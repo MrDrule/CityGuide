@@ -83,7 +83,10 @@
                   <ButtonBar prefHeight="60.0" prefWidth="281.0" />
                   <ButtonBar prefHeight="69.0" prefWidth="279.0">
                      <buttons>
-                        <Button mnemonicParsing="false" onAction="#switchToReg" prefHeight="27.0" prefWidth="125.0" stylesheets="@Css/login.css" text="LogIn/SignUp" textFill="#001233" />
+                        <Button fx:id="buttonlog" mnemonicParsing="false" onAction="#switchToReg" prefHeight="27.0" prefWidth="125.0" stylesheets="@Css/login.css" text="LogIn/SignUp" textFill="#001233">
+                           <font>
+                              <Font name="Century" size="12.0" />
+                           </font></Button>
                      </buttons>
                   </ButtonBar>
                </children>

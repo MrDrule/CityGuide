@@ -1,22 +1,31 @@
 package com.example.project1;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class HelloController {
+public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;
+    @FXML
+    private Button buttonlog;
     private Parent root;
+
+    public User user;
+
 
     public void switchToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
@@ -28,11 +37,19 @@ public class HelloController {
     }
 
     public void switchToFav(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (User.username != null) {
+            Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please Login to check your connection's information!");
+            alert.showAndWait();
+        }
     }
 
     public void switchToProf(ActionEvent event) throws IOException {
@@ -53,21 +70,18 @@ public class HelloController {
 
 
     }
-
-
-    public void BackToSignIn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
     public void switchToReg(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (User.username != null) {
+            user=new User();
+            buttonlog.setText("LogIn/SignUp");
+        }else{
+            Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            root.setStyle("-fx-background-image:url('com/example/project1/images/login.jpg');");
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
 
@@ -114,36 +128,16 @@ public class HelloController {
         stage.show();
     }
 
-     @FXML
-    private AnchorPane anchorPane;
-
-    User user;
-
-
-    @FXML
-    public void handleButtonAction(ActionEvent event){
-
-        if (User.username != null) {
-            System.out.println(User.username);
-            Stage stage = (Stage) anchorPane.getScene().getWindow();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.initModality(Modality.APPLICATION_MODAL);
-            alert.initOwner(stage);
-            alert.getDialogPane().setHeaderText("Thank you for Rating!");
-            alert.showAndWait();
-        }else{
-            Stage stage = (Stage) anchorPane.getScene().getWindow();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.initModality(Modality.APPLICATION_MODAL);
-            alert.initOwner(stage);
-            alert.getDialogPane().setHeaderText("Please Login to rate!");
-            alert.showAndWait();
-        }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setLogButton();
     }
-    public void logoutButton(ActionEvent event){
-        if (User.username !=null){
-            User user = new User();
-        }
 
+    public void setLogButton(){
+        if (User.username != null) {
+            buttonlog.setText("Logout");
+        }else{
+            buttonlog.setText("LogIn/SignUp");
+        }
     }
 }

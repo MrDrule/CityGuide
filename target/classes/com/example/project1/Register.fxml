@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.image.Image?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.layout.AnchorPane?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.RegisterController">
+
+<center>
+    <AnchorPane prefHeight="316.0" prefWidth="568.0" BorderPane.alignment="CENTER">
+        <children>
+            <AnchorPane fx:id="pane_login" layoutX="14.0" layoutY="1.0" prefHeight="733.0" prefWidth="915.0">
+                <children>
+                    <TextField fx:id="txt_username_up" layoutX="285.0" layoutY="162.0" prefHeight="27.0" prefWidth="345.0" promptText="Insert Your Username" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: black; -fx-background-color: transparent;" stylesheets="@Css/TextFieldReg.css" />
+                    <Label layoutX="372.0" layoutY="42.0" stylesheets="@Css/profileLabes.css" textFill="#bfa181">
+                        <font>
+                            <Font size="28.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="btn_login" layoutX="324.0" layoutY="493.0" mnemonicParsing="false" onAction="#add_users" prefHeight="30.0" prefWidth="220.0" stylesheets="@Css/buttonhome.css" text="SignUp" textFill="#001233">
+                        <font>
+                            <Font size="14.0" />
+                        </font></Button>
+                    <TextField fx:id="txt_password_up" layoutX="286.0" layoutY="235.0" prefHeight="27.0" prefWidth="348.0" promptText="Insert Your Password" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: black;" stylesheets="@Css/TextFieldReg.css" />
+                    <TextField fx:id="email_up" layoutX="286.0" layoutY="302.0" prefHeight="27.0" prefWidth="343.0" promptText="Insert Your e-mail" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: black;" stylesheets="@Css/TextFieldReg.css" />
+                    <TextField fx:id="txt_name_up" layoutX="286.0" layoutY="380.0" prefHeight="27.0" prefWidth="348.0" promptText="Insert Your Name" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: black;" stylesheets="@Css/TextFieldReg.css" />
+                    <AnchorPane layoutX="-6.0" layoutY="-2.0" prefHeight="77.0" prefWidth="926.0" style="-fx-background-color: #E96151;">
+                        <children>
+                            <Label layoutX="360.0" layoutY="22.0" prefHeight="35.0" prefWidth="235.0" text="User Registration" textFill="WHITE">
+                                <font>
+                                    <Font size="24.0" />
+                                </font>
+                            </Label>
+                            <Button layoutX="30.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: transparent;" stylesheets="@Css/buttonhome.css" text="Home">
+                                <graphic>
+                                    <ImageView fitHeight="18.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@images/home_1.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <ImageView fitHeight="63.0" fitWidth="58.0" layoutX="777.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@images/signup.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                    <Button fx:id="btn_login1" layoutX="265.0" layoutY="550.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="75.0" prefWidth="337.0" style="-fx-background-color: transparent;" text="You already have an accout? Click here to LogIn" underline="true">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+        </children></AnchorPane>
+</center>
+</BorderPane>

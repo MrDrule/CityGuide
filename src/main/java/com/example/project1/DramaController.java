@@ -31,6 +31,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DramaController implements Initializable {
+    @FXML
+    private Button buttonlog;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -136,12 +138,21 @@ public class DramaController implements Initializable {
     }
 
     public void switchToFav(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (User.username != null) {
+            Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.initOwner(stage);
+            alert.getDialogPane().setHeaderText("Please Login to check your connection's information!");
+            alert.showAndWait();
+        }
     }
+
 
     public void switchToProf(ActionEvent event) throws IOException {
         if (User.username != null) {
@@ -163,6 +174,7 @@ public class DramaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        setLogButton();
         try {
             Connection conn = connection.ConnectDb();
             data = FXCollections.observableArrayList();
@@ -228,28 +240,44 @@ public class DramaController implements Initializable {
                         final Button editButton = new Button("♡");
                         editButton.setOnAction(event -> {
                             if (User.username != null) {
-                                String username=User.username;
-                                String Name= p.getName();
-                                String Address= p.getAddress();
-                                String Rating=p.getRating();
-                                conn = com.example.project1.mysqlconnect.ConnectDb();
-                                String sql = "INSERT INTO favourite (username, name, vicinity, rating, town_id) VALUES (?,?,?,?,?)";
                                 try {
-                                    pst = conn.prepareStatement(sql);
-                                    pst.setString(1, username);
-                                    pst.setString(2, Name);
-                                    pst.setString(3, Address);
-                                    pst.setString(4, Rating);
-                                    pst.setString(5, "3");
-                                    pst.execute();
+                                    String username=User.username;
+                                    String Name= p.getName();
+                                    String Address= p.getAddress();
+                                    String Rating=p.getRating();
+                                    conn = com.example.project1.mysqlconnect.ConnectDb();
+                                    PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cityguide.favourite WHERE name= ? AND username= ?");
+                                    stmt.setString(1, Name);
+                                    stmt.setString(2,username);
+                                    ResultSet rs = stmt.executeQuery();
+                                    if (!rs.next()){
+                                        String sql = "INSERT INTO favourite (username, name, vicinity, rating, town_id) VALUES (?,?,?,?,?)";
+                                        try {
+                                            pst = conn.prepareStatement(sql);
+                                            pst.setString(1, username);
+                                            pst.setString(2, Name);
+                                            pst.setString(3, Address);
+                                            pst.setString(4, Rating);
+                                            pst.setString(5, "2");
+                                            pst.execute();
 
-                                } catch (Exception e) {
-                                    JOptionPane.showMessageDialog(null, e);
+                                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                            alert.setContentText("You added \n" + p.getName() + " to your Favorites!");
+                                            alert.show();
+                                        } catch (Exception e) {
+                                            JOptionPane.showMessageDialog(null, e);}
+                                    }
+                                    else{
+                                        PreparedStatement stmt2 = conn.prepareStatement("DELETE  FROM favourite WHERE name = ? AND username=?");
+                                        stmt2.setString(1, Name);
+                                        stmt2.setString(2,username);
+                                        int count = stmt2.executeUpdate();
+                                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                        alert.setContentText("Removed \n" + p.getName() + " off your Favorites!");
+                                        alert.show();
+                                    }} catch (SQLException e) {
+                                    e.printStackTrace();
                                 }
-
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setContentText("You added \n" + p.getName() + " to your Favorites!");
-                                alert.show();
 
                             }});
                         setGraphic(editButton);
@@ -359,30 +387,27 @@ public class DramaController implements Initializable {
         tableCC.setItems(data);
 
     }
-    @FXML
-    public void toRating(ActionEvent event)throws IOException {
-        try {
 
-
-            Parent root = FXMLLoader.load(getClass().getResource("Rating.fxml"));
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.setTitle("Rating Window");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("Cant load Window");
-        }
-
-
-    }
 
 
     public void switchToReg(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (User.username != null) {
+            User user = new User();
+            buttonlog.setText("LogIn/SignUp");
+        }else{
+            Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            root.setStyle("-fx-background-image:url('com/example/project1/images/login.jpg');");
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+    public void setLogButton(){
+        if (User.username != null) {
+            buttonlog.setText("Logout");
+        }else{
+            buttonlog.setText("LogIn/SignUp");
+        }
     }
 }

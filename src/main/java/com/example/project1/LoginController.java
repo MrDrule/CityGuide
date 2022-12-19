@@ -31,6 +31,8 @@ public class LoginController implements Initializable {
     @FXML
     private Button btn_login;
     @FXML
+    private Button SwitchToRegister;
+    @FXML
     private AnchorPane pane_signup;
     @FXML
     private TextField txt_username_up;
@@ -53,24 +55,20 @@ public class LoginController implements Initializable {
     ResultSet rs= null;
     PreparedStatement pst = null;
 
-    public void LoginPaneShow(){
-        pane_login.setVisible(true);
-        pane_signup.setVisible(false);
-    }
-    public void SignUpPaneShow(){
-        pane_login.setVisible(false);
-        pane_signup.setVisible(true);
-    }
-
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
-    public void add_users(javafx.event.ActionEvent event) {
+    public void SwitchToRegister(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        root.setStyle("-fx-background-image:url('com/example/project1/images/register.jpg');");
+        stage.setScene(scene);
+        stage.show();
+    }
+   /* public void add_users(javafx.event.ActionEvent event) {
         conn= com.example.project1.mysqlconnect.ConnectDb();
         String sql = "INSERT INTO users (username,password,name,email) VALUES (?,?,?,?)";
         if (txt_username_up.getText().isBlank()==false && txt_password_up.getText().isBlank()==false && email_up.getText().isBlank()==false &&txt_name_up.getText().isBlank()==false){
@@ -95,7 +93,7 @@ public class LoginController implements Initializable {
             alert.showAndWait();
         }
 
-    }
+    }*/
 
     public void Login(javafx.event.ActionEvent event) {
         conn = com.example.project1.mysqlconnect.ConnectDb();
@@ -155,35 +153,4 @@ public class LoginController implements Initializable {
         stage.show();
     }
 
-    public void switchToFav(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void switchToProf(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-
-    public void BackToSignIn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }public void switchToReg(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 }
