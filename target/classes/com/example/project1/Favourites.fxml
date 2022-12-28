@@ -119,26 +119,26 @@
                      </font></Text>
                   <TableView fx:id="tblKilFav" layoutX="379.0" layoutY="81.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
                      <columns>
-                        <TableColumn fx:id="colKilFav" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFkil" prefWidth="51.99993896484375" text="ⓧ" />
+                        <TableColumn fx:id="colKilFav" editable="false" prefWidth="199.20001220703125" text="Name" />
+                        <TableColumn fx:id="colFkil" editable="false" prefWidth="51.99993896484375" text="ⓧ" />
                      </columns>
                   </TableView>
                   <TableView fx:id="tblKavFav" layoutX="46.0" layoutY="378.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
                      <columns>
-                        <TableColumn fx:id="colKavFav" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFkav" prefWidth="51.99993896484375" text="ⓧ" />
+                        <TableColumn fx:id="colKavFav" editable="false" prefWidth="199.20001220703125" text="Name" />
+                        <TableColumn fx:id="colFkav" editable="false" prefWidth="51.99993896484375" text="ⓧ" />
                      </columns>
                   </TableView>
                   <TableView fx:id="tblDraFav" layoutX="379.0" layoutY="378.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
                      <columns>
-                        <TableColumn fx:id="colDraFav" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFdra" prefWidth="51.99993896484375" text="ⓧ" />
+                        <TableColumn fx:id="colDraFav" editable="false" prefWidth="199.20001220703125" text="Name" />
+                        <TableColumn fx:id="colFdra" editable="false" prefWidth="51.99993896484375" text="ⓧ" />
                      </columns>
                   </TableView>
                   <TableView fx:id="tblSerFav" layoutX="46.0" layoutY="81.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
                      <columns>
-                        <TableColumn fx:id="colSerFav" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFser" prefWidth="51.199981689453125" text="ⓧ" />
+                        <TableColumn fx:id="colSerFav" editable="false" prefWidth="199.20001220703125" text="Name" />
+                        <TableColumn fx:id="colFser" editable="false" prefWidth="51.199981689453125" text="ⓧ" />
                      </columns>
                   </TableView>
                </children></Pane>

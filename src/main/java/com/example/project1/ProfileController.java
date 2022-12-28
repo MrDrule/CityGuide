@@ -132,7 +132,9 @@ public class ProfileController implements Initializable {
                 String sql = "UPDATE users SET username='" + value1 + "' WHERE ID='" + id + "'";
                 pst = connection.prepareStatement(sql);
                 pst.executeUpdate();
+                txt_username.clear();
                 JOptionPane.showMessageDialog(null, "Your username have been updated!");
+                labelusername.setText(value1);
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -144,7 +146,8 @@ public class ProfileController implements Initializable {
             alert.getDialogPane().setHeaderText("Please enter your new username");
             alert.showAndWait();
         }
-    }public void EditPassword(){
+    }
+    public void EditPassword(){
         if (txt_password.getText().isBlank()==false) {
             try {
                 connection = com.example.project1.mysqlconnect.ConnectDb();
@@ -153,6 +156,8 @@ public class ProfileController implements Initializable {
                 String sql = "UPDATE users SET password='" + value2 + "' WHERE ID='" + id + "'";
                 pst = connection.prepareStatement(sql);
                 pst.executeUpdate();
+                labelpassword.setText(value2);
+                txt_password.clear();
                 JOptionPane.showMessageDialog(null, "Your password have been updated!");
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -174,6 +179,8 @@ public class ProfileController implements Initializable {
                 String sql = "UPDATE users SET email='" + value3 + "' WHERE ID='" + id + "'";
                 pst = connection.prepareStatement(sql);
                 pst.executeUpdate();
+                labelemail.setText(value3);
+                txt_email.clear();
                 JOptionPane.showMessageDialog(null, "Your email has been updated!");
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -195,6 +202,8 @@ public class ProfileController implements Initializable {
                 String sql = "UPDATE users SET name='" + value4 + "' WHERE ID='" + id + "'";
                 pst = connection.prepareStatement(sql);
                 pst.executeUpdate();
+                labelname.setText(value4);
+                txt_name.clear();
                 JOptionPane.showMessageDialog(null, "Your name have been updated!");
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -212,8 +221,8 @@ public class ProfileController implements Initializable {
     private void refreshTable() throws SQLException {
         try {
             connection = com.example.project1.mysqlconnect.ConnectDb();
-            String name = labelname.getText();
-            String sql = "SELECT * FROM users WHERE name='" + name + "'";
+            String username = labelusername.getText();
+            String sql = "SELECT * FROM users WHERE username='" + username + "'";
             ResultSet rs = connection.createStatement().executeQuery(sql);
             while (rs.next()) {
                 labelpassword.setText(rs.getString(1));

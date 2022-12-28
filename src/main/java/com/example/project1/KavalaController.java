@@ -31,7 +31,7 @@ public class KavalaController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    Connection conn=null;
+
     ResultSet rs= null;
     PreparedStatement pst = null;
 
@@ -130,12 +130,14 @@ public class KavalaController implements Initializable {
     private ObservableList<DestList> data4;
     private mysqlconnect connection;
 
+    private final Connection conn = connection.ConnectDb();
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setLogButton();
         try {
-            Connection conn = connection.ConnectDb();
             data = FXCollections.observableArrayList();
             data2 = FXCollections.observableArrayList();
             data3 = FXCollections.observableArrayList();
@@ -152,7 +154,7 @@ public class KavalaController implements Initializable {
             while (rs2.next()) {
                 data3.add(new DestList(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5)));
             }
-            ResultSet rs3 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 ORDER BY RAND() LIMIT 13");
+            ResultSet rs3 = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 AND type NOT LIKE '%museum%' ORDER BY rating DESC LIMIT 10");
             while (rs3.next()) {
                 data4.add(new DestList(rs3.getString(1), rs3.getString(2), rs3.getString(3),rs3.getString(4),rs3.getString(5)));
             }
@@ -185,27 +187,37 @@ public class KavalaController implements Initializable {
 
         Callback<TableColumn<DestList, SimpleStringProperty>, TableCell<DestList, SimpleStringProperty>> cellFactory=(param) -> {
             //Make the tablecell containing button
-            final TableCell<DestList,SimpleStringProperty> cell=new TableCell<DestList,SimpleStringProperty>(){
+            TableCell<DestList,SimpleStringProperty> cell=new TableCell<DestList,SimpleStringProperty>(){
 
-                //override updatItem method
+                //override updateItem method
                 @Override
                 public void updateItem(SimpleStringProperty item, boolean empty){
                     super.updateItem(item, empty);
                     if(empty){setGraphic(null);setText(null);}
                     else {
                         DestList p = getTableView().getItems().get(getIndex());
-
-
+                        String username=User.username;
+                        String Name= p.getName();
+                        String Address= p.getAddress();
+                        String Rating=p.getRating();
                         //Creating the action button
-                        final Button editButton = new Button("♡");
+                        //♡
+                        //❤
+                        Button editButton = new Button("♡");
+                        if (User.username != null && Name!=null){
+                            try {
+                                Integer liked = checkbutton(username,Name);
+                                if (liked==1){
+                                    editButton.setText("❤");
+                                }
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+
                         editButton.setOnAction(event -> {
                             if (User.username != null) {
                                 try {
-                                    String username=User.username;
-                                    String Name= p.getName();
-                                    String Address= p.getAddress();
-                                    String Rating=p.getRating();
-                                    conn = com.example.project1.mysqlconnect.ConnectDb();
                                     PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cityguide.favourite WHERE name= ? AND username= ?");
                                     stmt.setString(1, Name);
                                     stmt.setString(2,username);
@@ -223,6 +235,7 @@ public class KavalaController implements Initializable {
 
                                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                             alert.setContentText("You added \n" + p.getName() + " to your Favorites!");
+                                            editButton.setText("❤");
                                             alert.show();
                                         } catch (Exception e) {
                                             JOptionPane.showMessageDialog(null, e);}
@@ -231,9 +244,10 @@ public class KavalaController implements Initializable {
                                         PreparedStatement stmt2 = conn.prepareStatement("DELETE  FROM favourite WHERE name = ? AND username=?");
                                         stmt2.setString(1, Name);
                                         stmt2.setString(2,username);
-                                        int count = stmt2.executeUpdate();
+                                        stmt2.executeUpdate();
                                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                         alert.setContentText("Removed \n" + p.getName() + " off your Favorites!");
+                                        editButton.setText("♡");
                                         alert.show();
                                     }} catch (SQLException e) {
                                     e.printStackTrace();
@@ -269,12 +283,24 @@ public class KavalaController implements Initializable {
                     if(empty){setGraphic(null);setText(null);}
                     else {
                         DestList p = getTableView().getItems().get(getIndex());
+                        String username=User.username;
+                        String Name= p.getName();
                         //Creating the action button
-                        final Button editButton = new Button("☆");
+                        Button editButton = new Button("☆");
+                        if (User.username != null && Name!=null){
+                            try {
+                                Integer rated = checkratebutton(username,Name);
+                                if (rated==1){
+                                    editButton.setText("★");
+                                }
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                         editButton.setOnAction(event -> {
                             try {
-                                String Name= p.getName();
-                                RatingPlace rate= new RatingPlace(Name);
+                                String id=p.getPlaceId();
+                                RatingPlace rate= new RatingPlace(Name,id);
                                 Parent parent = FXMLLoader.load(getClass().getResource("Rating.fxml"));
                                 Scene scene = new Scene(parent);
                                 Stage stage = new Stage();
@@ -376,6 +402,12 @@ public class KavalaController implements Initializable {
         if (User.username != null) {
             User user = new User();
             buttonlog.setText("LogIn/SignUp");
+            Parent root = FXMLLoader.load(getClass().getResource("Kavala.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
+            stage.setScene(scene);
+            stage.show();
         }else{
             Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -390,6 +422,30 @@ public class KavalaController implements Initializable {
             buttonlog.setText("Logout");
         }else{
             buttonlog.setText("LogIn/SignUp");
+        }
+    }
+
+    public Integer checkbutton(String username , String name) throws SQLException {
+
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cityguide.favourite WHERE name= ? AND username= ?");
+        stmt.setString(1, name);
+        stmt.setString(2,username);
+        ResultSet rs5 = stmt.executeQuery();
+        if(rs5.next()){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
+    public Integer checkratebutton(String username , String name) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cityguide.ratings WHERE name= ? AND username= ?");
+        stmt.setString(1, name);
+        stmt.setString(2,username);
+        ResultSet rs5 = stmt.executeQuery();
+        if(rs5.next()){
+            return 1;
+        }else {
+            return 0;
         }
     }
 }

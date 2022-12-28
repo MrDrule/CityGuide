@@ -4,22 +4,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-
-
+import java.io.*;
+import java.sql.*;
+import org.apache.ibatis.jdbc.ScriptRunner;
 
 
 public class HelloApplication extends Application {
-
+    private static mysqlconnect connection;
+    private static final Connection conn = connection.ConnectDb();
 
     @Override
     public void start(Stage stage) throws IOException {
 
-
-
         stage = new Stage();
-
         stage.setWidth(916);
         stage.setHeight(740);
         stage.setX(300);
@@ -40,9 +37,56 @@ public class HelloApplication extends Application {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, FileNotFoundException {
+       //checkdbexist();
+       // String[] arguments = new String[] {""};
+        //mainAPI.main(arguments);
         launch(args);
     }
+    public static void checkdbexist(){
+        ResultSet rs = null;
+        try{
+            String dbName = "cityguidetest";
+            if(conn != null){
+                System.out.println("check if a database exists using java");
+                rs = conn.getMetaData().getCatalogs();
+
+                while(rs.next()){
+                    String catalogs = rs.getString(1);
+
+                    if(dbName.equals(catalogs)){
+                        System.out.println("the database "+dbName+" exists");
+                    }
+                }
+
+            }
+            else{
+                System.out.println("unable to create database connection");
+            }
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+        finally{
+            if( rs != null){
+                try{
+                    rs.close();
+                }
+                catch(SQLException ex){
+                    ex.printStackTrace();
+                }
+            }
+            if( conn != null){
+                try{
+                    conn.close();
+                }
+                catch(SQLException ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
 }
 
 

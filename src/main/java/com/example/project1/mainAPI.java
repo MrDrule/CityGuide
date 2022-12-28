@@ -5,10 +5,7 @@ import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class mainAPI {
@@ -17,7 +14,6 @@ public class mainAPI {
 
     private static int count=0;
     private static int shopparser=0;
-    private static int shoptodatabase=0;
 
     public static void main(String[] args) {
         ArrayList<String> requests = new ArrayList<String>();
@@ -127,7 +123,8 @@ public class mainAPI {
                 System.out.println("Shop parse= "+shopparser);
 
                 //add shop to database
-                addShopToDatabase(Integer.valueOf(town_id), placeId, name, open_close.toString(), rating, vicinity, types.toString(),price_level);
+                addShopToDatabase(town_id, placeId, name, open_close.toString(), rating, vicinity, types.toString(), price_level);
+
 
             }
 
@@ -150,7 +147,6 @@ public class mainAPI {
             preparedStatement.setString(7, type);
             preparedStatement.setDouble(8,price_level);
             preparedStatement.executeUpdate();
-            System.out.println("Shop to Database= "+shoptodatabase);
             int addedRows = preparedStatement.executeUpdate();
             if (addedRows > 0) {
                 shop = new Shop();
@@ -169,8 +165,6 @@ public class mainAPI {
         } catch (Exception var17) {
             var17.printStackTrace();
         }
-        System.out.println(shoptodatabase);
-
         return shop;
 
 
@@ -178,9 +172,5 @@ public class mainAPI {
     public static int getShopparser(){
         return shopparser;
     }
-    public static int getShoptodatabase(){
-        return shoptodatabase;
-    }
-
 
 }

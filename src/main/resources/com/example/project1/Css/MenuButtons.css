@@ -18,4 +18,10 @@
     -fx-background-color:   #566D7E;
     -fx-background-radius: 30 0 0 30;
 }
+.button:hover
+{
+    -fx-background-radius: 30 0 0 30;
+    -fx-text-fill: #001233;
+    -fx-background-color: linear-gradient(#CAC0B3, #E1E1E1);
+}
 

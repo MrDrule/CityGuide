@@ -112,7 +112,7 @@
                                                         <Font name="Book Antiqua Bold Italic" size="25.0" />
                                                     </font>
                                                 </Label>
-                                                <Text fill="#e5e4e2" fontSmoothingType="LCD" layoutX="33.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Καβάλα (στους αρχαίους χρόνους &quot;Νεάπολις&quot;, στο Βυζάντιο &quot;Χριστούπολις&quot; κι έως το 1928 &quot;Καβάλλα&quot;) είναι πόλη της Μακεδονίας, έδρα του δήμου Καβάλας και πρωτεύουσα της Περιφερειακής Ενότητας Καβάλας στην Ανατολική Μακεδονία. Αποτελεί σημαντικό λιμάνι και εμπορικό κέντρο της βόρειας Ελλάδας.Αποτελεί επίσης έδρα της Ιεράς Μητροπόλεως Φιλίππων, Νεαπόλεως και Θάσου.Είναι κτισμένη αμφιθεατρικά στους πρόποδες του όρους Σύμβολο ενώ η πρόσβαση προς την πόλη είναι εύκολη μέσω της Εγνατίας Οδού απέχει 650 χιλιόμετρα από την Αθήνα και 153 χιλιόμετρα από τη Θεσσαλονίκη.Πιθανολογείται πως το όνομα της πόλης προέρχεται από τον αρχαίο οικισμό &quot;Σκαβάλλα&quot;, σημερινή Παλαιά Καβάλα, από την οποία θεωρείται πως έφτασαν στην Καβάλα οι αρχαίοι κάτοικοί της.  " wrappingWidth="301.13671875">
+                                                <Text fill="#e5e4e2" fontSmoothingType="LCD" layoutX="56.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Η Καβάλα (στους αρχαίους χρόνους &quot;Νεάπολις&quot;, στο Βυζάντιο &quot;Χριστούπολις&quot; κι έως το 1928 &quot;Καβάλλα&quot;) είναι πόλη της Μακεδονίας, έδρα του δήμου Καβάλας και πρωτεύουσα της Περιφερειακής Ενότητας Καβάλας στην Ανατολική Μακεδονία. Αποτελεί σημαντικό λιμάνι και εμπορικό κέντρο της βόρειας Ελλάδας.Αποτελεί επίσης έδρα της Ιεράς Μητροπόλεως Φιλίππων, Νεαπόλεως και Θάσου.Είναι κτισμένη αμφιθεατρικά στους πρόποδες του όρους Σύμβολο ενώ η πρόσβαση προς την πόλη είναι εύκολη μέσω της Εγνατίας Οδού απέχει 650 χιλιόμετρα από την Αθήνα και 153 χιλιόμετρα από τη Θεσσαλονίκη.Πιθανολογείται πως το όνομα της πόλης προέρχεται από τον αρχαίο οικισμό &quot;Σκαβάλλα&quot;, σημερινή Παλαιά Καβάλα, από την οποία θεωρείται πως έφτασαν στην Καβάλα οι αρχαίοι κάτοικοί της.  " wrappingWidth="255.13671875">
                                                     <font>
                                                         <Font size="13.0" />
                                                     </font>
@@ -149,7 +149,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
+                                        <TableView fx:id="tableCC" layoutY="72.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
                                                 <TableColumn fx:id="colName" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="colAdd" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
@@ -163,9 +163,9 @@
                                                 <Insets right="10.0" />
                                             </opaqueInsets>
                                         </TableView>
-                                        <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="315.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" style="-fx-alignment: center;">
+                                        <ImageView fitHeight="72.0" fitWidth="685.0" pickOnBounds="true" smooth="false">
                                             <image>
-                                                <Image url="@images/museum22.jpg" />
+                                                <Image url="@images/wave2.png" />
                                             </image>
                                         </ImageView>
                                     </children></AnchorPane>
@@ -182,7 +182,12 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC1" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
+                                        <ImageView fitHeight="76.0" fitWidth="690.0" pickOnBounds="true" smooth="false">
+                                            <image>
+                                                <Image url="@images/wave-haikei.png" />
+                                            </image>
+                                        </ImageView>
+                                        <TableView fx:id="tableCC1" layoutY="70.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
                                                 <TableColumn fx:id="colName1" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="colAdd1" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
@@ -196,11 +201,6 @@
                                                 <Insets right="10.0" />
                                             </opaqueInsets>
                                         </TableView>
-                                        <ImageView fitHeight="56.0" fitWidth="55.0" layoutX="310.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/coffee2.png" />
-                                            </image>
-                                        </ImageView>
                                     </children></AnchorPane>
                             </content>
                             <graphic>
@@ -215,7 +215,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC11" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
+                                        <TableView fx:id="tableCC11" layoutX="1.0" layoutY="74.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
                                                 <TableColumn fx:id="colName11" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="colAdd11" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
@@ -229,9 +229,9 @@
                                                 <Insets right="10.0" />
                                             </opaqueInsets>
                                         </TableView>
-                                        <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="306.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="74.0" fitWidth="680.0" layoutX="-3.0" pickOnBounds="true" smooth="false">
                                             <image>
-                                                <Image url="@images/restaurant2.png" />
+                                                <Image url="@images/wave3.png" />
                                             </image>
                                         </ImageView>
                                     </children></AnchorPane>
@@ -281,7 +281,7 @@
 
                                 <AnchorPane style="-fx-background-color: #E5E4E2;">
                                     <children>
-                                        <TableView fx:id="tableCC12" layoutX="3.0" layoutY="104.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
+                                        <TableView fx:id="tableCC12" layoutY="76.0" prefHeight="489.0" prefWidth="663.0" stylesheets="@Css/TableView.css">
                                             <columns>
                                                 <TableColumn fx:id="colName12" prefWidth="175.99993896484375" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="colAdd12" prefWidth="189.60006713867188" style="-fx-alignment: center;" text="Address" />
@@ -292,7 +292,12 @@
                                                 <TableColumn fx:id="colRating12" prefWidth="61.600024414062545" style="-fx-alignment: center;" text="Rate" />
                                             </columns>
                                         </TableView>
-                                        <Label layoutX="188.0" layoutY="46.0" prefHeight="34.0" prefWidth="298.0" text="Recommended for Today">
+                                        <ImageView fitHeight="68.0" fitWidth="683.0" layoutX="-7.0" pickOnBounds="true" smooth="false">
+                                            <image>
+                                                <Image url="@images/wave2.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label layoutX="194.0" layoutY="42.0" prefHeight="34.0" prefWidth="289.0" text="Recommended for Today">
                                             <font>
                                                 <Font name="Calisto MT Bold" size="25.0" />
                                             </font>
@@ -312,5 +317,10 @@
                 </TabPane>
             </center>
         </BorderPane>
+        <ImageView fitHeight="56.0" fitWidth="55.0" layoutX="590.0" layoutY="-72.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/coffee2.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>
