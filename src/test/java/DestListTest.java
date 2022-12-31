@@ -57,4 +57,11 @@ class DestListTest {
         String ExpRes="9.7";
         assertEquals(ExpRes,price);
     }
+    @Test
+    void setPlaceIDTest() {
+        test.setPlaceId("abc");
+        String price = test.getPlaceId();
+        String ExpRes="abc";
+        assertEquals(ExpRes,price);
+    }
 }

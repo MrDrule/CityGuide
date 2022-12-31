@@ -20,6 +20,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -37,19 +38,21 @@ public class RegisterController implements Initializable {
     @FXML
     private Button btn_signUp;
 
+
     private Stage stage;
     private Scene scene;
     private Parent root;
-    Connection conn = null;
     ResultSet rs= null;
     PreparedStatement pst = null;
+    private static mysqlconnect connection;
+
+    private static final Connection conn = connection.ConnectDb();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    public void add_users(ActionEvent event) {
-        conn= com.example.project1.mysqlconnect.ConnectDb();
+    public void add_users() {
         String sql = "INSERT INTO users (username,password,name,email) VALUES (?,?,?,?)";
         if (txt_username_up.getText().isBlank()==false && txt_password_up.getText().isBlank()==false && email_up.getText().isBlank()==false &&txt_name_up.getText().isBlank()==false){
             try {

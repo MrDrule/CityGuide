@@ -170,7 +170,7 @@ public class FavouriteController implements Initializable {
                                 PreparedStatement stmt2 = conn.prepareStatement("DELETE  FROM favourite WHERE name = ? AND username = ?");
                                 stmt2.setString(1, Name);
                                 stmt2.setString(2,username);
-                                int count = stmt2.executeUpdate();
+                                stmt2.executeUpdate();
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setContentText("Removed \n" + p.getName() + " off your Favorites!");
                                 alert.show();
@@ -223,10 +223,10 @@ public class FavouriteController implements Initializable {
             System.err.println("Error" + e);
         }
 
-        colSerFav.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colKavFav.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colDraFav.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colKilFav.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        colSerFav.setCellValueFactory(new PropertyValueFactory<>("Name"));
 
         tblSerFav.setItems(data);
         tblDraFav.setItems(data2);

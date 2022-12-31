@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -14,8 +16,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="707.0" maxWidth="896.0" minHeight="513" minWidth="500" prefHeight="705.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.FavouriteController">
    <children>
@@ -101,46 +105,174 @@
          <center>
             <Pane prefHeight="454.0" prefWidth="446.0" style="-fx-background-color: #E5E4E2;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="128.0" layoutY="332.0" prefHeight="30.0" prefWidth="88.0" text="Καβάλα">
-                     <font>
-                        <Font name="Century" size="24.0" />
-                     </font></Label>
-                  <Text fx:id="textemail" layoutX="460.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Κιλκίς">
-                     <font>
-                        <Font name="Century" size="24.0" />
-                     </font></Text>
-                  <Text fx:id="textusername" layoutX="135.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Σέρρες">
-                     <font>
-                        <Font name="Century" size="24.0" />
-                     </font></Text>
-                  <Text fx:id="textusername1" layoutX="463.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Δράμα">
-                     <font>
-                        <Font name="Century" size="24.0" />
-                     </font></Text>
-                  <TableView fx:id="tblKilFav" layoutX="379.0" layoutY="81.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
-                     <columns>
-                        <TableColumn fx:id="colKilFav" editable="false" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFkil" editable="false" prefWidth="51.99993896484375" text="ⓧ" />
-                     </columns>
-                  </TableView>
-                  <TableView fx:id="tblKavFav" layoutX="46.0" layoutY="378.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
-                     <columns>
-                        <TableColumn fx:id="colKavFav" editable="false" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFkav" editable="false" prefWidth="51.99993896484375" text="ⓧ" />
-                     </columns>
-                  </TableView>
-                  <TableView fx:id="tblDraFav" layoutX="379.0" layoutY="378.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
-                     <columns>
-                        <TableColumn fx:id="colDraFav" editable="false" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFdra" editable="false" prefWidth="51.99993896484375" text="ⓧ" />
-                     </columns>
-                  </TableView>
-                  <TableView fx:id="tblSerFav" layoutX="46.0" layoutY="81.0" prefHeight="223.0" prefWidth="252.0" stylesheets="@Css/TableView.css">
-                     <columns>
-                        <TableColumn fx:id="colSerFav" editable="false" prefWidth="199.20001220703125" text="Name" />
-                        <TableColumn fx:id="colFser" editable="false" prefWidth="51.199981689453125" text="ⓧ" />
-                     </columns>
-                  </TableView>
+                  <TabPane fx:id="tabepane" layoutX="3.0" layoutY="1.0" prefHeight="641.0" prefWidth="672.0" side="LEFT" style="-fx-background-color: FFFFFF;" stylesheets="@Css/TabPane.css" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab>
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
+                                 <children>
+                                    <TableView fx:id="tblDraFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
+                                       <columns>
+                                          <TableColumn fx:id="colDraFav" editable="false" maxWidth="431.2000541687012" prefWidth="413.6000785827637" resizable="false" text="Name" />
+                                          <TableColumn fx:id="colFdra" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" resizable="false" sortable="false" style="-fx-alignment: center;" text="ⓧ" />
+                                       </columns>
+                                    </TableView>
+                                    <Label layoutX="170.0" layoutY="20.0" prefHeight="98.0" prefWidth="250.0" text="ΔΡΑΜΑ">
+                                       <font>
+                                          <Font name="Century" size="64.0" />
+                                       </font>
+                                       <textFill>
+                                          <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusAngle="-45.0" radius="0.5">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.6315789222717285" green="0.10058479756116867" blue="0.10058479756116867" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.04210526496171951" green="0.02744639292359352" blue="0.02744639292359352" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </RadialGradient>
+                                       </textFill>
+                                    </Label>
+                                 </children></AnchorPane>
+                        </content>
+                           <graphic>
+                              <ImageView fitHeight="89.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/drama_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                      </Tab>
+                      <Tab>
+                         <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
+                               <children>
+                                  <TableView fx:id="tblKavFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
+                                     <columns>
+                                        <TableColumn fx:id="colKavFav" editable="false" maxWidth="431.2000541687012" prefWidth="413.6000785827637" resizable="false" text="Name" />
+                                        <TableColumn fx:id="colFkav" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" sortable="false" style="-fx-alignment: center;" text="ⓧ" />
+                                     </columns>
+                                  </TableView>
+                                  <Label layoutX="148.0" layoutY="14.0" prefHeight="98.0" prefWidth="286.0" text="ΚΑΒΑΛΑ">
+                                     <font>
+                                        <Font name="Century" size="64.0" />
+                                     </font>
+                                     <textFill>
+                                        <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusAngle="-45.0" radius="0.5">
+                                           <stops>
+                                              <Stop>
+                                                 <color>
+                                                    <Color red="0.6315789222717285" green="0.10058479756116867" blue="0.10058479756116867" />
+                                                 </color>
+                                              </Stop>
+                                              <Stop offset="1.0">
+                                                 <color>
+                                                    <Color red="0.04210526496171951" green="0.02744639292359352" blue="0.02744639292359352" />
+                                                 </color>
+                                              </Stop>
+                                           </stops>
+                                        </RadialGradient>
+                                     </textFill>
+                                  </Label>
+                               </children></AnchorPane>
+                         </content>
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/kavala_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                      </Tab>
+                        <Tab>
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
+                                 <children>
+                                    <TableView fx:id="tblSerFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
+                                       <columns>
+                                          <TableColumn fx:id="colSerFav" editable="false" maxWidth="431.2000541687012" prefWidth="413.6000785827637" resizable="false" text="Name" />
+                                          <TableColumn fx:id="colFser" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" sortable="false" style="-fx-alignment: center;" text="ⓧ"  />
+                                       </columns>
+                                    </TableView>
+                                    <Label layoutX="161.0" layoutY="22.0" prefHeight="98.0" prefWidth="259.0" text="ΣΕΡΡΕΣ">
+                                       <font>
+                                          <Font name="Century" size="64.0" />
+                                       </font>
+                                       <textFill>
+                                          <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusAngle="-45.0" radius="0.5">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.6315789222717285" green="0.10058479756116867" blue="0.10058479756116867" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.04210526496171951" green="0.02744639292359352" blue="0.02744639292359352" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </RadialGradient>
+                                       </textFill>
+                                    </Label>
+                                 </children></AnchorPane>
+                           </content>
+                           <graphic>
+                              <ImageView fitHeight="69.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/serres_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Tab>
+                        <Tab style="-fx-alignment: center;">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
+                                 <children>
+                                    <TableView fx:id="tblKilFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
+                                       <columns>
+                                          <TableColumn fx:id="colKilFav" editable="false" maxWidth="431.2000541687012" prefWidth="413.6000785827637" resizable="false" text="Name" />
+                                          <TableColumn fx:id="colFkil" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" sortable="false" style="-fx-alignment: center;" text="ⓧ" />
+                                       </columns>
+                                    </TableView>
+                                    <Label layoutX="170.0" layoutY="20.0" prefHeight="98.0" prefWidth="250.0" text="ΚΙΛΚΙΣ">
+                                       <font>
+                                          <Font name="Century" size="64.0" />
+                                       </font>
+                                       <textFill>
+                                          <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusAngle="-45.0" radius="0.5">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.6315789222717285" green="0.10058479756116867" blue="0.10058479756116867" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.04210526496171951" green="0.02744639292359352" blue="0.02744639292359352" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </RadialGradient>
+                                       </textFill>
+                                    </Label>
+                                 </children></AnchorPane>
+                           </content>
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/kilkis_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
                </children></Pane>
          </center>
       </BorderPane>

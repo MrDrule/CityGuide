@@ -116,9 +116,6 @@ public class LoginController implements Initializable {
 
                     user=new User(username,password,name,email);
 
-                    System.out.println(user.name+" "+user.password+" "+user.name+" "+user.email);
-
-
                     btn_login.getScene().getWindow().hide();
                     Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
                     Stage mainStage = new Stage();

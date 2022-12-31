@@ -22,7 +22,7 @@ public class VerifyDataTest {
             assertEquals(1,rs.getInt("ID"));
             assertEquals("pantazis", rs.getString("username"));
             assertEquals("pan2@hotmail.com", rs.getString("email"));
-            assertEquals("Pantazis2", rs.getString("name"));
+            assertEquals("Pantazis", rs.getString("name"));
             assertEquals("a1782395", rs.getString("password"));
             assertFalse(rs.next());
 
