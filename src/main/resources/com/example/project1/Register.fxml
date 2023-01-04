@@ -1,64 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-        <?import javafx.scene.control.Button?>
-        <?import javafx.scene.control.Label?>
-        <?import javafx.scene.control.TextField?>
-        <?import javafx.scene.image.Image?>
-        <?import javafx.scene.image.ImageView?>
-        <?import javafx.scene.layout.AnchorPane?>
-        <?import javafx.scene.layout.BorderPane?>
-        <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.RegisterController">
 
-<center>
-    <AnchorPane prefHeight="316.0" prefWidth="568.0" BorderPane.alignment="CENTER">
-        <children>
-            <AnchorPane fx:id="pane_login" layoutX="14.0" layoutY="1.0" prefHeight="733.0" prefWidth="915.0">
-                <children>
-                    <TextField fx:id="txt_username_up" layoutX="285.0" layoutY="162.0" prefHeight="27.0" prefWidth="345.0" promptText="Insert Your Username" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: black; -fx-background-color: transparent;" stylesheets="@Css/TextFieldReg.css" />
-                    <Label layoutX="372.0" layoutY="42.0" stylesheets="@Css/profileLabes.css" textFill="#bfa181">
-                        <font>
-                            <Font size="28.0" />
-                        </font>
-                    </Label>
-                    <Button fx:id="btn_login" layoutX="324.0" layoutY="493.0" mnemonicParsing="false" onAction="#add_users" prefHeight="30.0" prefWidth="220.0" stylesheets="@Css/buttonhome.css" text="SignUp" textFill="#001233">
-                        <font>
-                            <Font size="14.0" />
-                        </font></Button>
-                    <TextField fx:id="txt_password_up" layoutX="286.0" layoutY="235.0" prefHeight="27.0" prefWidth="348.0" promptText="Insert Your Password" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: black;" stylesheets="@Css/TextFieldReg.css" />
-                    <TextField fx:id="email_up" layoutX="286.0" layoutY="302.0" prefHeight="27.0" prefWidth="343.0" promptText="Insert Your e-mail" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: black;" stylesheets="@Css/TextFieldReg.css" />
-                    <TextField fx:id="txt_name_up" layoutX="286.0" layoutY="380.0" prefHeight="27.0" prefWidth="348.0" promptText="Insert Your Name" style="-fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: black;" stylesheets="@Css/TextFieldReg.css" />
-                    <AnchorPane layoutX="-6.0" layoutY="-2.0" prefHeight="77.0" prefWidth="926.0" style="-fx-background-color: #E96151;">
-                        <children>
-                            <Label layoutX="360.0" layoutY="22.0" prefHeight="35.0" prefWidth="235.0" text="User Registration" textFill="WHITE">
-                                <font>
-                                    <Font size="24.0" />
-                                </font>
-                            </Label>
-                            <Button layoutX="30.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: transparent;" stylesheets="@Css/buttonhome.css" text="Home">
-                                <graphic>
-                                    <ImageView fitHeight="18.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@images/home_1.png" />
-                                        </image>
-                                    </ImageView>
-                                </graphic>
-                            </Button>
-                            <ImageView fitHeight="63.0" fitWidth="58.0" layoutX="777.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@images/signup.png" />
-                                </image>
-                            </ImageView>
-                        </children>
-                    </AnchorPane>
-                    <Button fx:id="btn_login1" layoutX="265.0" layoutY="550.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="75.0" prefWidth="337.0" style="-fx-background-color: transparent;" text="You already have an accout? Click here to LogIn" underline="true">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </Button>
-                </children>
-            </AnchorPane>
-        </children></AnchorPane>
-</center>
+    <center>
+        <AnchorPane prefHeight="316.0" prefWidth="568.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane fx:id="pane_login" layoutX="14.0" layoutY="1.0" prefHeight="733.0" prefWidth="915.0">
+                    <children>
+                        <Label layoutX="372.0" layoutY="42.0" stylesheets="@Css/profileLabes.css" textFill="#bfa181">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane layoutX="-22.0" layoutY="-2.0" prefHeight="79.0" prefWidth="942.0" style="-fx-background-color: #001233;">
+                            <children>
+                                <Label layoutX="625.0" layoutY="21.0" prefHeight="35.0" prefWidth="208.0" text="User Registration" textFill="#bfa181">
+                                    <font>
+                                        <Font name="Century" size="25.0" />
+                                    </font>
+                                </Label>
+                                <Button layoutX="29.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="75.0" stylesheets="@Css/buttonhome.css" text="Home">
+                                    <graphic>
+                                        <ImageView fitHeight="18.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/home_1.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                        <ImageView fitHeight="665.0" fitWidth="947.0" layoutX="-27.0" layoutY="73.0" pickOnBounds="true" smooth="false">
+                            <image>
+                                <Image url="@images/travel-remembrances-concept.jpg" />
+                            </image>
+                        </ImageView>
+                        <AnchorPane layoutX="506.0" layoutY="72.0" prefHeight="667.0" prefWidth="413.0" style="-fx-background-color: rgba(31, 29, 40,0.8);">
+                            <children>
+                                <TextField fx:id="txt_username_up" alignment="CENTER" layoutX="120.0" layoutY="108.0" prefHeight="27.0" prefWidth="160.0" promptText="Insert Your Username" style="-fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #E5E4E2; -fx-background-color: transparent;" stylesheets="@Css/TextFieldLogin.css" />
+                                <TextField fx:id="txt_password_up" alignment="CENTER" layoutX="120.0" layoutY="166.0" prefHeight="27.0" prefWidth="160.0" promptText="Insert Your Password" style="-fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: #E5E4E2;" stylesheets="@Css/TextFieldLogin.css" />
+                                <TextField fx:id="email_up" alignment="CENTER" layoutX="120.0" layoutY="228.0" prefHeight="27.0" prefWidth="159.0" promptText="Insert Your e-mail" style="-fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: #E5E4E2;" stylesheets="@Css/TextFieldLogin.css" />
+                                <TextField fx:id="txt_name_up" alignment="CENTER" layoutX="119.0" layoutY="290.0" prefHeight="27.0" prefWidth="161.0" promptText="Insert Your Name" style="-fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: #E5E4E2;" stylesheets="@Css/TextFieldLogin.css" />
+                                <Button fx:id="btn_login" layoutX="120.0" layoutY="403.0" mnemonicParsing="false" onAction="#add_users" prefHeight="30.0" prefWidth="160.0" stylesheets="@Css/buttonhome.css" text="SignUp" textFill="#001233">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btn_login1" layoutX="47.0" layoutY="498.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="30.0" prefWidth="320.0" style="-fx-background-color: transparent;" text="You already have an accout? Click here to LogIn" textFill="#bfa181" underline="true">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                        <Text fill="#001233" layoutX="184.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Εγγράψου δωρεάν." wrappingWidth="137.8310546875">
+                            <font>
+                                <Font name="Century" size="23.0" />
+                            </font>
+                        </Text>
+                        <Text fill="#e5e4e2" layoutX="192.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City Guide!" wrappingWidth="135.55859375">
+                            <font>
+                                <Font name="Century" size="37.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+            </children></AnchorPane>
+    </center>
 </BorderPane>

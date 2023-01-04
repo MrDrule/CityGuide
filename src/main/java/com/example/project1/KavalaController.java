@@ -323,6 +323,7 @@ public class KavalaController implements Initializable {
         colRating11.setCellFactory(cellFactory2);
         colRating12.setCellFactory(cellFactory2);
 
+        tableCC.setItems(null);
         tableCC.setItems(data);
 
         tableCC1.setItems(null);
@@ -359,6 +360,7 @@ public class KavalaController implements Initializable {
     public void switchToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
         scene = new Scene(root);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("custom-theme.css")));
         stage.setScene(scene);
@@ -369,6 +371,7 @@ public class KavalaController implements Initializable {
         if (User.username != null) {
             Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setResizable(false);
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

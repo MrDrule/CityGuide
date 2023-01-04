@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -37,7 +38,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txt_username_up;
     @FXML
-    private TextField txt_password_up;
+    private PasswordField txt_password_up;
     @FXML
     private TextField email_up;
     @FXML
@@ -64,36 +65,9 @@ public class LoginController implements Initializable {
         root = FXMLLoader.load(getClass().getResource("Register.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        root.setStyle("-fx-background-image:url('com/example/project1/images/register.jpg');");
         stage.setScene(scene);
         stage.show();
     }
-   /* public void add_users(javafx.event.ActionEvent event) {
-        conn= com.example.project1.mysqlconnect.ConnectDb();
-        String sql = "INSERT INTO users (username,password,name,email) VALUES (?,?,?,?)";
-        if (txt_username_up.getText().isBlank()==false && txt_password_up.getText().isBlank()==false && email_up.getText().isBlank()==false &&txt_name_up.getText().isBlank()==false){
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1,txt_username_up.getText());
-                pst.setString(2,txt_password_up.getText());
-                pst.setString(3,txt_name_up.getText());
-                pst.setString(4,email_up.getText());
-                pst.execute();
-
-                JOptionPane.showMessageDialog(null,"Saved");
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(null,e);
-            }
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.initModality(Modality.APPLICATION_MODAL);
-            alert.initOwner(stage);
-            alert.getDialogPane().setHeaderText("Please enter your registration information");
-            alert.showAndWait();
-        }
-
-    }*/
 
     public void Login(javafx.event.ActionEvent event) {
         conn = com.example.project1.mysqlconnect.ConnectDb();

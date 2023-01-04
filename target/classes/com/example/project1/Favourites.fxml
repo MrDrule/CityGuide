@@ -103,13 +103,13 @@
             </HBox>
          </top>
          <center>
-            <Pane prefHeight="454.0" prefWidth="446.0" style="-fx-background-color: #E5E4E2;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="454.0" prefWidth="446.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane fx:id="tabepane" layoutX="3.0" layoutY="1.0" prefHeight="641.0" prefWidth="672.0" side="LEFT" style="-fx-background-color: FFFFFF;" stylesheets="@Css/TabPane.css" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab>
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
+                  <TabPane fx:id="tabepane" layoutX="-3.0" layoutY="-4.0" prefHeight="646.0" prefWidth="678.0" side="LEFT" style="-fx-background-color: white;" stylesheets="@Css/TabPane.css" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab>
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
                                  <children>
                                     <TableView fx:id="tblDraFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
                                        <columns>
@@ -139,56 +139,56 @@
                                        </textFill>
                                     </Label>
                                  </children></AnchorPane>
-                        </content>
+                           </content>
                            <graphic>
-                              <ImageView fitHeight="89.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="68.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/drama_logo.png" />
                                  </image>
                               </ImageView>
                            </graphic>
-                      </Tab>
-                      <Tab>
-                         <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
-                               <children>
-                                  <TableView fx:id="tblKavFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
-                                     <columns>
-                                        <TableColumn fx:id="colKavFav" editable="false" maxWidth="431.2000541687012" prefWidth="413.6000785827637" resizable="false" text="Name" />
-                                        <TableColumn fx:id="colFkav" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" sortable="false" style="-fx-alignment: center;" text="ⓧ" />
-                                     </columns>
-                                  </TableView>
-                                  <Label layoutX="148.0" layoutY="14.0" prefHeight="98.0" prefWidth="286.0" text="ΚΑΒΑΛΑ">
-                                     <font>
-                                        <Font name="Century" size="64.0" />
-                                     </font>
-                                     <textFill>
-                                        <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusAngle="-45.0" radius="0.5">
-                                           <stops>
-                                              <Stop>
-                                                 <color>
-                                                    <Color red="0.6315789222717285" green="0.10058479756116867" blue="0.10058479756116867" />
-                                                 </color>
-                                              </Stop>
-                                              <Stop offset="1.0">
-                                                 <color>
-                                                    <Color red="0.04210526496171951" green="0.02744639292359352" blue="0.02744639292359352" />
-                                                 </color>
-                                              </Stop>
-                                           </stops>
-                                        </RadialGradient>
-                                     </textFill>
-                                  </Label>
-                               </children></AnchorPane>
-                         </content>
+                        </Tab>
+                        <Tab>
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
+                                 <children>
+                                    <TableView fx:id="tblKavFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
+                                       <columns>
+                                          <TableColumn fx:id="colKavFav" editable="false" maxWidth="431.2000541687012" prefWidth="413.6000785827637" resizable="false" text="Name" />
+                                          <TableColumn fx:id="colFkav" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" sortable="false" style="-fx-alignment: center;" text="ⓧ" />
+                                       </columns>
+                                    </TableView>
+                                    <Label layoutX="148.0" layoutY="14.0" prefHeight="98.0" prefWidth="286.0" text="ΚΑΒΑΛΑ">
+                                       <font>
+                                          <Font name="Century" size="64.0" />
+                                       </font>
+                                       <textFill>
+                                          <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" focusAngle="-45.0" radius="0.5">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.6315789222717285" green="0.10058479756116867" blue="0.10058479756116867" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.04210526496171951" green="0.02744639292359352" blue="0.02744639292359352" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </RadialGradient>
+                                       </textFill>
+                                    </Label>
+                                 </children></AnchorPane>
+                           </content>
                            <graphic>
                               <ImageView fitHeight="49.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/kavala_logo.png" />
+                                    <Image url="@images/default_logo.png" />
                                  </image>
                               </ImageView>
                            </graphic>
-                      </Tab>
+                        </Tab>
                         <Tab>
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="313.0" style="-fx-background-color: FFFFFF;">
@@ -196,7 +196,7 @@
                                     <TableView fx:id="tblSerFav" layoutX="22.0" layoutY="154.0" prefHeight="474.0" prefWidth="538.0" stylesheets="@Css/TableViewFav.css">
                                        <columns>
                                           <TableColumn fx:id="colSerFav" editable="false" maxWidth="431.2000541687012" prefWidth="413.6000785827637" resizable="false" text="Name" />
-                                          <TableColumn fx:id="colFser" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" sortable="false" style="-fx-alignment: center;" text="ⓧ"  />
+                                          <TableColumn fx:id="colFser" editable="false" maxWidth="310.3999542236328" minWidth="0.0" prefWidth="116.0" sortable="false" style="-fx-alignment: center;" text="ⓧ" />
                                        </columns>
                                     </TableView>
                                     <Label layoutX="161.0" layoutY="22.0" prefHeight="98.0" prefWidth="259.0" text="ΣΕΡΡΕΣ">
@@ -271,7 +271,7 @@
                               </ImageView>
                            </graphic>
                         </Tab>
-                    </tabs>
+                     </tabs>
                   </TabPane>
                </children></Pane>
          </center>

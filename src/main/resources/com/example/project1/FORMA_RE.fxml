@@ -2,12 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.LoginController">
 
@@ -16,21 +18,14 @@
          <children>
             <AnchorPane fx:id="pane_login" prefHeight="713.0" prefWidth="915.0">
                <children>
-                  <TextField fx:id="txt_username" layoutX="315.0" layoutY="194.0" promptText="Insert Your Username" style="-fx-border-color: #bfa181; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #E5E4E2;" stylesheets="@Css/TextFieldLogin.css" />
-                  <Button fx:id="btn_login" layoutX="297.0" layoutY="404.0" mnemonicParsing="false" onAction="#Login" prefHeight="28.0" prefWidth="174.0" stylesheets="@Css/buttonhome.css" text="Log In" textFill="#001233">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                  <TextField fx:id="txt_password" layoutX="309.0" layoutY="290.0" promptText="Insert Your Password" style="-fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: #E5E4E2;" stylesheets="@Css/TextFieldLogin.css" />
-                  <Button fx:id="SwitchToRegister" layoutX="297.0" layoutY="506.0" mnemonicParsing="false" onAction="#SwitchToRegister" style="-fx-background-color: transparent;" text="Not Registered? Click Here." textFill="#bfa181" underline="true" />
-                  <AnchorPane prefHeight="74.0" prefWidth="915.0" style="-fx-background-color: #147D62;">
+                  <AnchorPane prefHeight="74.0" prefWidth="915.0" style="-fx-background-color: #001233;">
                      <children>
-                        <Label layoutX="360.0" layoutY="22.0" prefHeight="35.0" prefWidth="98.0" text="Log In" textFill="WHITE">
+                        <Label layoutX="634.0" layoutY="18.0" prefHeight="41.0" prefWidth="87.0" text="Log In" textFill="#bfa181">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Century" size="24.0" />
                            </font>
                         </Label>
-                        <Button layoutX="30.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: transparent;" stylesheets="@Css/buttonhome.css" text="Home" textFill="WHITE">
+                        <Button layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="75.0" stylesheets="@Css/buttonhome.css" text="Home">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -39,13 +34,38 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <ImageView fitHeight="46.0" fitWidth="60.0" layoutX="731.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/login-.png" />
-                           </image>
-                        </ImageView>
                      </children>
                   </AnchorPane>
+                  <ImageView fitHeight="664.0" fitWidth="915.0" layoutY="74.0" pickOnBounds="true" smooth="false">
+                     <image>
+                        <Image url="@images/retro-camera-near-toy-plane-case-with-notepad_23-2148109245.jpg" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane layoutX="456.0" layoutY="73.0" prefHeight="667.0" prefWidth="459.0" style="-fx-background-color: rgba(31, 29, 40,0.8);">
+                     <children>
+                        <TextField fx:id="txt_username" alignment="CENTER" layoutX="143.0" layoutY="165.0" promptText="Insert Your Username" style="-fx-border-color: #bfa181; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #E5E4E2;" stylesheets="@Css/TextFieldLogin.css" />
+                        <PasswordField fx:id="txt_password" alignment="CENTER" layoutX="143.0" layoutY="253.0" promptText="Insert Your Password" style="-fx-border-color: #bfa181; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-text-fill: #E5E4E2;" stylesheets="@Css/TextFieldLogin.css" />
+                        <Button fx:id="btn_login" layoutX="132.0" layoutY="334.0" mnemonicParsing="false" onAction="#Login" prefHeight="35.0" prefWidth="176.0" stylesheets="@Css/buttonhome.css" text="Log In" textFill="#001233">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SwitchToRegister" layoutX="125.0" layoutY="448.0" mnemonicParsing="false" onAction="#SwitchToRegister" prefHeight="30.0" prefWidth="189.0" style="-fx-background-color: transparent;" text="Not Registered? Click Here." textFill="#bfa181" underline="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+                  <Text fill="#cac0b3" layoutX="72.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Συνδεθείτε για να απολαύσετε όλες τις δυνατές λειτουργίες της εφαρμογής." wrappingWidth="361.13671875">
+                     <font>
+                        <Font name="Century" size="35.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#001233" layoutX="35.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Αν δεν είστε εγγεγραμμένος,πατήστε το κουμπί της εγγραφής." wrappingWidth="397.19921875">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children></AnchorPane>

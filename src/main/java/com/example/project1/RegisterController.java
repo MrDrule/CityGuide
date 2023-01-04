@@ -42,8 +42,8 @@ public class RegisterController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    ResultSet rs= null;
-    PreparedStatement pst = null;
+    static ResultSet rs= null;
+    static PreparedStatement pst = null;
     private static mysqlconnect connection;
 
     private static final Connection conn = connection.ConnectDb();
@@ -52,20 +52,34 @@ public class RegisterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    public void add_users() {
+    public void add_users() throws SQLException {
         String sql = "INSERT INTO users (username,password,name,email) VALUES (?,?,?,?)";
         if (txt_username_up.getText().isBlank()==false && txt_password_up.getText().isBlank()==false && email_up.getText().isBlank()==false &&txt_name_up.getText().isBlank()==false){
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1,txt_username_up.getText());
-                pst.setString(2,txt_password_up.getText());
-                pst.setString(3,txt_name_up.getText());
-                pst.setString(4,email_up.getText());
-                pst.execute();
+            if (!checkusername(txt_username_up.getText())&&!checkemail(email_up.getText())){
+                try {
+                    pst = conn.prepareStatement(sql);
+                    pst.setString(1, txt_username_up.getText());
+                    pst.setString(2, txt_password_up.getText());
+                    pst.setString(3, txt_name_up.getText());
+                    pst.setString(4, email_up.getText());
+                    pst.execute();
 
-                JOptionPane.showMessageDialog(null,"Saved");
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(null,e);
+                    JOptionPane.showMessageDialog(null, "Account has created!");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }else if (checkusername(txt_username_up.getText())){
+                if (checkemail(email_up.getText())){
+                    JOptionPane.showMessageDialog(null, "Username and Email already are used!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Username is taken!");
+                }
+            }else if (checkemail(email_up.getText())){
+                if (checkusername(txt_username_up.getText())){
+                    JOptionPane.showMessageDialog(null, "Username and Email already are used!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Email has been used!");
+                }
             }
         }
         else {
@@ -94,4 +108,26 @@ public class RegisterController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public static boolean checkusername(String username) throws SQLException {
+        String sql = "SELECT * FROM users WHERE username=?";
+        pst = conn.prepareStatement(sql);
+        pst.setString(1,username);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            return true;
+        }else
+            return false;
+    }
+    public static boolean checkemail(String email) throws SQLException {
+        String sql = "SELECT * FROM users WHERE email=?";
+        pst = conn.prepareStatement(sql);
+        pst.setString(1,email);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            return true;
+        }else
+            return false;
+    }
+
 }
