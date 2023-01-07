@@ -39,7 +39,6 @@ public class RatingController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         rating.ratingProperty().addListener(new ChangeListener<Number>() {
-
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number old, Number newT) {
                 rn.setText(newT.toString());
@@ -49,15 +48,12 @@ public class RatingController implements Initializable {
 
     public void ratingButton(ActionEvent event) {
         if (User.username != null) {
-
             String tf = txtfield.getText();
             double rating = Double.parseDouble(rn.getText());
             String username = User.username;
             String name = RatingPlace.name;
             String id = RatingPlace.id;
-
             checkratingindb(username, tf, rating, name, id);
-
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.initModality(Modality.APPLICATION_MODAL);
@@ -67,16 +63,8 @@ public class RatingController implements Initializable {
 
     }
 
-    @FXML
-    private void exit(ActionEvent event) {
-        final Node source = (Node) event.getSource();
-        final Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
-
     public static void addRatingtoDatabase(String username, String text, double rate, String name, String id) {
         try {
-
             Statement stmt = conn.createStatement();
             String sql = "INSERT INTO ratings (username ,name, ratingtxt,ratingvalue,place_id) VALUES (?,?,?,?,?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
@@ -87,7 +75,6 @@ public class RatingController implements Initializable {
             preparedStatement.setString(5, id);
             preparedStatement.executeUpdate();
             stmt.close();
-
         } catch (Exception var17) {
             var17.printStackTrace();
         }
@@ -116,11 +103,7 @@ public class RatingController implements Initializable {
                 } else {
                     alert.close();
                 }
-
-
             }
-
-
         } catch (Exception var17) {
             var17.printStackTrace();
         }
@@ -139,7 +122,5 @@ public class RatingController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }

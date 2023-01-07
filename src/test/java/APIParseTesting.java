@@ -16,7 +16,7 @@ public class APIParseTesting {
     @Test
     public void ParseTest(){
         int expected = mainAPI.getShopparser();
-        int actual = 179;
+        int actual = 180;
         assertEquals(expected,actual);
     }
 }

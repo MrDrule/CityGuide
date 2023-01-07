@@ -12,14 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebEngine;
-
 import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -173,7 +171,9 @@ public class DramaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        //User Login Button Initialize
         setLogButton();
+        //Fill the Table Views
         try {
             Connection conn = connection.ConnectDb();
             data = FXCollections.observableArrayList();
@@ -223,6 +223,7 @@ public class DramaController implements Initializable {
         colPri12.setCellValueFactory(new PropertyValueFactory<>("Price"));
         colPlcId12.setCellValueFactory(new PropertyValueFactory<>("PlaceId"));
 
+        //Like Button
         Callback<TableColumn<DestList, SimpleStringProperty>, TableCell<DestList, SimpleStringProperty>> cellFactory=(param) -> {
             //Make the tablecell containing button
             final TableCell<DestList,SimpleStringProperty> cell=new TableCell<DestList,SimpleStringProperty>(){
@@ -238,9 +239,10 @@ public class DramaController implements Initializable {
                         String Name= p.getName();
                         String Address= p.getAddress();
                         String Rating=p.getRating();
-                        //Creating the action button
+                        //Creating the like button
 
                         Button editButton = new Button("♡");
+                        //Check if user is logged and the row is in favourite
                         if (User.username != null && Name!=null){
                             try {
                                 Integer liked = checkbutton(username,Name);
@@ -251,6 +253,7 @@ public class DramaController implements Initializable {
                                 throw new RuntimeException(e);
                             }
                         }
+                        //Action of Like button on click
                         editButton.setOnAction(event -> {
                             if (User.username != null) {
                                 try {
@@ -307,6 +310,7 @@ public class DramaController implements Initializable {
         colFav11.setCellFactory(cellFactory);
         colFav12.setCellFactory(cellFactory);
 
+        //Rating Button
         Callback<TableColumn<DestList, SimpleStringProperty>, TableCell<DestList, SimpleStringProperty>> cellFactory2=(param) -> {
             //Make the tablecell containing button
             final TableCell<DestList,SimpleStringProperty> cell=new TableCell<DestList,SimpleStringProperty>(){
@@ -321,7 +325,7 @@ public class DramaController implements Initializable {
                         DestList p = getTableView().getItems().get(getIndex());
                         String username=User.username;
                         String Name= p.getName();
-                        //Creating the action button
+                        //Creating the rating button and check if row is rated from user logged in
                         Button editButton = new Button("☆");
                         if (User.username != null && Name!=null){
                             try {
@@ -333,6 +337,7 @@ public class DramaController implements Initializable {
                                 throw new RuntimeException(e);
                             }
                         }
+                        //Action of rating button on mouse click
                         editButton.setOnAction(event -> {
                             try {
                                 String id=p.getPlaceId();
@@ -374,7 +379,7 @@ public class DramaController implements Initializable {
         //Map Loading
         WebEngine webEngine = webview.getEngine();
         webEngine.load("https://snazzymaps.com/embed/443682");
-
+        //Weather
         webEngine = webview3.getEngine();
         webEngine.load("https://forecast7.com/en/41d1524d15/drama/");
 
@@ -386,31 +391,6 @@ public class DramaController implements Initializable {
         webEngine.load(h.toURI().toString());
 
     }
-
-    @FXML
-    private void loadDataFromDatabase (javafx.event.ActionEvent event){
-        try {
-            Connection conn = connection.ConnectDb();
-            data = FXCollections.observableArrayList();
-            ResultSet rs = conn.createStatement().executeQuery("SELECT name,vicinity,rating,price_level,place_id FROM cityguide.places WHERE town_id=3 AND type LIKE '%museum%'");
-            while (rs.next()) {
-                data.add(new DestList(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5)));
-
-            }
-        } catch (SQLException e) {
-            System.err.println("Error" + e);
-        }
-        colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        colAdd.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        colRat.setCellValueFactory(new PropertyValueFactory<>("Rating"));
-        colPri.setCellValueFactory(new PropertyValueFactory<>("Price"));
-
-        tableCC.setItems(null);
-        tableCC.setItems(data);
-
-    }
-
-
 
     public void switchToReg(ActionEvent event) throws IOException {
         if (User.username != null) {
@@ -426,7 +406,6 @@ public class DramaController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            root.setStyle("-fx-background-image:url('com/example/project1/images/login.jpg');");
             stage.setScene(scene);
             stage.show();
         }

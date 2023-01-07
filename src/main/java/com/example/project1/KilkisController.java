@@ -187,7 +187,6 @@ public class KilkisController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            root.setStyle("-fx-background-image:url('com/example/project1/images/login.jpg');");
             stage.setScene(scene);
             stage.show();
         }

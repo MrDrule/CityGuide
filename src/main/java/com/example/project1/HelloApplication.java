@@ -39,14 +39,14 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) throws SQLException, FileNotFoundException {
        //checkdbexist();
-       // String[] arguments = new String[] {""};
-        //mainAPI.main(arguments);
-        launch(args);
+       //String[] arguments = new String[] {""};
+       //mainAPI.main(arguments);
+       launch(args);
     }
     public static void checkdbexist(){
         ResultSet rs = null;
         try{
-            String dbName = "cityguidetest";
+            String dbName = "cityguide";
             if(conn != null){
                 System.out.println("check if a database exists using java");
                 rs = conn.getMetaData().getCatalogs();

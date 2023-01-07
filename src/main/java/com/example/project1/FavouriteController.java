@@ -17,7 +17,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
@@ -35,13 +34,6 @@ public class FavouriteController implements Initializable {
     private Button buttonlog;
 
     private User user;
-    @FXML
-    private Text textemail;
-
-    @FXML
-    private Text textusername;
-
-
     @FXML
     private Button button;
 
@@ -142,8 +134,6 @@ public class FavouriteController implements Initializable {
         }
     }
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setLogButton();
@@ -174,6 +164,11 @@ public class FavouriteController implements Initializable {
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setContentText("Removed \n" + p.getName() + " off your Favorites!");
                                 alert.show();
+                                Parent root = FXMLLoader.load(getClass().getResource("Favourites.fxml"));
+                                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                                scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.show();
                             } catch (Exception e) {
                                 JOptionPane.showMessageDialog(null, e);
                             }

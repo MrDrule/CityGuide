@@ -3,10 +3,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.example.project1.RegisterController;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,7 +13,7 @@ public class RegisterUserTest {
     private static final String DB_PASSWORD = "";
 
     @Test
-    public void testCheckUsername() throws SQLException {
+    public void testCheckUsername() throws  SQLException {
         assertTrue(RegisterController.checkusername("pantazis"));
     }
     @Test

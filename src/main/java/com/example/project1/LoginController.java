@@ -111,8 +111,6 @@ public class LoginController implements Initializable {
             alert.getDialogPane().setHeaderText("Please enter username and password!");
             alert.showAndWait();
         }
-
-
     }
 
     public void switchToMenu(ActionEvent event) throws IOException {

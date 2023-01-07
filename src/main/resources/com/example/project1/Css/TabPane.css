@@ -19,10 +19,7 @@
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
     -fx-padding: 30 30 30 30;
-
 }
-
-
 .tab-pane > .tab-header-area > .headers-region > .tab:selected {
     -fx-background-color: #bfa181,  #E5E4E2;
     -fx-background-insets: 0, 0 0 2px 0;

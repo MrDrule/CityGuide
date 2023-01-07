@@ -2,7 +2,6 @@ package com.example.project1;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,18 +12,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-
 import javax.swing.*;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 
-public class RegisterController implements Initializable {
+
+public class RegisterController {
     @FXML
     private AnchorPane pane_signup;
     @FXML
@@ -45,13 +42,7 @@ public class RegisterController implements Initializable {
     static ResultSet rs= null;
     static PreparedStatement pst = null;
     private static mysqlconnect connection;
-
     private static final Connection conn = connection.ConnectDb();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
     public void add_users() throws SQLException {
         String sql = "INSERT INTO users (username,password,name,email) VALUES (?,?,?,?)";
         if (txt_username_up.getText().isBlank()==false && txt_password_up.getText().isBlank()==false && email_up.getText().isBlank()==false &&txt_name_up.getText().isBlank()==false){
@@ -104,7 +95,6 @@ public class RegisterController implements Initializable {
         root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        root.setStyle("-fx-background-image:url('com/example/project1/images/login.jpg');");
         stage.setScene(scene);
         stage.show();
     }

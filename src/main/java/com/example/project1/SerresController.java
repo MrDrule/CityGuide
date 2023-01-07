@@ -18,7 +18,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -33,8 +32,6 @@ import java.util.ResourceBundle;
 public class SerresController implements Initializable {
     @FXML
     private Button buttonlog;
-
-
     ResultSet rs= null;
     PreparedStatement pst = null;
     private Stage stage;
@@ -186,7 +183,6 @@ public class SerresController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("FORMA_RE.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            root.setStyle("-fx-background-image:url('com/example/project1/images/login.jpg');");
             stage.setScene(scene);
             stage.show();
         }
