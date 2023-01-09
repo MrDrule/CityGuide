@@ -38,9 +38,9 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) throws SQLException, FileNotFoundException {
-       //checkdbexist();
-       //String[] arguments = new String[] {""};
-       //mainAPI.main(arguments);
+       checkdbexist();
+       String[] arguments = new String[] {""};
+       mainAPI.main(arguments);
        launch(args);
     }
     public static void checkdbexist(){
