@@ -18,21 +18,21 @@ public class mainAPI {
     public static void main(String[] args) {
         ArrayList<String> requests = new ArrayList<String>();
         //SERRES
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.088904%2C23.546338&radius=5000&type=restaurant&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.088904%2C23.546338&radius=5000&type=cafe&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.088904%2C23.546338&radius=5000&type=museum&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.088904%2C23.546338&radius=5000&type=restaurant&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.088904%2C23.546338&radius=5000&type=cafe&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.088904%2C23.546338&radius=5000&type=museum&key=YourGoogleAPIKey");
         //DRAMA
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.149632%2C24.148287&radius=5000&type=restaurant&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.149632%2C24.148287&radius=5000&type=cafe&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.149632%2C24.148287&radius=5000&type=museum&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.149632%2C24.148287&radius=5000&type=restaurant&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.149632%2C24.148287&radius=5000&type=cafe&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.149632%2C24.148287&radius=5000&type=museum&key=YourGoogleAPIKey");
         //KAVALA
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.939556%2C24.401867&radius=5000&type=restaurant&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.939556%2C24.401867&radius=5000&type=cafe&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.939556%2C24.401867&radius=5000&type=museum&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.939556%2C24.401867&radius=5000&type=restaurant&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.939556%2C24.401867&radius=5000&type=cafe&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.939556%2C24.401867&radius=5000&type=museum&key=YourGoogleAPIKey");
         //KILKIS
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.995049%2C22.876435&radius=5000&type=restaurant&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.995049%2C22.876435&radius=5000&type=cafe&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
-        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.995049%2C22.876435&radius=5000&type=museum&key=AIzaSyCuxY5FNOMQ89uQ0YrHFWzlfn-B5n3Mhcg");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.995049%2C22.876435&radius=5000&type=restaurant&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.995049%2C22.876435&radius=5000&type=cafe&key=YourGoogleAPIKey");
+        requests.add("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.995049%2C22.876435&radius=5000&type=museum&key=YourGoogleAPIKey");
 
         for (int i=0;i<requests.size();i++) {
             HttpClient client = HttpClient.newHttpClient();
